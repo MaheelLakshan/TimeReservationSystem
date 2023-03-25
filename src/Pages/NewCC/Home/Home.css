@@ -1,0 +1,63 @@
+:root {
+  --yellow: linear-gradient(180deg, #f8d49a -146.42%, #fad79d -46.42%);
+  --orange: #fca61f;
+  --black: #242d49;
+  --gray: #788097;
+  --purple: linear-gradient(180deg, #bb67ff 0%, #c484f3 100%);
+  --pink: #323232;
+  --glass: rgba(255, 255, 255, 0.793);
+  --boxShadow: 0px 19px 60px rgb(0 0 0 / 8%);
+  --smboxShadow: -79px 51px 60px rgba(0, 0, 0, 0.08);
+  --activeItem: #0092cc;
+}
+/* myOne */
+/* .Home {
+/* #4769fd 29.63%,
+#4c61ff 51.55%,
+#103ce7 90.85%  */
+
+.Home {
+  /* padding: 0.5rem 3.5rem; */
+  color: var(--black);
+  background: linear-gradient(
+    106.37deg,
+    #dcce2c 29.63%,
+    #323232 51.55%,
+    #0092cc 90.85%
+  );
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* font-family: 'Inter', sans-serif; */
+}
+
+.HomeGlass {
+  display: grid;
+  height: 97%;
+  width: 97%;
+  background: var(--glass);
+  border-radius: 2rem;
+  gap: 16px;
+  grid-template-columns: 14rem auto 20rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .HomeGlass {
+    grid-template-columns: 20% 80%;
+    overflow-y: scroll;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .HomeGlass {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+  }
+  /* Adjust the column widths for smaller screens */
+  .HomeGlass > * {
+    width: 100%;
+  }
+}
