@@ -1,7 +1,8 @@
 import React from 'react';
 import './SideBar.css';
 // import Logo from '../../Asserts/logo.png';
-import { SidebarData } from '../../Data/Data';
+import { Semi_SidebarData } from '../../Data/Data';
+
 import { NavLink } from 'react-router-dom'; // routers for SideBar not assigned
 const SideBar = () => {
   const navLinkStyles = {
@@ -16,14 +17,14 @@ const SideBar = () => {
         <img src={Logo} alt="logo" />
       </div> */}
       <div className="menu">
-        {SidebarData.map((item, index) => (
+        {Semi_SidebarData.map((item, index) => (
           <NavLink
             to={`${item.path}`}
             style={navLinkStyles}
             // className={selected === index ? 'menuItem active' : 'menuItem'}
             key={index}
             className={({ isActive }) =>
-              isActive ? 'menuItem active ' : 'menuItem'
+              isActive ? 'menuItem active' : 'menuItem'
             }
           >
             <item.icon />

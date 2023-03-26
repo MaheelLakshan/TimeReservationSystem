@@ -1,0 +1,41 @@
+.FMenu {
+  /* padding-top: 1rem; */
+  display: flex;
+  flex-direction: column;
+  /* border: solid 4px #6f5656; */
+  border-radius: 15px;
+  background-color: rgb(59, 68, 68);
+  padding-top: 35px;
+  /* justify-content: space-evenly;  */
+  align-items: center;
+}
+.alli {
+  display: flex;
+  justify-items: left;
+  height: 50%;
+  width: 80%;
+}
+.img {
+  width: 100%;
+}
+.photoes {
+  height: 30%;
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 40px;
+  border-radius: 10px;
+  color: blue;
+  background-color: #dcce2c;
+}
+.Ftopic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 80%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  font-size: x-large;
+  font-weight: 800;
+  background-color: #dcce2c;
+}

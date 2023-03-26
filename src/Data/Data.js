@@ -10,7 +10,7 @@ import {
   UilCompass,
 } from '@iconscout/react-unicons';
 
-// Sidebar Data
+// Sidebar Data for New CC
 export const SidebarData = [
   {
     icon: UilHospitalSquareSign,
@@ -36,6 +36,94 @@ export const SidebarData = [
     icon: UilUserSquare,
     heading: 'My Reservations',
     path: '/myreservation',
+  },
+  {
+    icon: UilUser,
+    heading: 'Profile',
+    path: '/profile',
+  },
+  {
+    icon: UilCompass,
+    heading: 'Guidline',
+    path: '/guidline',
+  },
+  {
+    icon: UilSignOutAlt,
+    heading: 'Log Out',
+    path: '/Logout',
+  },
+];
+
+//Slidebar data for Old CC
+export const Old_SidebarData = [
+  {
+    icon: UilHospitalSquareSign,
+    heading: 'Home',
+    path: '/oldcc',
+  },
+  {
+    icon: UilThLarge,
+    heading: 'All Reservations',
+    path: '/oldccallreservation',
+  },
+  {
+    icon: UilPlusSquare,
+    heading: 'Add Reservations',
+    path: '/oldccaddreservation',
+  },
+  {
+    icon: UilChart,
+    heading: 'Off Hour Reservations',
+    path: '/oldccoffhourreservation',
+  },
+  {
+    icon: UilUserSquare,
+    heading: 'My Reservations',
+    path: '/oldccmyreservation',
+  },
+  {
+    icon: UilUser,
+    heading: 'Profile',
+    path: '/profile',
+  },
+  {
+    icon: UilCompass,
+    heading: 'Guidline',
+    path: '/guidline',
+  },
+  {
+    icon: UilSignOutAlt,
+    heading: 'Log Out',
+    path: '/Logout',
+  },
+];
+
+//Slidebar data for Seminar
+export const Semi_SidebarData = [
+  {
+    icon: UilHospitalSquareSign,
+    heading: 'Home',
+    path: '/seminaroom',
+  },
+  {
+    icon: UilThLarge,
+    heading: 'All Reservations',
+    path: '/seminaroom/allreservation',
+  },
+  {
+    icon: UilPlusSquare,
+    heading: 'Add Reservations',
+    path: '/seminaroom/addreservation',
+  },
+  {
+    icon: UilChart,
+    heading: 'Off Hour Reservations',
+    path: '/seminaroom/offhourreservation',
+  },
+  {
+    icon: UilUserSquare,
+    heading: 'My Reservations',
+    path: '/seminaroom/myreservation',
   },
   {
     icon: UilUser,

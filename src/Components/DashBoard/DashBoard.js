@@ -1,12 +1,13 @@
-import './DashBoard.css';
+// import './DashBoard.css';
 
-import React from 'react';
+// import React from 'react';
 
-function DashBoard() {
-  return (
-    <div className="MainDash">
-      <h1>sad</h1>
-    </div>
-  );
-}
-export default DashBoard;
+// function DashBoard({ content: ContentComponent }) {
+//   return (
+//     <div className="MainDash">
+//       <h1>asdasd</h1>
+//       <ContentComponent />
+//     </div>
+//   );
+// }
+// export default DashBoard;

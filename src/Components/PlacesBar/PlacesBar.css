@@ -1,0 +1,52 @@
+.placesContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 80px;
+  /* width: 95%; */
+  padding: 10px;
+  padding-left: 30px;
+  border-radius: 10px;
+  grid-template-rows: auto;
+  grid-auto-flow: column;
+  /* background-color: #323232; */
+  gap: 10px;
+}
+
+.tab {
+  display: grid;
+  width: 90%;
+  justify-items: center;
+  align-items: center;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  margin: 0;
+}
+
+.Normal {
+  background-color: gray;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+}
+.PlaceActive {
+  background-color: rgb(221, 181, 22);
+}
+
+/* .PlacesButton {
+  height: 15rem !important;
+  border-radius: 0.7rem;
+  color: white;
+  padding: 1rem;
+  cursor: pointer;
+}
+.PlacesButton:hover {
+  box-shadow: none !important;
+} */
