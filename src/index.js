@@ -18,6 +18,12 @@ import Old_OffHourReservations from './Pages/OldCC/Old_OffHourReservations';
 import Old_MyReservations from './Pages/OldCC/Old_MyReservations';
 
 import Semi_Home from './Pages/SeminarRoom/Semi_Home';
+import Semi_AllReservations from './Pages/SeminarRoom/Semi_AllReservations';
+import Semi_AddReservations from './Pages/SeminarRoom/Semi_AddReservations';
+import Semi_OffHourReservations from './Pages/SeminarRoom/Semi_OffHourReservations';
+import Semi_MyReservations from './Pages/SeminarRoom/Semi_MyReservations';
+
+
 
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -45,6 +51,14 @@ root.render(
       <Route path="/oldccmyreservation" element={<Old_MyReservations />} />
 
       <Route path="/seminaroom" element={<Semi_Home />} />
+{/*Not Working*/}
+      <Route exact path="/addreservation/newcc" component={AddReservations} /> 
+        <Route exact path="/addreservation/oldcc" component={Old_AddReservations} />
+        <Route exact path="/addreservation/seminaroom" component={Semi_AddReservations} />
+        <Route exact path="/myreservations" component={MyReservations} />
+
+
+
     </Routes>
   </Router>
 );
