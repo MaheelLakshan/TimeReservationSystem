@@ -1,12 +1,12 @@
 import React from 'react';
 import '../CommonTemplate.css';
-import SlideBar from '../../Components/SlideBar/SideBar';
+import Semi_SideBar from '../../Components/SlideBar/Semi_SideBar';
 
 function AllReservations() {
   return (
     <div className="Common">
       <div className="CommonGlass">
-        <SlideBar />
+        <Semi_SideBar />
       </div>
     </div>
   );

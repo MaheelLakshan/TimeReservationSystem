@@ -13,10 +13,10 @@ const SideBar = () => {
 
   return (
     <div>
-      {/* <div className="logo">
+      <div className="menu">
+        {/* <div className="logo">
         <img src={Logo} alt="logo" />
       </div> */}
-      <div className="menu">
         {Semi_SidebarData.map((item, index) => (
           <NavLink
             to={`${item.path}`}
