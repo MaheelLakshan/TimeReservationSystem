@@ -1,11 +1,9 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import '../CommonTemplate.css';
 import SlideBar from '../../Components/SlideBar/SideBar';
 import PlacesBar from '../../Components/PlacesBar/PlacesBar';
-import{Container,Row,Col,Form,FormGroup,Button} from 'reactstrap'
-import './../../styles/addreservation.css'
-
-
+import { Container, Row, Col, Form, FormGroup, Button } from 'reactstrap';
+import './../../styles/addreservation.css';
 
 function AddReservations() {
   const [name, setName] = useState('');
@@ -24,33 +22,56 @@ function AddReservations() {
         <SlideBar />
         <div className="MainDash">
           <PlacesBar />
-          
+
           <form onSubmit={handleSubmit}>
-      <div className="form-group">
-        <label htmlFor="name">Name:</label>
-        <input type="text" id="name" value={name} onChange={(e) => setName(e.target.value)} />
-      </div>
-      <div className="form-group">
-        <label htmlFor="date">Date:</label>
-        <input type="date" id="date" value={date} onChange={(e) => setDate(e.target.value)} />
-      </div>
-      <div className="form-group">
-        <label htmlFor="from">From:</label>
-        <input type="time" id="from" value={from} onChange={(e) => setFrom(e.target.value)} />
-      </div>
-      <div className="form-group">
-        <label htmlFor="to">To:</label>
-        <input type="time" id="to" value={to} onChange={(e) => setTo(e.target.value)} />
-      </div>
-      <div className="form-group">
-        <label htmlFor="details">Details:</label>
-        <textarea id="details" value={details} onChange={(e) => setDetails(e.target.value)}></textarea>
-      </div>
-      <div className="button-container">
-        <button type="submit">Add Reservation</button>
-      </div>
-    </form>
-          
+            <div className="form-group">
+              <label htmlFor="name">Name:</label>
+              <input
+                type="text"
+                id="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="date">Date:</label>
+              <input
+                type="date"
+                id="date"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="from">From:</label>
+              <input
+                type="time"
+                id="from"
+                value={from}
+                onChange={(e) => setFrom(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="to">To:</label>
+              <input
+                type="time"
+                id="to"
+                value={to}
+                onChange={(e) => setTo(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="details">Details:</label>
+              <textarea
+                id="details"
+                value={details}
+                onChange={(e) => setDetails(e.target.value)}
+              ></textarea>
+            </div>
+            <div className="button-container">
+              <button type="submit">Add Reservation</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -58,4 +79,3 @@ function AddReservations() {
 }
 
 export default AddReservations;
-

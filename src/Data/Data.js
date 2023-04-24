@@ -15,27 +15,27 @@ export const SidebarData = [
   {
     icon: UilHospitalSquareSign,
     heading: 'Home',
-    path: '/',
+    path: '/newcc',
   },
   {
     icon: UilThLarge,
     heading: 'All Reservations',
-    path: '/allreservation',
+    path: '/newccallreservation',
   },
   {
     icon: UilPlusSquare,
     heading: 'Add Reservations',
-    path: '/addreservation',
+    path: '/newccaddreservation',
   },
   {
     icon: UilChart,
     heading: 'Off Hour Reservations',
-    path: '/offhourreservation',
+    path: '/newccoffhourreservation',
   },
   {
     icon: UilUserSquare,
     heading: 'My Reservations',
-    path: '/myreservation',
+    path: '/newccmyreservation',
   },
   {
     icon: UilUser,
@@ -108,22 +108,22 @@ export const Semi_SidebarData = [
   {
     icon: UilThLarge,
     heading: 'All Reservations',
-    path: '/seminaroom/allreservation',
+    path: '/seminaroomallreservation',
   },
   {
     icon: UilPlusSquare,
     heading: 'Add Reservations',
-    path: '/seminaroom/addreservation',
+    path: '/seminaroomaddreservation',
   },
   {
     icon: UilChart,
     heading: 'Off Hour Reservations',
-    path: '/seminaroom/offhourreservation',
+    path: '/seminaroomoffhourreservation',
   },
   {
     icon: UilUserSquare,
     heading: 'My Reservations',
-    path: '/seminaroom/myreservation',
+    path: '/seminaroommyreservation',
   },
   {
     icon: UilUser,
