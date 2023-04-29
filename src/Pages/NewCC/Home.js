@@ -11,7 +11,18 @@ function Home() {
         <SlideBar />
         {/* <DashBoard content={SlideBar} /> */}
         <div className="MainDash">
-          <PlacesBar />
+          <div>
+            <PlacesBar />
+            <h3
+              style={{
+                paddingLeft: '20px',
+                color: 'orange',
+                background: 'grey',
+              }}
+            >
+              Welcome to the New CC DashBoard
+            </h3>
+          </div>
         </div>
         <FeaturesBar />
       </div>

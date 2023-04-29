@@ -46,9 +46,9 @@ function FeaturesBar() {
           <div>
             <img src={I7} className="img" alt="Pictur1" />
           </div>
-          <div>
+          {/* <div>
             <img src={I8} className="img" alt="Pictur1" />
-          </div>
+          </div> */}
         </Slider>
       </div>
       <div className="Ftopic">Available features</div>

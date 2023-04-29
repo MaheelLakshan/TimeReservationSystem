@@ -5,7 +5,7 @@ import './index.css';
 import Profile from './Pages/CommonThingsInSlide/Profile';
 import Guidline from './Pages/CommonThingsInSlide/Guidline';
 
-import LoginPage from './Pages/LoginPage/LoginPage';
+import LoginPage from './Pages/LoginPage/LoginPage'
 
 import Home from './Pages/NewCC/Home';
 import AllReservations from './Pages/NewCC/AllReservations';

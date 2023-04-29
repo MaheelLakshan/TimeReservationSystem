@@ -1,7 +1,7 @@
 .placesContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  height: 80px;
+  height: 100px;
   /* width: 95%; */
   padding: 10px;
   padding-left: 30px;
@@ -12,6 +12,13 @@
   gap: 10px;
 }
 
+.place {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .tab {
   display: grid;
   width: 90%;

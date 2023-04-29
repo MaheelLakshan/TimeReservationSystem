@@ -49,7 +49,19 @@ const MyReservations = () => {
       <div className="CommonGlass">
         <SlideBar />
         <div className="MainDash">
-          <PlacesBar />
+          <div>
+            <PlacesBar />
+            <h3
+              style={{
+                paddingLeft: '20px',
+                color: 'orange',
+                background: 'grey',
+                marginBottom: '5px',
+              }}
+            >
+              All Your Reservations in New CC
+            </h3>
+          </div>
           <div>
             <Table>
               <thead>

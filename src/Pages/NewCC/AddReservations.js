@@ -21,8 +21,19 @@ function AddReservations() {
       <div className="CommonGlass">
         <SlideBar />
         <div className="MainDash">
-          <PlacesBar />
-
+          <div>
+            <PlacesBar />
+            <h3
+              style={{
+                paddingLeft: '20px',
+                color: 'orange',
+                background: 'grey',
+                marginBottom: '5px',
+              }}
+            >
+              Make a reservation in New CC
+            </h3>
+          </div>
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="name">Name:</label>

@@ -35,7 +35,7 @@ function PlacesBar() {
         //   activePlace === 'newcc' ? 'tab PlaceActive ' : ' tab Normal'
         // }`}
       >
-        New CC
+        <div className="place">NEW CC</div>
       </NavLink>
 
       <NavLink
@@ -48,7 +48,7 @@ function PlacesBar() {
         //   activePlace === 'oldcc' ? 'tab PlaceActive ' : ' tab Normal'
         // }`}
       >
-        OLD CC
+        <div className="place">OLD CC</div>
       </NavLink>
       <NavLink
         to="/seminaroom"
@@ -60,7 +60,7 @@ function PlacesBar() {
         //   activePlace === 'seminaroom' ? 'tab PlaceActive ' : ' tab Normal'
         // }`}
       >
-        SEMINAR ROOM
+        <div className="place">SEMINAR ROOM</div>
       </NavLink>
     </div>
   );
