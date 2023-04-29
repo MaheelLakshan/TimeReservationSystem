@@ -11,7 +11,19 @@ function Old_Home() {
       <div className="CommonGlass">
         <Old_SideBar />
         <div className="MainDash">
-          <PlacesBar />
+          <div>
+            <PlacesBar />
+            <h3
+              style={{
+                paddingLeft: '20px',
+                color: '#fcc81f',
+                background: '#6B6E70',
+                marginBottom: '10px',
+              }}
+            >
+              Welcome to the OLD CC DashBoard
+            </h3>
+          </div>
         </div>
         <Old_FeaturesBar />
       </div>

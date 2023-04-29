@@ -54,9 +54,9 @@ const MyReservations = () => {
             <h3
               style={{
                 paddingLeft: '20px',
-                color: 'orange',
-                background: 'grey',
-                marginBottom: '5px',
+                color: '#fcc81f',
+                background: '#6B6E70',
+                marginBottom: '10px',
               }}
             >
               All Your Reservations in New CC
@@ -82,15 +82,23 @@ const MyReservations = () => {
                     <td>{r.details}</td>
                     <td>
                       <Button
-                        color="primary"
-                        style={{ borderRadius: '5px' }}
+                        style={{
+                          backgroundColor: '#444',
+                          fontSize: '12px',
+                          height: '35px',
+                          width: '80px',
+                        }}
                         onClick={() => handleEdit(r.id)}
                       >
                         Edit
                       </Button>{' '}
                       <Button
-                        color="danger"
-                        style={{ borderRadius: '5px' }}
+                        style={{
+                          backgroundColor: '#444',
+                          fontSize: '12px',
+                          height: '35px',
+                          width: '80px',
+                        }}
                         onClick={() => handleDelete(r.id)}
                       >
                         Delete

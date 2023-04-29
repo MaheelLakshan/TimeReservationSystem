@@ -50,7 +50,7 @@ export const SidebarData = [
   {
     icon: UilSignOutAlt,
     heading: 'Log Out',
-    path: '/Logout',
+    path: '/',
   },
 ];
 

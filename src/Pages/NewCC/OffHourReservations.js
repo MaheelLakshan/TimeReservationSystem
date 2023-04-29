@@ -26,9 +26,9 @@ function OffHourReservations() {
             <h3
               style={{
                 paddingLeft: '20px',
-                color: 'orange',
-                background: 'grey',
-                marginBottom: '5px',
+                color: '#fcc81f',
+                background: '#6B6E70',
+                marginBottom: '10px',
               }}
             >
               Make a Off-Hour reservation in New CC

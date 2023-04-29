@@ -49,7 +49,19 @@ const MyReservations = () => {
       <div className="CommonGlass">
         <Old_SideBar />
         <div className="MainDash">
-          <PlacesBar />
+          <div>
+            <PlacesBar />
+            <h3
+              style={{
+                paddingLeft: '20px',
+                color: '#fcc81f',
+                background: '#6B6E70',
+                marginBottom: '10px',
+              }}
+            >
+              All Your Reservations in OLD CC
+            </h3>
+          </div>
           <div>
             <Table>
               <thead>

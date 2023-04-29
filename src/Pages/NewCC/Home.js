@@ -16,8 +16,9 @@ function Home() {
             <h3
               style={{
                 paddingLeft: '20px',
-                color: 'orange',
-                background: 'grey',
+                color: '#fcc81f',
+                background: '#6B6E70',
+                marginBottom: '10px',
               }}
             >
               Welcome to the New CC DashBoard

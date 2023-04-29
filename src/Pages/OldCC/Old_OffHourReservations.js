@@ -21,7 +21,19 @@ function OffHourReservations() {
       <div className="CommonGlass">
         <Old_SideBar />
         <div className="MainDash">
-          <PlacesBar />
+          <div>
+            <PlacesBar />
+            <h3
+              style={{
+                paddingLeft: '20px',
+                color: '#fcc81f',
+                background: '#6B6E70',
+                marginBottom: '10px',
+              }}
+            >
+              Make a Off-Hour reservation in OLD CC
+            </h3>
+          </div>
           <div>
             <h4>
               For Off Hour reservations you need to contact the administration

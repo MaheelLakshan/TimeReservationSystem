@@ -10,7 +10,19 @@ function Old_Home() {
       <div className="CommonGlass">
         <Semi_SideBar />
         <div className="MainDash">
-          <PlacesBar />
+          <div>
+            <PlacesBar />
+            <h3
+              style={{
+                paddingLeft: '20px',
+                color: '#fcc81f',
+                background: '#6B6E70',
+                marginBottom: '10px',
+              }}
+            >
+              Welcome to the Seminar Room DashBoard
+            </h3>
+          </div>
         </div>
         <Semi_FeaturesBar />
       </div>
