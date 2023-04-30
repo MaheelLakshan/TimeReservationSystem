@@ -4,6 +4,7 @@ import Semi_SideBar from '../../Components/SlideBar/Semi_SideBar';
 import PlacesBar from '../../Components/PlacesBar/PlacesBar';
 import './../../styles/myreservations.css';
 import { Button, Table } from 'reactstrap';
+import Semi_FeaturesBar from '../../Components/FeaturesBar/Semi_FeaturesBar';
 
 const MyReservations = () => {
   const [reservations, setReservations] = useState([
@@ -81,16 +82,11 @@ const MyReservations = () => {
                     <td>{r.to}</td>
                     <td>{r.details}</td>
                     <td>
-                      <Button
-                        color="primary"
-                        style={{ borderRadius: '5px' }}
-                        onClick={() => handleEdit(r.id)}
-                      >
+                      <Button className="bttn" onClick={() => handleEdit(r.id)}>
                         Edit
                       </Button>{' '}
                       <Button
-                        color="danger"
-                        style={{ borderRadius: '5px' }}
+                        className="bttn"
                         onClick={() => handleDelete(r.id)}
                       >
                         Delete
@@ -102,6 +98,7 @@ const MyReservations = () => {
             </Table>
           </div>
         </div>
+        <Semi_FeaturesBar />
       </div>
     </div>
   );

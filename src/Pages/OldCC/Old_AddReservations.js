@@ -4,6 +4,7 @@ import Old_SideBar from '../../Components/SlideBar/Old_SideBar';
 import PlacesBar from '../../Components/PlacesBar/PlacesBar';
 import { Container, Row, Col, Form, FormGroup, Button } from 'reactstrap';
 import './../../styles/addreservation.css';
+import Old_FeaturesBar from '../../Components/FeaturesBar/Old_FeaturesBar';
 
 function AddReservations() {
   const [name, setName] = useState('');
@@ -11,10 +12,24 @@ function AddReservations() {
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
   const [details, setDetails] = useState('');
+  const [isRecurring, setIsRecurring] = useState(false);
+  const [endDate, setEndDate] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // handle form submission here
+    if (isRecurring) {
+      // Make recurring reservations
+      let currDate = new Date(date);
+      let end = new Date(endDate);
+      while (currDate <= end) {
+        // Make a reservation for the current date
+        // code to make the reservation goes here
+        currDate.setDate(currDate.getDate() + 7); // Increment the date by 7 days for weekly recurrence
+      }
+    } else {
+      // Make a one-time reservation
+      // code to make the reservation goes here
+    }
   };
 
   return (
@@ -85,6 +100,7 @@ function AddReservations() {
             </div>
           </form>
         </div>
+        <Old_FeaturesBar />
       </div>
     </div>
   );

@@ -17,11 +17,11 @@ export const SidebarData = [
     heading: 'Home',
     path: '/newcc',
   },
-  {
-    icon: UilThLarge,
-    heading: 'All Reservations',
-    path: '/newccallreservation',
-  },
+  // {
+  //   icon: UilThLarge,
+  //   heading: 'All Reservations',
+  //   path: '/newccallreservation',
+  // },
   {
     icon: UilPlusSquare,
     heading: 'Add Reservations',
@@ -61,11 +61,11 @@ export const Old_SidebarData = [
     heading: 'Home',
     path: '/oldcc',
   },
-  {
-    icon: UilThLarge,
-    heading: 'All Reservations',
-    path: '/oldccallreservation',
-  },
+  // {
+  //   icon: UilThLarge,
+  //   heading: 'All Reservations',
+  //   path: '/oldccallreservation',
+  // },
   {
     icon: UilPlusSquare,
     heading: 'Add Reservations',
@@ -94,7 +94,7 @@ export const Old_SidebarData = [
   {
     icon: UilSignOutAlt,
     heading: 'Log Out',
-    path: '/Logout',
+    path: '/',
   },
 ];
 
@@ -105,11 +105,11 @@ export const Semi_SidebarData = [
     heading: 'Home',
     path: '/seminaroom',
   },
-  {
-    icon: UilThLarge,
-    heading: 'All Reservations',
-    path: '/seminaroomallreservation',
-  },
+  // {
+  //   icon: UilThLarge,
+  //   heading: 'All Reservations',
+  //   path: '/seminaroomallreservation',
+  // },
   {
     icon: UilPlusSquare,
     heading: 'Add Reservations',
@@ -138,7 +138,7 @@ export const Semi_SidebarData = [
   {
     icon: UilSignOutAlt,
     heading: 'Log Out',
-    path: '/Logout',
+    path: '/',
   },
 ];
 

@@ -55,7 +55,7 @@ function LoginPage() {
             Log IN
           </button> */}
           <NavLink to="/newcc">
-            <button className="btn">Log IN</button>
+            <button className="btnn">Log IN</button>
           </NavLink>
           <p className="social-text">OR sign in with social platform</p>
           <div className="social-media">
@@ -94,7 +94,7 @@ function LoginPage() {
             <input type="text" className="mytext" placeholder="Email" />
           </div>
           {/* <input type="submit" value={signup} className="btn" /> */}
-          <input type="submit" className="btn" />
+          <input type="submit" className="btnn" />
           <p className="social-text">OR sign in with social platform</p>
           <div className="social-media">
             <Link href="#" className="social-icon">
@@ -127,7 +127,7 @@ function LoginPage() {
             <div className="para">
               if you already have an account click here to the log in
             </div>
-            <button className="btn" id="log-in-btn" onClick={handleLogIn}>
+            <button className="btnn" id="log-in-btn" onClick={handleLogIn}>
               Log IN
             </button>
           </div>
@@ -142,7 +142,7 @@ function LoginPage() {
               if you do not have an account, 1st register with your credential
               here!!
             </div>
-            <button className="btn" id="sign-up-btn" onClick={handleSignUp}>
+            <button className="btnn" id="sign-up-btn" onClick={handleSignUp}>
               Sign Up
             </button>
           </div>

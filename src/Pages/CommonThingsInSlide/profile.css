@@ -1,0 +1,53 @@
+.Profile {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 125%;
+}
+
+.Profile h1 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.Profile label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.Profile input,
+.Profile select,
+.Profile textarea {
+  width: 90%;
+  margin-bottom: 10px;
+}
+
+.Profile input[type='text'],
+.Profile input[type='email'],
+.Profile select,
+.Profile textarea {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #fdfce7;
+  font-size: 1rem;
+}
+
+.Profile button {
+  background-color: #c6a631;
+  color: #f6ecb4;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.button-container {
+  text-align: center;
+}
+
+.Profile button:hover {
+  background-color: #977d1e;
+}

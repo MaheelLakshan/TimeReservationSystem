@@ -56,6 +56,16 @@
 
   /* justify-content: space-evenly;  */
 }
+.feat-a {
+  height: 100%;
+  width: 100%;
+}
+.feat-b {
+  height: 1px;
+  width: 100%;
+  display: none;
+}
+
 /* .actionbtn {
   backgroundcolor: '#444';
   fontsize: '12px';
@@ -68,10 +78,43 @@ actionbtn:hover {
 } */
 
 @media screen and (max-width: 1200px) {
-  .MainDash {
-    justify-content: flex-start;
-    margin-top: 2rem;
+  .CommonGlass {
+    display: grid;
+    height: 97%;
+    width: 97%;
+    background: var(--glass);
+    border-radius: 2rem;
+    gap: 16px;
+    grid-template-columns: 12rem auto 15rem;
   }
+}
+
+@media screen and (max-width: 998px) {
+  .CommonGlass {
+    display: grid;
+    height: 97%;
+    width: 97%;
+    background: var(--glass);
+    border-radius: 2rem;
+    gap: 16px;
+    grid-template-columns: 12rem auto;
+  }
+  .Common {
+    color: var(--black);
+    background: linear-gradient(
+      106.37deg,
+      #dcce2c 29.63%,
+      #323232 51.55%,
+      #dcce2c 90.85%
+    );
+    display: flex;
+  }
+  .feat-a {
+    display: none;
+  }
+  /* .feat-b {
+    display: initial;
+  } */
 }
 
 @media screen and (max-width: 768px) {
@@ -80,13 +123,7 @@ actionbtn:hover {
   }
 }
 
-@media screen and (max-width: 1200px) {
-  .CommonGlass {
-    grid-template-columns: 20% 80%;
-    overflow-y: scroll;
-  }
-}
-
+/* 
 @media screen and (max-width: 768px) {
   .CommonGlass {
     display: flex;
@@ -95,7 +132,7 @@ actionbtn:hover {
     overflow-y: scroll;
   }
   /* Adjust the column widths for smaller screens */
-  .CommonGlass > * {
+/* .CommonGlass > * {
     width: 100%;
   }
-}
+} */

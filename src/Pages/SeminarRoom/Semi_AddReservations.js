@@ -4,6 +4,7 @@ import Semi_SideBar from '../../Components/SlideBar/Semi_SideBar';
 import PlacesBar from '../../Components/PlacesBar/PlacesBar';
 import { Container, Row, Col, Form, FormGroup, Button } from 'reactstrap';
 import './../../styles/addreservation.css';
+import Semi_FeaturesBar from '../../Components/FeaturesBar/Semi_FeaturesBar';
 
 function AddReservations() {
   const [name, setName] = useState('');
@@ -85,6 +86,7 @@ function AddReservations() {
             </div>
           </form>
         </div>
+        <Semi_FeaturesBar />
       </div>
     </div>
   );

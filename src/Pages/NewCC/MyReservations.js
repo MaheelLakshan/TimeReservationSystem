@@ -4,6 +4,7 @@ import SlideBar from '../../Components/SlideBar/SideBar';
 import PlacesBar from '../../Components/PlacesBar/PlacesBar';
 import './../../styles/myreservations.css';
 import { Button, Table } from 'reactstrap';
+import FeaturesBar from '../../Components/FeaturesBar/FeaturesBar';
 
 const MyReservations = () => {
   const [reservations, setReservations] = useState([
@@ -81,24 +82,11 @@ const MyReservations = () => {
                     <td>{r.to}</td>
                     <td>{r.details}</td>
                     <td>
-                      <Button
-                        style={{
-                          backgroundColor: '#444',
-                          fontSize: '12px',
-                          height: '35px',
-                          width: '80px',
-                        }}
-                        onClick={() => handleEdit(r.id)}
-                      >
+                      <Button className="bttn" onClick={() => handleEdit(r.id)}>
                         Edit
                       </Button>{' '}
                       <Button
-                        style={{
-                          backgroundColor: '#444',
-                          fontSize: '12px',
-                          height: '35px',
-                          width: '80px',
-                        }}
+                        className="bttn"
                         onClick={() => handleDelete(r.id)}
                       >
                         Delete
@@ -110,6 +98,7 @@ const MyReservations = () => {
             </Table>
           </div>
         </div>
+        <FeaturesBar />
       </div>
     </div>
   );

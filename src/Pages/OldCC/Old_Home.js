@@ -4,6 +4,7 @@ import Old_SideBar from '../../Components/SlideBar/Old_SideBar';
 import Old_FeaturesBar from '../../Components/FeaturesBar/Old_FeaturesBar';
 //old features bar should be created and add
 import PlacesBar from '../../Components/PlacesBar/PlacesBar';
+import TheCalendar from '../../Components/Calander/OldccTheCalendar';
 
 function Old_Home() {
   return (
@@ -23,6 +24,9 @@ function Old_Home() {
             >
               Welcome to the OLD CC DashBoard
             </h3>
+          </div>
+          <div>
+            <TheCalendar />
           </div>
         </div>
         <Old_FeaturesBar />

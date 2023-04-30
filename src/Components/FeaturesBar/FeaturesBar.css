@@ -2,6 +2,8 @@
   /* padding-top: 1rem; */
   display: flex;
   flex-direction: column;
+  height: 100%;
+  width: 100%;
   /* border: solid 4px #6f5656; */
   border-radius: 15px;
   background-color: rgb(59, 68, 68);
@@ -16,6 +18,7 @@
   width: 80%;
 }
 .img {
+  height: 100%;
   width: 100%;
 }
 .photoes {
@@ -35,7 +38,13 @@
   width: 80%;
   border-radius: 10px;
   margin-bottom: 15px;
-  font-size: x-large;
+  font-size: 20px;
   font-weight: 800;
   background-color: #dcce2c;
+}
+
+@media screen and (max-width: 1200px) {
+  .FMenu {
+    width: 10;
+  }
 }

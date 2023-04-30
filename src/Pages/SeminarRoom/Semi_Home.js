@@ -3,12 +3,15 @@ import Semi_SideBar from '../../Components/SlideBar/Semi_SideBar';
 // import DashBoard from '../../Components/DashBoard/DashBoard';
 import Semi_FeaturesBar from '../../Components/FeaturesBar/Semi_FeaturesBar';
 import PlacesBar from '../../Components/PlacesBar/PlacesBar';
+import TheCalendar from '../../Components/Calander/Semi_TheCalendar';
 
 function Old_Home() {
   return (
     <div className="Common">
       <div className="CommonGlass">
-        <Semi_SideBar />
+        <div className="sidebr">
+          <Semi_SideBar />
+        </div>
         <div className="MainDash">
           <div>
             <PlacesBar />
@@ -23,7 +26,15 @@ function Old_Home() {
               Welcome to the Seminar Room DashBoard
             </h3>
           </div>
+          <div>
+            <TheCalendar />
+          </div>
         </div>
+        <div className="feat-a">
+          <Semi_FeaturesBar />
+        </div>
+      </div>
+      <div className="feat-b">
         <Semi_FeaturesBar />
       </div>
     </div>

@@ -5,22 +5,22 @@ import './index.css';
 import Profile from './Pages/CommonThingsInSlide/Profile';
 import Guidline from './Pages/CommonThingsInSlide/Guidline';
 
-import LoginPage from './Pages/LoginPage/LoginPage'
+import LoginPage from './Pages/LoginPage/LoginPage';
 
 import Home from './Pages/NewCC/Home';
-import AllReservations from './Pages/NewCC/AllReservations';
+// import AllReservations from './Pages/NewCC/AllReservations';
 import AddReservations from './Pages/NewCC/AddReservations';
 import OffHourReservations from './Pages/NewCC/OffHourReservations';
 import MyReservations from './Pages/NewCC/MyReservations';
 
 import Old_Home from './Pages/OldCC/Old_Home';
-import Old_AllReservations from './Pages/OldCC/Old_AllReservations';
+// import Old_AllReservations from './Pages/OldCC/Old_AllReservations';
 import Old_AddReservations from './Pages/OldCC/Old_AddReservations';
 import Old_OffHourReservations from './Pages/OldCC/Old_OffHourReservations';
 import Old_MyReservations from './Pages/OldCC/Old_MyReservations';
 
 import Semi_Home from './Pages/SeminarRoom/Semi_Home';
-import Semi_AllReservations from './Pages/SeminarRoom/Semi_AllReservations';
+// import Semi_AllReservations from './Pages/SeminarRoom/Semi_AllReservations';
 import Semi_AddReservations from './Pages/SeminarRoom/Semi_AddReservations';
 import Semi_OffHourReservations from './Pages/SeminarRoom/Semi_OffHourReservations';
 import Semi_MyReservations from './Pages/SeminarRoom/Semi_MyReservations';
@@ -38,7 +38,7 @@ root.render(
       <Route path="/" element={<LoginPage />} />
 
       <Route path="/newcc" element={<Home />} />
-      <Route path="/newccallreservation" element={<AllReservations />} />
+      {/* <Route path="/newccallreservation" element={<AllReservations />} /> */}
       <Route path="/newccaddreservation" element={<AddReservations />} />
       <Route
         path="/newccoffhourreservation"
@@ -47,7 +47,7 @@ root.render(
       <Route path="/newccmyreservation" element={<MyReservations />} />
 
       <Route path="/oldcc" element={<Old_Home />} />
-      <Route path="/oldccallreservation" element={<Old_AllReservations />} />
+      {/* <Route path="/oldccallreservation" element={<Old_AllReservations />} /> */}
       <Route path="/oldccaddreservation" element={<Old_AddReservations />} />
       <Route
         path="/oldccoffhourreservation"
@@ -70,10 +70,10 @@ root.render(
       />
       <Route exact path="/myreservations" component={MyReservations} /> */}
 
-      <Route
+      {/* <Route
         path="/seminaroomallreservation"
         element={<Semi_AllReservations />}
-      />
+      /> */}
       <Route
         path="/seminaroomaddreservation"
         element={<Semi_AddReservations />}

@@ -3,6 +3,7 @@ import SlideBar from '../../Components/SlideBar/SideBar';
 // import DashBoard from '../../Components/DashBoard/DashBoard';
 import FeaturesBar from '../../Components/FeaturesBar/FeaturesBar';
 import PlacesBar from '../../Components/PlacesBar/PlacesBar';
+import TheCalendar from '../../Components/Calander/NewccTheCalendar';
 
 function Home() {
   return (
@@ -23,6 +24,9 @@ function Home() {
             >
               Welcome to the New CC DashBoard
             </h3>
+          </div>
+          <div>
+            <TheCalendar />
           </div>
         </div>
         <FeaturesBar />

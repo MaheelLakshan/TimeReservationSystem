@@ -4,6 +4,7 @@ import Old_SideBar from '../../Components/SlideBar/Old_SideBar';
 import PlacesBar from '../../Components/PlacesBar/PlacesBar';
 import { Container, Row, Col, Form, FormGroup, Button } from 'reactstrap';
 import './../../styles/offhourreservations.css';
+import Old_FeaturesBar from '../../Components/FeaturesBar/Old_FeaturesBar';
 
 function OffHourReservations() {
   const [name, setName] = useState('');
@@ -90,6 +91,7 @@ function OffHourReservations() {
             </div>
           </form>
         </div>
+        <Old_FeaturesBar />
       </div>
     </div>
   );
