@@ -12,9 +12,24 @@ function AddReservations() {
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
   const [details, setDetails] = useState('');
+  const [isRecurring, setIsRecurring] = useState(false);
+  const [endDate, setEndDate] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (isRecurring) {
+      // Make recurring reservations
+      let currDate = new Date(date);
+      let end = new Date(endDate);
+      while (currDate <= end) {
+        // Make a reservation for the current date
+        // code to make the reservation goes here
+        currDate.setDate(currDate.getDate() + 7); // Increment the date by 7 days for weekly recurrence
+      }
+    } else {
+      // Make a one-time reservation
+      // code to make the reservation goes here
+    }
   };
 
   return (
@@ -22,19 +37,8 @@ function AddReservations() {
       <div className="CommonGlass">
         <SlideBar />
         <div className="MainDash">
-          <div>
-            <PlacesBar />
-            <h3
-              style={{
-                paddingLeft: '20px',
-                color: '#fcc81f',
-                background: '#6B6E70',
-                marginBottom: '10px',
-              }}
-            >
-              Make a reservation in New CC
-            </h3>
-          </div>
+          <PlacesBar />
+
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="name">Name:</label>
@@ -80,8 +84,28 @@ function AddReservations() {
                 onChange={(e) => setDetails(e.target.value)}
               ></textarea>
             </div>
+            <div className="form-group">
+              <label htmlFor="isRecurring">Make weekly recurring reservation here:</label>
+              <input
+                type="checkbox"
+                id="isRecurring"
+                checked={isRecurring}
+                onChange={(e) => setIsRecurring(e.target.checked)}
+              />
+            </div>
+            {isRecurring && (
+              <div className="form-group">
+                <label htmlFor="endDate">End date:</label>
+                <input
+                  type="date"
+                  id="endDate"
+                  value={endDate}
+                  onChange={(e) => setEndDate(e.target.value)}
+                />
+              </div>
+            )}
             <div className="button-container">
-              <button type="submit">Add Reservation</button>
+            <button type="submit">Add Reservation</button>
             </div>
           </form>
         </div>
@@ -91,5 +115,6 @@ function AddReservations() {
     </div>
   );
 }
+
 
 export default AddReservations;
