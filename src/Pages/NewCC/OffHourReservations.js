@@ -41,9 +41,9 @@ function OffHourReservations() {
               staff
             </h4>
           </div>
-          <div className="offhourres-form">
-            <form onSubmit={handleSubmit}>
-              <div className="form-group">
+          <div className="formoffhour">
+            <Form onSubmit={handleSubmit}>
+              <div className="formgroupoffhour">
                 <label htmlFor="name">Name:</label>
                 <input
                   type="text"
@@ -52,7 +52,7 @@ function OffHourReservations() {
                   onChange={(e) => setName(e.target.value)}
                 />
               </div>
-              <div className="form-group">
+              <div className="formgroupoffhour">
                 <label htmlFor="date">Date:</label>
                 <input
                   type="date"
@@ -61,7 +61,7 @@ function OffHourReservations() {
                   onChange={(e) => setDate(e.target.value)}
                 />
               </div>
-              <div className="form-group">
+              <div className="formgroupoffhour">
                 <label htmlFor="from">From:</label>
                 <input
                   type="time"
@@ -70,7 +70,7 @@ function OffHourReservations() {
                   onChange={(e) => setFrom(e.target.value)}
                 />
               </div>
-              <div className="form-group">
+              <div className="formgroupoffhour">
                 <label htmlFor="to">To:</label>
                 <input
                   type="time"
@@ -79,7 +79,7 @@ function OffHourReservations() {
                   onChange={(e) => setTo(e.target.value)}
                 />
               </div>
-              <div className="form-group">
+              <div className="formgroupoffhour">
                 <label htmlFor="details">Details:</label>
                 <textarea
                   id="details"
@@ -87,10 +87,10 @@ function OffHourReservations() {
                   onChange={(e) => setDetails(e.target.value)}
                 ></textarea>
               </div>
-              <div className="button-container">
-                <button type="submit">Send</button>
-              </div>
-            </form>
+              
+
+              <Button className="btn_send">Send</Button>
+            </Form>
           </div>
         </div>
         <FeaturesBar />

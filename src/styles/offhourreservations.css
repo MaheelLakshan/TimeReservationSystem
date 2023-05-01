@@ -11,9 +11,12 @@ form {
   flex-direction: column;
 } */
 
-.form-group {
+
+
+.formgroupoffhour {
   flex-direction: row;
-  margin-bottom: 1px;
+  margin-bottom: 1rem;
+  width: 90%;
 }
 
 label {
@@ -33,18 +36,18 @@ textarea {
   margin-bottom: 5px;
 }
 
-button[type='submit'] {
-  background-color: #f0be09;
+.btn_send {
+  background-color:#d0a406;
   color: #f6ecb4;
   border: none;
   border-radius: 5px;
   padding: 10px;
   font-size: 16px;
   cursor: pointer;
+  
 }
 
-
-button[type='submit']:hover {
+.btn_send:hover {
   background-color: #806722;
 }
 .button-container {
@@ -55,4 +58,3 @@ h4 {
   text-align: center;
   margin-top: 3px;
 }
-

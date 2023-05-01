@@ -1,14 +1,15 @@
-form {
+.formadd {
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  width: 50%;
+  width: 90%;
 }
 
-.form-group {
+.formgroupadd {
   flex-direction: row;
   margin-bottom: 1rem;
+  width: 90%;
 }
 
 label {
@@ -16,9 +17,9 @@ label {
   margin-bottom: 5px;
 }
 
-input[type='text'],
-input[type='date'],
-input[type='time'],
+input[type="text"],
+input[type="date"],
+input[type="time"],
 textarea {
   width: 90%;
   padding: 10px;
@@ -28,19 +29,20 @@ textarea {
   margin-bottom: 10px;
 }
 
-button[type='submit'] {
-  background-color: #c6a631;
+.button-container {
+  text-align: center;
+}
+.btn_addreservation {
+  background-color: #d0a406;
   color: #f6ecb4;
   border: none;
   border-radius: 5px;
   padding: 10px;
   font-size: 16px;
   cursor: pointer;
+  
 }
 
-button[type='submit']:hover {
+.btn_addreservation:hover {
   background-color: #806722;
-}
-.button-container {
-  text-align: center;
 }
