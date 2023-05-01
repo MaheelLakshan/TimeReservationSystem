@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import '../CommonTemplate.css';
 import SlideBar from '../../Components/SlideBar/SideBar';
 import './profile.css';
+import { Container, Row, Col, Form, FormGroup, Button } from 'reactstrap';
+
+
+
 
 function Profile() {
   const [name, setName] = useState('Ranaweera S.C.');
@@ -46,16 +50,22 @@ function Profile() {
       <div className="CommonGlass">
         <SlideBar />
         <div className="Profile">
+          
+          
+          <div className="formprofile">
+          <Form>
           <h1>Profile</h1>
-          <form>
+          <div className="formgroupprofile">
             <label htmlFor="name">Name:</label>
             <input
               type="text"
               id="name"
               value={name}
               onChange={handleNameChange}
-            />
+            /></div>
 
+
+            <div className="formgroupprofile">
             <label htmlFor="designation">Designation:</label>
             <select
               id="designation"
@@ -67,8 +77,11 @@ function Profile() {
               <option value="Mr.">Mr.</option>
               <option value="Mrs.">Mrs.</option>
               <option value="Ms.">Ms.</option>
-            </select>
+            </select></div>
 
+
+
+            <div className="formgroupprofile">
             <label htmlFor="department">Department:</label>
             <select
               id="department"
@@ -90,15 +103,21 @@ function Profile() {
               <option value="Marine">
                 Department of Marine and Naval Architecture
               </option>
-            </select>
+            </select></div>
 
+
+
+
+            <div className="formgroupprofile">
             <label htmlFor="modules">Modules:</label>
             <textarea
               id="modules"
               value={modules}
               onChange={handleModulesChange}
-            />
+            /></div>
 
+
+            <div className="formgroupprofile">
             <label htmlFor="contactNumber">Contact Number:</label>
             <input
               type="text"
@@ -106,7 +125,11 @@ function Profile() {
               value={contactNumber}
               onChange={handleContactNumberChange}
             />
+            </div>
 
+
+
+            <div className="formgroupprofile">
             <label htmlFor="emailAddress">Email Address:</label>
             <input
               type="email"
@@ -114,10 +137,18 @@ function Profile() {
               value={emailAddress}
               onChange={handleEmailAddressChange}
             />
-          </form>
-          <div className="button-container">
+            </div>
+
+            <div className="button-container">
             <button onClick={handleSave}>Save</button>
           </div>
+
+          </Form></div>
+
+
+
+          
+          
         </div>
       </div>
     </div>
@@ -125,3 +156,4 @@ function Profile() {
 }
 
 export default Profile;
+
