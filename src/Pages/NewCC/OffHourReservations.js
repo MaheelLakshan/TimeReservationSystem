@@ -7,7 +7,7 @@ import { Container, Row, Col, Form, FormGroup, Button } from 'reactstrap';
 import './../../styles/offhourreservations.css';
 
 function OffHourReservations() {
-  const [name, setName] = useState('');
+  const [title, setTitle] = useState('');
   const [date, setDate] = useState('');
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
@@ -44,12 +44,12 @@ function OffHourReservations() {
           <div className="formoffhour">
             <Form onSubmit={handleSubmit}>
               <div className="formgroupoffhour">
-                <label htmlFor="name">Name:</label>
+                <label htmlFor="title">Title:</label>
                 <input
                   type="text"
-                  id="name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  id="title"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
                 />
               </div>
               <div className="formgroupoffhour">

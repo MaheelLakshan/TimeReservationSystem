@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
 import '../CommonTemplate.css';
-import Semi_SideBar from '../../Components/SlideBar/Semi_SideBar';
+import SlideBar from '../../Components/SlideBar/Semi_SideBar';
 import PlacesBar from '../../Components/PlacesBar/PlacesBar';
+import FeaturesBar from '../../Components/FeaturesBar/Semi_FeaturesBar';
 import { Container, Row, Col, Form, FormGroup, Button } from 'reactstrap';
 import './../../styles/offhourreservations.css';
-import Semi_FeaturesBar from '../../Components/FeaturesBar/Semi_FeaturesBar';
 
-function OffHourReservations() {
-  const [name, setName] = useState('');
+
+
+
+
+
+function Semi_OffHourReservations() {
+  const [title, setTitle] = useState('');
   const [date, setDate] = useState('');
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
@@ -41,55 +46,57 @@ function OffHourReservations() {
               staff
             </h4>
           </div>
-          <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="name">Name:</label>
-              <input
-                type="text"
-                id="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="date">Date:</label>
-              <input
-                type="date"
-                id="date"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="from">From:</label>
-              <input
-                type="time"
-                id="from"
-                value={from}
-                onChange={(e) => setFrom(e.target.value)}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="to">To:</label>
-              <input
-                type="time"
-                id="to"
-                value={to}
-                onChange={(e) => setTo(e.target.value)}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="details">Details:</label>
-              <textarea
-                id="details"
-                value={details}
-                onChange={(e) => setDetails(e.target.value)}
-              ></textarea>
-            </div>
-            <div className="button-container">
-              <button type="submit">Send</button>
-            </div>
-          </form>
+          <div className="formoffhour">
+            <Form onSubmit={handleSubmit}>
+              <div className="formgroupoffhour">
+                <label htmlFor="title">Title:</label>
+                <input
+                  type="text"
+                  id="title"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                />
+              </div>
+              <div className="formgroupoffhour">
+                <label htmlFor="date">Date:</label>
+                <input
+                  type="date"
+                  id="date"
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                />
+              </div>
+              <div className="formgroupoffhour">
+                <label htmlFor="from">From:</label>
+                <input
+                  type="time"
+                  id="from"
+                  value={from}
+                  onChange={(e) => setFrom(e.target.value)}
+                />
+              </div>
+              <div className="formgroupoffhour">
+                <label htmlFor="to">To:</label>
+                <input
+                  type="time"
+                  id="to"
+                  value={to}
+                  onChange={(e) => setTo(e.target.value)}
+                />
+              </div>
+              <div className="formgroupoffhour">
+                <label htmlFor="details">Details:</label>
+                <textarea
+                  id="details"
+                  value={details}
+                  onChange={(e) => setDetails(e.target.value)}
+                ></textarea>
+              </div>
+              
+
+              <Button className="btn_send">Send</Button>
+            </Form>
+          </div>
         </div>
         <Semi_FeaturesBar />
       </div>
@@ -97,4 +104,10 @@ function OffHourReservations() {
   );
 }
 
-export default OffHourReservations;
+export default Semi_OffHourReservations;
+
+
+
+
+
+
