@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import '../CommonTemplate.css';
 import SlideBar from '../../Components/SlideBar/SideBar';
 import PlacesBar from '../../Components/PlacesBar/PlacesBar';
-import { Container, Row, Col, Form, FormGroup, Button } from 'reactstrap';
 import './../../styles/addreservation.css';
+import { Container, Row, Col, Form, FormGroup, Button } from 'reactstrap';
 import FeaturesBar from '../../Components/FeaturesBar/FeaturesBar';
+
+
 
 function AddReservations() {
   const [name, setName] = useState('');
@@ -38,9 +40,19 @@ function AddReservations() {
         <SlideBar />
         <div className="MainDash">
           <PlacesBar />
-
-          <form onSubmit={handleSubmit}>
-            <div className="form-group">
+          <h3
+              style={{
+                paddingLeft: '20px',
+                color: '#fcc81f',
+                background: '#6B6E70',
+                marginBottom: '10px',
+              }}
+            >
+              Make a reservation in New CC
+            </h3>
+            <div className="formadd">
+          <Form onSubmit={handleSubmit}>
+            <div className="formgroupadd">
               <label htmlFor="name">Name:</label>
               <input
                 type="text"
@@ -49,7 +61,7 @@ function AddReservations() {
                 onChange={(e) => setName(e.target.value)}
               />
             </div>
-            <div className="form-group">
+            <div className="formgroupadd">
               <label htmlFor="date">Date:</label>
               <input
                 type="date"
@@ -58,7 +70,7 @@ function AddReservations() {
                 onChange={(e) => setDate(e.target.value)}
               />
             </div>
-            <div className="form-group">
+            <div className="formgroupadd">
               <label htmlFor="from">From:</label>
               <input
                 type="time"
@@ -67,7 +79,7 @@ function AddReservations() {
                 onChange={(e) => setFrom(e.target.value)}
               />
             </div>
-            <div className="form-group">
+            <div className="formgroupadd">
               <label htmlFor="to">To:</label>
               <input
                 type="time"
@@ -76,7 +88,7 @@ function AddReservations() {
                 onChange={(e) => setTo(e.target.value)}
               />
             </div>
-            <div className="form-group">
+            <div className="formgroupadd">
               <label htmlFor="details">Details:</label>
               <textarea
                 id="details"
@@ -84,7 +96,7 @@ function AddReservations() {
                 onChange={(e) => setDetails(e.target.value)}
               ></textarea>
             </div>
-            <div className="form-group">
+            <div className="formgroupadd">
               <label htmlFor="isRecurring">Make weekly recurring reservation here:</label>
               <input
                 type="checkbox"
@@ -94,7 +106,7 @@ function AddReservations() {
               />
             </div>
             {isRecurring && (
-              <div className="form-group">
+              <div className="formgroupadd">
                 <label htmlFor="endDate">End date:</label>
                 <input
                   type="date"
@@ -104,10 +116,13 @@ function AddReservations() {
                 />
               </div>
             )}
-            <div className="button-container">
-            <button type="submit">Add Reservation</button>
-            </div>
-          </form>
+           
+
+            <Button className="btn_addreservation">Add Reservation</Button>
+
+
+          </Form>
+          </div>
         </div>
 
         <FeaturesBar />
