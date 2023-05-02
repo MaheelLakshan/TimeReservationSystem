@@ -5,7 +5,7 @@ import PlacesBar from '../../Components/PlacesBar/PlacesBar';
 import './../../styles/addreservation.css';
 import { Container, Row, Col, Form, FormGroup, Button } from 'reactstrap';
 import Semi_FeaturesBar from '../../Components/FeaturesBar/Semi_FeaturesBar';
-
+import Semi_AddResFeaturesBar from '../../Components/AddResFeaturesBar/Semi_AddResFeaturesBar';
 
 function Semi_AddReservations() {
   const [title, setTitle] = useState('');
@@ -40,99 +40,97 @@ function Semi_AddReservations() {
         <div className="MainDash">
           <PlacesBar />
           <h3
-              style={{
-                paddingLeft: '20px',
-                color: '#fcc81f',
-                background: '#6B6E70',
-                marginBottom: '10px',
-              }}
-            >
-              Make a reservation in Seminar Room
-            </h3>
-            <div className="formadd">
-          <Form onSubmit={handleSubmit}>
-            <div className="formgroupadd">
-              <label htmlFor="title">Title:</label>
-              <input
-                type="text"
-                id="title"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-              />
-            </div>
-            <div className="formgroupadd">
-              <label htmlFor="date">Date:</label>
-              <input
-                type="date"
-                id="date"
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-              />
-            </div>
-            <div className="formgroupadd">
-              <label htmlFor="from">From:</label>
-              <input
-                type="time"
-                id="from"
-                value={from}
-                onChange={(e) => setFrom(e.target.value)}
-              />
-            </div>
-            <div className="formgroupadd">
-              <label htmlFor="to">To:</label>
-              <input
-                type="time"
-                id="to"
-                value={to}
-                onChange={(e) => setTo(e.target.value)}
-              />
-            </div>
-            <div className="formgroupadd">
-              <label htmlFor="details">Details:</label>
-              <textarea
-                id="details"
-                value={details}
-                onChange={(e) => setDetails(e.target.value)}
-              ></textarea>
-            </div>
-            <div className="formgroupadd">
-              <label htmlFor="isRecurring">Make weekly recurring reservations here:</label>
-              <input
-                type="checkbox"
-                id="isRecurring"
-                checked={isRecurring}
-                onChange={(e) => setIsRecurring(e.target.checked)}
-              />
-            </div>
-            {isRecurring && (
+            style={{
+              paddingLeft: '20px',
+              color: '#fcc81f',
+              background: '#6B6E70',
+              marginBottom: '10px',
+            }}
+          >
+            Make a reservation in Seminar Room
+          </h3>
+          <div className="formadd">
+            <Form onSubmit={handleSubmit}>
               <div className="formgroupadd">
-                <label htmlFor="endDate">End date:</label>
+                <label htmlFor="title">Title:</label>
                 <input
-                  type="date"
-                  id="endDate"
-                  value={endDate}
-                  onChange={(e) => setEndDate(e.target.value)}
+                  type="text"
+                  id="title"
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
                 />
               </div>
-            )}
-           
+              <div className="formgroupadd">
+                <label htmlFor="date">Date:</label>
+                <input
+                  type="date"
+                  id="date"
+                  value={date}
+                  onChange={(e) => setDate(e.target.value)}
+                />
+              </div>
+              <div className="formgroupadd">
+                <label htmlFor="from">From:</label>
+                <input
+                  type="time"
+                  id="from"
+                  value={from}
+                  onChange={(e) => setFrom(e.target.value)}
+                />
+              </div>
+              <div className="formgroupadd">
+                <label htmlFor="to">To:</label>
+                <input
+                  type="time"
+                  id="to"
+                  value={to}
+                  onChange={(e) => setTo(e.target.value)}
+                />
+              </div>
+              <div className="formgroupadd">
+                <label htmlFor="details">Details:</label>
+                <textarea
+                  id="details"
+                  value={details}
+                  onChange={(e) => setDetails(e.target.value)}
+                ></textarea>
+              </div>
+              <div className="formgroupadd">
+                <label htmlFor="isRecurring">
+                  Make weekly recurring reservations here:
+                </label>
+                <input
+                  type="checkbox"
+                  id="isRecurring"
+                  checked={isRecurring}
+                  onChange={(e) => setIsRecurring(e.target.checked)}
+                />
+              </div>
+              {isRecurring && (
+                <div className="formgroupadd">
+                  <label htmlFor="endDate">End date:</label>
+                  <input
+                    type="date"
+                    id="endDate"
+                    value={endDate}
+                    onChange={(e) => setEndDate(e.target.value)}
+                  />
+                </div>
+              )}
 
-            <Button className="btn_addreservation">Add Reservation</Button>
-
-
-          </Form>
+              <Button className="btn_addreservation">Add Reservation</Button>
+            </Form>
           </div>
         </div>
-
-        <Semi_FeaturesBar />
+        <div className="feat-a">
+          <Semi_AddResFeaturesBar />
+        </div>
       </div>
     </div>
   );
 }
 
-
 export default Semi_AddReservations;
-
 
 /*import React, { useState } from 'react';
 import '../CommonTemplate.css';

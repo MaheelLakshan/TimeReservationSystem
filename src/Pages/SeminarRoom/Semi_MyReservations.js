@@ -98,7 +98,9 @@ const MyReservations = () => {
             </Table>
           </div>
         </div>
-        <Semi_FeaturesBar />
+        <div className="feat-a">
+          <Semi_FeaturesBar />
+        </div>
       </div>
     </div>
   );

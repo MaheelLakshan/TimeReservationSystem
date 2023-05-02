@@ -26,7 +26,9 @@ const SideBar = () => {
               isActive ? 'menuItem active ' : 'menuItem'
             }
           >
-            <item.icon />
+            <div className="iconslidebar">
+              <item.icon />
+            </div>
 
             {item.heading}
           </NavLink>

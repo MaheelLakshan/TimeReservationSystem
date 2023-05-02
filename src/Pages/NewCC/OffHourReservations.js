@@ -5,6 +5,7 @@ import PlacesBar from '../../Components/PlacesBar/PlacesBar';
 import FeaturesBar from '../../Components/FeaturesBar/FeaturesBar';
 import { Container, Row, Col, Form, FormGroup, Button } from 'reactstrap';
 import './../../styles/offhourreservations.css';
+import Newcc_OffResFeaturesBar from '../../Components/OffResFeaturesBar/Newcc_OffResFeaturesBar';
 
 function OffHourReservations() {
   const [title, setTitle] = useState('');
@@ -87,13 +88,14 @@ function OffHourReservations() {
                   onChange={(e) => setDetails(e.target.value)}
                 ></textarea>
               </div>
-              
 
               <Button className="btn_send">Send</Button>
             </Form>
           </div>
         </div>
-        <FeaturesBar />
+        <div className="feat-a">
+          <Newcc_OffResFeaturesBar />
+        </div>
       </div>
     </div>
   );

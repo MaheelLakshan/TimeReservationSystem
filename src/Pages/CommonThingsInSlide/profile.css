@@ -21,7 +21,8 @@
 .Profile h1 {
   font-size: 36px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .Profile label {
@@ -32,7 +33,7 @@
 .Profile input,
 .Profile select,
 .Profile textarea {
-  width: 90%;
+  width: 100%;
   margin-bottom: 10px;
 }
 
@@ -64,3 +65,15 @@
   background-color: #977d1e;
 }
 
+@media screen and (max-width: 998px) {
+  .CommonGlass {
+    display: grid;
+    height: 97%;
+    width: 97%;
+    background: var(--glass);
+    border-radius: 2rem;
+    gap: 16px;
+    grid-template-columns: 8rem auto;
+    overflow: auto;
+  }
+}

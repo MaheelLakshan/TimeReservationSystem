@@ -29,7 +29,9 @@ function Old_Home() {
             <TheCalendar />
           </div>
         </div>
-        <Old_FeaturesBar />
+        <div className="feat-a">
+          <Old_FeaturesBar />
+        </div>
       </div>
     </div>
   );

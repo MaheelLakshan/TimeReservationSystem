@@ -72,6 +72,24 @@
   margin-right: calc(1rem - 8px);
 }
 
+@media screen and (max-width: 1200px) {
+  .iconslidebar {
+  }
+}
+
+@media screen and (max-width: 998px) {
+  .iconslidebar {
+    margin-left: -20px;
+    width: 18px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  
+  .iconslidebar {
+    display: none;
+  }
+}
 /* Tablets */
 /* @media screen and (max-width: 1200px) {
   .menuItem > span {
@@ -81,7 +99,7 @@
     display: none;
   }
 } */
-
+/* 
 @media screen and (max-width: 768px) {
   .menu {
     position: fixed;
@@ -97,7 +115,7 @@
   /* .logo {
     display: flex;
   } */
-  .menu .menuItem:last-child {
+/* .menu .menuItem:last-child {
     position: relative;
     margin-top: 1rem;
   }
@@ -114,4 +132,4 @@
   .close {
     left: -60%;
   }
-}
+} */

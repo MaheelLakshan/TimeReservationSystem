@@ -29,7 +29,9 @@ function Home() {
             <TheCalendar />
           </div>
         </div>
-        <FeaturesBar />
+        <div className="feat-a">
+          <FeaturesBar />
+        </div>
       </div>
     </div>
   );

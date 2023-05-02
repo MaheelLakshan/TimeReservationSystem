@@ -5,6 +5,7 @@ import PlacesBar from '../../Components/PlacesBar/PlacesBar';
 import { Container, Row, Col, Form, FormGroup, Button } from 'reactstrap';
 import './../../styles/offhourreservations.css';
 import Old_FeaturesBar from '../../Components/FeaturesBar/Old_FeaturesBar';
+import Old_OffResFeaturesBar from '../../Components/OffResFeaturesBar/Old_OffResFeaturesBar';
 
 function Old_OffHourReservations() {
   const [title, setTitle] = useState('');
@@ -43,7 +44,7 @@ function Old_OffHourReservations() {
           </div>
           <div className="formoffhour">
             <Form onSubmit={handleSubmit}>
-            <div className="formgroupoffhour">
+              <div className="formgroupoffhour">
                 <label htmlFor="title">Title:</label>
                 <input
                   type="text"
@@ -87,22 +88,17 @@ function Old_OffHourReservations() {
                   onChange={(e) => setDetails(e.target.value)}
                 ></textarea>
               </div>
-              
 
               <Button className="btn_send">Send</Button>
             </Form>
           </div>
         </div>
-        <Old_FeaturesBar />
+        <div className="feat-a">
+          <Old_OffResFeaturesBar />
+        </div>
       </div>
     </div>
   );
 }
 
-
 export default Old_OffHourReservations;
-
-
-
-
-

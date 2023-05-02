@@ -65,6 +65,9 @@
   width: 100%;
   display: none;
 }
+.sidebr {
+  width: 100%;
+}
 
 /* .actionbtn {
   backgroundcolor: '#444';
@@ -85,8 +88,11 @@ actionbtn:hover {
     background: var(--glass);
     border-radius: 2rem;
     gap: 16px;
-    grid-template-columns: 12rem auto 15rem;
+    grid-template-columns: 10rem auto 15rem;
   }
+  /* .sidebr {
+    width: 80%;
+  } */
 }
 
 @media screen and (max-width: 998px) {
@@ -97,7 +103,7 @@ actionbtn:hover {
     background: var(--glass);
     border-radius: 2rem;
     gap: 16px;
-    grid-template-columns: 12rem auto;
+    grid-template-columns: 8rem auto;
   }
   .Common {
     color: var(--black);
@@ -112,6 +118,9 @@ actionbtn:hover {
   .feat-a {
     display: none;
   }
+  .sidebr {
+    width: 100%;
+  }
   /* .feat-b {
     display: initial;
   } */
@@ -120,6 +129,18 @@ actionbtn:hover {
 @media screen and (max-width: 768px) {
   .MainDash {
     align-items: center;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .CommonGlass {
+    display: grid;
+    height: 97%;
+    width: 97%;
+    background: var(--glass);
+    border-radius: 2rem;
+    gap: 16px;
+    grid-template-columns: 7rem auto;
   }
 }
 

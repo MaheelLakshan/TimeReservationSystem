@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
 import '../CommonTemplate.css';
-import SlideBar from '../../Components/SlideBar/Semi_SideBar';
+import Semi_SideBar from '../../Components/SlideBar/Semi_SideBar';
 import PlacesBar from '../../Components/PlacesBar/PlacesBar';
-import FeaturesBar from '../../Components/FeaturesBar/Semi_FeaturesBar';
+import Semi_FeaturesBar from '../../Components/FeaturesBar/Semi_FeaturesBar';
 import { Container, Row, Col, Form, FormGroup, Button } from 'reactstrap';
 import './../../styles/offhourreservations.css';
-
-
-
-
-
+import Semi_OffResFeaturesBar from '../../Components/OffResFeaturesBar/Semi_OffResFeaturesBar';
 
 function Semi_OffHourReservations() {
   const [title, setTitle] = useState('');
@@ -92,22 +88,17 @@ function Semi_OffHourReservations() {
                   onChange={(e) => setDetails(e.target.value)}
                 ></textarea>
               </div>
-              
 
               <Button className="btn_send">Send</Button>
             </Form>
           </div>
         </div>
-        <Semi_FeaturesBar />
+        <div className="feat-a">
+          <Semi_OffResFeaturesBar />
+        </div>
       </div>
     </div>
   );
 }
 
 export default Semi_OffHourReservations;
-
-
-
-
-
-
