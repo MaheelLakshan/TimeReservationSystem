@@ -9,7 +9,7 @@ import FeaturesBar from '../../Components/FeaturesBar/FeaturesBar';
 
 
 function AddReservations() {
-  const [name, setName] = useState('');
+  const [title, setTitle] = useState('');
   const [date, setDate] = useState('');
   const [from, setFrom] = useState('');
   const [to, setTo] = useState('');
@@ -53,12 +53,12 @@ function AddReservations() {
             <div className="formadd">
           <Form onSubmit={handleSubmit}>
             <div className="formgroupadd">
-              <label htmlFor="name">Name:</label>
+              <label htmlFor="title">Title:</label>
               <input
                 type="text"
-                id="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                id="title"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
               />
             </div>
             <div className="formgroupadd">
