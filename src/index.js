@@ -1,91 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-
-import Profile from './Pages/CommonThingsInSlide/Profile';
-import Guidline from './Pages/CommonThingsInSlide/Guidline';
-
 import LoginPage from './Pages/LoginPage/LoginPage';
-
-import Home from './Pages/NewCC/Home';
-// import AllReservations from './Pages/NewCC/AllReservations';
-import AddReservations from './Pages/NewCC/AddReservations';
-import OffHourReservations from './Pages/NewCC/OffHourReservations';
-import MyReservations from './Pages/NewCC/MyReservations';
-
-import Old_Home from './Pages/OldCC/Old_Home';
-// import Old_AllReservations from './Pages/OldCC/Old_AllReservations';
-import Old_AddReservations from './Pages/OldCC/Old_AddReservations';
-import Old_OffHourReservations from './Pages/OldCC/Old_OffHourReservations';
-import Old_MyReservations from './Pages/OldCC/Old_MyReservations';
-
-import Semi_Home from './Pages/SeminarRoom/Semi_Home';
-// import Semi_AllReservations from './Pages/SeminarRoom/Semi_AllReservations';
-import Semi_AddReservations from './Pages/SeminarRoom/Semi_AddReservations';
-import Semi_OffHourReservations from './Pages/SeminarRoom/Semi_OffHourReservations';
-import Semi_MyReservations from './Pages/SeminarRoom/Semi_MyReservations';
-
 import reportWebVitals from './reportWebVitals';
+
+import Home from './Pages/HomePage/Home';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Router>
     <Routes>
-      <Route path="/guidline" element={<Guidline />} />
-      <Route path="/profile" element={<Profile />} />
-
       <Route path="/" element={<LoginPage />} />
-
-      <Route path="/newcc" element={<Home />} />
-      {/* <Route path="/newccallreservation" element={<AllReservations />} /> */}
-      <Route path="/newccaddreservation" element={<AddReservations />} />
-      <Route
-        path="/newccoffhourreservation"
-        element={<OffHourReservations />}
-      />
-      <Route path="/newccmyreservation" element={<MyReservations />} />
-
-      <Route path="/oldcc" element={<Old_Home />} />
-      {/* <Route path="/oldccallreservation" element={<Old_AllReservations />} /> */}
-      <Route path="/oldccaddreservation" element={<Old_AddReservations />} />
-      <Route
-        path="/oldccoffhourreservation"
-        element={<Old_OffHourReservations />}
-      />
-      <Route path="/oldccmyreservation" element={<Old_MyReservations />} />
-
-      <Route path="/seminaroom" element={<Semi_Home />} />
-      {/* Not Working
-      <Route exact path="/addreservation/newcc" component={AddReservations} />
-      <Route
-        exact
-        path="/addreservation/oldcc"
-        component={Old_AddReservations}
-      />
-      <Route
-        exact
-        path="/addreservation/seminaroom"
-        component={Semi_AddReservations}
-      />
-      <Route exact path="/myreservations" component={MyReservations} /> */}
-
-      {/* <Route
-        path="/seminaroomallreservation"
-        element={<Semi_AllReservations />}
-      /> */}
-      <Route
-        path="/seminaroomaddreservation"
-        element={<Semi_AddReservations />}
-      />
-      <Route
-        path="/seminaroomoffhourreservation"
-        element={<Semi_OffHourReservations />}
-      />
-      <Route
-        path="/seminaroommyreservation"
-        element={<Semi_MyReservations />}
-      />
+      <Route path="/home" element={<Home />} />
     </Routes>
   </Router>
 );

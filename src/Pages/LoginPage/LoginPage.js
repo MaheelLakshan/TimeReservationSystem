@@ -15,9 +15,9 @@ function LoginPage() {
   // const [logInClassName, setLogInClassName] = useState('container');
   const [toggleClassName, setToggleClassName] = useState('container');
 
-  const handlerloginto = () => {
-    // <NavLink to="/newcc"></NavLink>; this is not work
-  };
+  // const handlerloginto = () => {
+  //   // <NavLink to="/newcc"></NavLink>; this is not work
+  // };
 
   const handleLogIn = () => {
     setToggleClassName('container log-in-mode');
@@ -54,7 +54,7 @@ function LoginPage() {
           {/* <button className="btn" onClick={handlerloginto}>
             Log IN
           </button> */}
-          <NavLink to="/newcc">
+          <NavLink to="/home">
             <button className="btnn">Log IN</button>
           </NavLink>
           <p className="social-text">OR sign in with social platform</p>
