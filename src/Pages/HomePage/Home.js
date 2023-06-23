@@ -1,7 +1,8 @@
-import './CommonTemplate.css';
-
+import './Home.css';
 import SideBar from '../../Components/SideBar/SideBar';
 import TheCalendar from '../../Components/Calender/Thecalendar';
+import Header from '../../Components/Header/Header';
+import { HeaderTitles } from '../../Components/Header/HeaderTitles';
 import React, { useState } from 'react';
 
 function Home() {
@@ -14,10 +15,11 @@ function Home() {
   };
 
   return (
-    <div className="Common">
-      <div className="CommonGlass">
+    <div className="background">
+      <Header content={HeaderTitles} />
+      <div className="Glassy">
         <SideBar />
-        <div className="MainDash">
+        <div className="Calender">
           <div>
             <h3 className="filter-heading">
               Filter the Reservations have been done in each places

@@ -6,7 +6,7 @@
   width: 100%;
   /* border: solid 4px #6f5656; */
   border-radius: 15px;
-  background-color: rgb(59, 68, 68);
+  background-color: rgb(54, 61, 61);
   padding-top: 35px;
   /* justify-content: space-evenly;  */
   align-items: center;
@@ -28,7 +28,8 @@
   margin-bottom: 40px;
   border-radius: 10px;
   color: rgb(255, 255, 255);
-  background-color: #dcce2c;
+  background-color: rgb(255, 255, 255);
+  /* rgba(223, 219, 4, 0.834) */
 }
 .Ftopic {
   display: flex;
