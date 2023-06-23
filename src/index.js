@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 import Home from './Pages/HomePage/Home';
 import CheckPlaces from './Pages/CheckPlaces/CheckPlaces';
+import About from './Pages/About/About';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -16,6 +17,7 @@ root.render(
       <Route path="/" element={<LoginPage />} />
       <Route path="/home" element={<Home />} />
       <Route path="/checks" element={<CheckPlaces />} />
+      <Route path="/about" element={<About />} />
     </Routes>
   </Router>
 );

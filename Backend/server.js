@@ -11,7 +11,8 @@ app.use(bodyParser.json());
 
 // Connect to MongoDB
 mongoose.connect(
-  'mongodb+srv://maheellakshanra:XAHKWCjpeAAcT0pX@cluster0.inbpwyq.mongodb.net/reservations',
+  // copy and paste the DB url below
+  '',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,

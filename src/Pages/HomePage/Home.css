@@ -27,9 +27,11 @@
     #42413e 51.55%,
     #42413e 90.85%
   );
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: scroll;
   /* justify-content: center; */
   /* font-family: 'Inter', sans-serif; */
 }
@@ -37,16 +39,20 @@
 .Glassy {
   display: grid;
   width: 95vw;
+  height: 150vh;
   background: var(--glass);
   border-radius: 2rem;
   gap: 16px;
+  margin-bottom: 4px;
   grid-template-columns: 300px auto;
+  /* overflow-y: scroll; */
 }
 
 .Calender {
   /* padding-top: 1rem; */
   display: flex;
   flex-direction: column;
+
   /* border: solid 4px #6f5656; */
   /* border-radius: 15px; */
   /* background-color: rgb(229, 214, 129); */
@@ -67,7 +73,7 @@
 .filter {
   display: flex;
   gap: 35px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   margin-left: 5px;
   margin-right: 5px;
 }

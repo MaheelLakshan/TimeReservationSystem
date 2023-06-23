@@ -1,4 +1,4 @@
-.CheckBackground {
+.AboutBackground {
   /* padding: 0.5rem 3.5rem; */
   color: var(--black);
   background: linear-gradient(
@@ -14,12 +14,11 @@
   /* font-family: 'Inter', sans-serif; */
 }
 
-.CommonGlass {
+.AboutGlass {
   display: grid;
   width: 95vw;
   background: var(--glass);
   border-radius: 2rem;
   gap: 16px;
   justify-content: center;
-  height: 100vh;
 }
