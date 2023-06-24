@@ -52,6 +52,15 @@
   display: flex;
   justify-content: center;
 }
+.rbc-time-slot {
+  margin: 1px;
+  cursor: pointer;
+  z-index: 1;
+}
+.rbc-time-gutter .rbc-time-slot {
+  /* cursor: none !important; */
+  all: inherit;
+}
 
 /* .rbc-time-view .rbc-row div:nth-child(1) {
   height: 0px !important;
@@ -64,13 +73,16 @@
 }
 
 .rbc-event {
-  background-color: #a4f9c7;
+  background-color: #787978;
   border-color: #a4f9c7;
+  margin-left: 5px;
+  z-index: 2;
 }
 .rbc-header {
   background-color: #98cbed;
   color: #ffffff;
 }
+
 /* .rbc-header {
   position: sticky;
   top: 0;
