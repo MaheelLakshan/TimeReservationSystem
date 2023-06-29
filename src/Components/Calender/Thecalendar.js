@@ -1,47 +1,14 @@
-import { React, useState } from 'react';
+import { React, useState, useContext } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import './TheCalendar.css';
+import { calanderDateSelect } from '../../context/context';
 
 const localizer = momentLocalizer(moment);
 
 const Thecalendar = () => {
-  // const [events, setEvents] = useState([]);
-  // const [showModal, setShowModal] = useState(false);
-  // const [reservationData, setReservationData] = useState({
-  //   title: '',
-  //   place: '',
-  //   description: '',
-  // });
-
-  // const handleSelect = ({ start, end }) => {
-  //   const defaultStartTime = moment(start).format('HH:mm');
-  //   const defaultDate = moment(start).format('YYYY-MM-DD');
-  //   setShowModal(true);
-  //   setReservationData({
-  //     ...reservationData,
-  //     start: `${defaultDate} ${defaultStartTime}`,
-  //     end: moment(end).format('YYYY-MM-DD HH:mm'),
-  //   });
-  // };
-
-  // const handleInputChange = (e) => {
-  //   const { name, value } = e.target;
-  //   setReservationData({ ...reservationData, [name]: value });
-  // };
-
-  // const handleFormSubmit = (e) => {
-  //   e.preventDefault();
-  //   setEvents([...events, reservationData]);
-  //   setShowModal(false);
-  //   setReservationData({
-  //     title: '',
-  //     place: '',
-  //     description: '',
-  //   });
-  // };
-
+  const { dataSelect, setDataSelect } = useContext(calanderDateSelect);
   const [events, setEvents] = useState([]);
 
   const handleSelect = ({ start, end }) => {
@@ -52,13 +19,20 @@ const Thecalendar = () => {
   };
   const minTime = moment().set({ hour: 7, minute: 30 }).toDate();
   const maxTime = moment().set({ hour: 21, minute: 30 }).toDate();
+
+  const navigate = (date, view) => {
+    setDataSelect(date);
+  };
+
   return (
     <div className="the-calendar">
       <Calendar
         localizer={localizer}
         events={events}
         defaultView="week"
+        views={['month', 'week', 'day', 'agenda']}
         min={minTime}
+        date={dataSelect}
         max={maxTime}
         step={60}
         timeslots={1}
@@ -66,11 +40,82 @@ const Thecalendar = () => {
         endAccessor="end"
         selectable
         onSelectSlot={handleSelect}
+        components={{
+          toolbar: CustomToolbar,
+        }}
+        onNavigate={navigate}
       />
     </div>
   );
 };
 
+const CustomToolbar = ({ label, onNavigate, view, onView }) => {
+  const handleViewChange = (newView) => {
+    if (newView !== view) {
+      onView(newView);
+    }
+  };
+  const goToBack = () => {
+    onNavigate('PREV');
+  };
+
+  const goToNext = () => {
+    onNavigate('NEXT');
+  };
+
+  const goToToday = () => {
+    onNavigate('TODAY');
+  };
+
+  return (
+    <div className="rbc-toolbar">
+      <div className="rbc-btn-group rbc-btn-group-left">
+        <button type="button" onClick={goToToday}>
+          Today
+        </button>
+        <button type="button" onClick={goToBack}>
+          Back
+        </button>
+        <button type="button" onClick={goToNext}>
+          Next
+        </button>
+      </div>
+
+      <div className="rbc-toolbar-label">{label}</div>
+
+      <div className="rbc-btn-group rbc-btn-group-right">
+        <button
+          type="button"
+          className={view === 'month' ? 'active' : ''}
+          onClick={() => handleViewChange('month')}
+        >
+          Month
+        </button>
+        <button
+          type="button"
+          className={view === 'week' ? 'active' : ''}
+          onClick={() => handleViewChange('week')}
+        >
+          Week
+        </button>
+        <button
+          type="button"
+          className={view === 'day' ? 'active' : ''}
+          onClick={() => handleViewChange('day')}
+        >
+          Day
+        </button>
+        <button
+          type="button"
+          className={view === 'agenda' ? 'active' : ''}
+          onClick={() => handleViewChange('agenda')}
+        >
+          Agenda
+        </button>
+      </div>
+    </div>
+  );
+};
 export default Thecalendar;
 
 // {showModal && (

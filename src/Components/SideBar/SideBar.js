@@ -8,6 +8,7 @@ function SideBar() {
       <div className="calback">
         <SlideBarCalender />
       </div>
+
       {/* <div className="Ftopic">Contacts</div>
       <div className="alli">
         <div style={{ color: 'white', fontSize: '20px' }}>
