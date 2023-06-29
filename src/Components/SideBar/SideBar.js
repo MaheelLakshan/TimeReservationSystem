@@ -1,6 +1,6 @@
 import React from 'react';
 import './SideBar.css';
-import SlideBarCalender from '../SlideBarCalender/SlideBarCalender';
+import SlideBarCalender from '../SlideCalender/SlideBarCalender';
 
 function SideBar() {
   return (
