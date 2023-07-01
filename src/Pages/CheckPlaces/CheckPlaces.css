@@ -1,5 +1,4 @@
 .CheckBackground {
-  /* padding: 0.5rem 3.5rem; */
   color: var(--black);
   background: linear-gradient(
     106.37deg,
@@ -11,15 +10,100 @@
   height: 100vh;
   flex-direction: column;
   align-items: center;
-  /* font-family: 'Inter', sans-serif; */
 }
 
-.CommonGlass {
-  display: grid;
-  width: 95vw;
-  background: var(--glass);
-  border-radius: 2rem;
-  gap: 16px;
+
+
+.ButtonRow {
+  display: flex;
   justify-content: center;
-  height: 100vh;
+  margin-bottom: 3rem;
+}
+
+.PlaceButton {
+  width: 200px;
+  height: 50px;
+  border: none;
+  border-radius: 1rem;
+  padding: 8px 16px;
+  margin: 0 8px;
+  background-color: #141312;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.ActiveButton {
+  background-color: #7a0808;
+  color: #d1c112;
+}
+
+
+.infosoftwares{
+  padding-left: 200px;
+}
+
+.infoseminar{
+  padding: 20px;
+}
+.InfoBox {
+  background-color:var(--glass);
+  padding: 16px;
+  border-radius: 8px;
+  margin-top: 5px;
+  height: 500px; 
+  width:800px ;
+  
+}
+.InfoText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+.InfoContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.InfoImages {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.InfoImages img {
+  width: 200px;
+  height: auto;
+  margin-right: 8px;
+  border-radius: 8px;
+}
+
+.InfoText h3 {
+  margin-bottom: 8px;
+}
+
+.InfoText p {
+  margin-bottom: 4px;
+}
+
+.InfoText ul {
+  padding-left: 20px;
+}
+
+.InfoImages {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.InfoImages img {
+  width: 200px;
+  height: auto;
+  margin-right: 8px;
+  border-radius: 8px;
 }
