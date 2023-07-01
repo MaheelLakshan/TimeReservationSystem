@@ -6,12 +6,12 @@ export const HeaderTitles = [
   },
   {
     //   icon: UilClipboardAlt,
-    heading: 'Check Places',
+    heading: 'CHECK PLACES',
     where: '/checks',
   },
   {
     //   icon: UilUsersAlt,
-    heading: 'About',
+    heading: 'ABOUT',
     where: '/about',
   },
   // {

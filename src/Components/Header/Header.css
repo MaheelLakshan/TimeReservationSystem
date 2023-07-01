@@ -124,7 +124,6 @@
   background-color: rgb(36, 34, 34);
   align-items: center;
 }
-
 .menuItem {
   display: flex;
   flex-direction: row;
@@ -136,7 +135,23 @@
 
   color: #ffffff;
   text-decoration: none;
+  font-family: 'Roboto', Arial, sans-serif;
+  font-size: 16px;
 }
+
+/*
+.menuItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 14rem;
+  /* position: relative;
+  transition: 300ms ease; */
+  /* border-radius: 1rem; */
+/*
+  color: #ffffff;
+  text-decoration: none;
+}*/
 .header-left {
   display: flex;
   flex-direction: row;
