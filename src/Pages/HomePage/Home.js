@@ -17,6 +17,7 @@ function Home() {
   const SearchClick = () => {};
 
   const [dataSelect, setDataSelect] = useState('');
+  const [showPopUp, setShowPopUp] = useState(false);
 
   return (
     <div className="background">
@@ -49,7 +50,9 @@ function Home() {
           ))}
         </div>
       </div>
-      <calanderDateSelect.Provider value={{ dataSelect, setDataSelect }}>
+      <calanderDateSelect.Provider
+        value={{ dataSelect, setDataSelect, showPopUp, setShowPopUp }}
+      >
         <div className="Glassy">
           <SideBar />
           <div>

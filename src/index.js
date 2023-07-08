@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import Home from './Pages/HomePage/Home';
 import CheckPlaces from './Pages/CheckPlaces/CheckPlaces';
 import About from './Pages/About/About';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 

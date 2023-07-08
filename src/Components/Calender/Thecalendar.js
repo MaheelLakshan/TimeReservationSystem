@@ -4,18 +4,21 @@ import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import './TheCalendar.css';
 import { calanderDateSelect } from '../../context/context';
+import PopUp from '../PopUp/PopUp';
 
 const localizer = momentLocalizer(moment);
 
 const Thecalendar = () => {
   const { dataSelect, setDataSelect } = useContext(calanderDateSelect);
-  const [events, setEvents] = useState([]);
+  const { showPopUp, setShowPopUp } = useContext(calanderDateSelect);
+  const events = useState([]);
 
   const handleSelect = ({ start, end }) => {
-    const title = window.prompt('New Event name');
-    if (title) {
-      setEvents([...events, { start, end, title }]);
-    }
+    // const title = window.prompt('New Event name');
+    setShowPopUp(true);
+    // if (title) {
+    //   setEvents([...events, { start, end, title }]);
+    // }
   };
   const minTime = moment().set({ hour: 7, minute: 30 }).toDate();
   const maxTime = moment().set({ hour: 21, minute: 30 }).toDate();
@@ -26,6 +29,7 @@ const Thecalendar = () => {
 
   return (
     <div className="the-calendar">
+      {showPopUp && <PopUp />}
       <Calendar
         localizer={localizer}
         events={events}

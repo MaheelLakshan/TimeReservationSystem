@@ -50,7 +50,7 @@
   z-index: 5;
 }
 
-form {
+.log-in-form {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -58,14 +58,18 @@ form {
   width: 40%;
   min-width: 238px;
   padding: 0 10px;
-}
-
-form.log-in-form {
   opacity: 1;
   transition: 0.5s ease-in-out;
   transition-delay: 0.4s;
 }
-form.sign-up-form {
+.sign-up-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 40%;
+  min-width: 238px;
+  padding: 0 10px;
   opacity: 0;
   transition: 0.5s ease-in-out;
   transition-delay: 0.4s;
