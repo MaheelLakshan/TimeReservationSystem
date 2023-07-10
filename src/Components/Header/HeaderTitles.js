@@ -1,22 +1,26 @@
+import {
+  UilEstate,
+  UilClipboardAlt,
+  UilUsersAlt,
+  UilUser
+} from '@iconscout/react-unicons';
+
 export const HeaderTitles = [
+  
   {
-    //   icon: UilEstate,
+    icon: UilEstate,
     heading: 'HOME',
     where: '/home',
   },
   {
-    //   icon: UilClipboardAlt,
+    icon: UilClipboardAlt,
     heading: 'CHECK PLACES',
     where: '/checks',
   },
   {
-    //   icon: UilUsersAlt,
+    icon: UilUsersAlt,
     heading: 'ABOUT',
     where: '/about',
   },
-  // {
-  //   //   icon: UilPackage,
-  //   heading: 'SETTINGS',
-  //   where: '/buyer/settings',
-  // },
+
 ];

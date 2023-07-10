@@ -1,5 +1,6 @@
 import './Header.css';
-import { NavLink } from 'react-router-dom';
+import './HeaderTitles';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { React, useState } from 'react';
 import { FaBell } from 'react-icons/fa';
 import { MdClose } from 'react-icons/md';
@@ -7,19 +8,25 @@ import profilePic from '../../Assets/logo512.png';
 
 function Header({ content: ContentComponent }) {
   const [showNotification, setShowNotification] = useState(false);
-  const [showLogout, setShowLogout] = useState(false);
+  const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const navigate = useNavigate();
 
   const toggleNotification = () => {
     setShowNotification(!showNotification);
   };
 
-  const toggleLogout = () => {
-    setShowLogout(!showLogout);
+  const toggleProfileMenu = () => {
+    setShowProfileMenu(!showProfileMenu);
   };
 
-  // const handleLogout = () => {
-  //   // handle logout logic here
-  // };
+  const handleProfileClick = () => {
+    navigate('/profile');
+  };
+
+  const handleLogout = () => {
+    // handle logout logic here
+    navigate('/login');
+  };
 
   return (
     <div className="menu">
@@ -31,10 +38,11 @@ function Header({ content: ContentComponent }) {
             className={({ isActive }) =>
               isActive ? 'menuItem active' : 'menuItem'
             }
-          >
-            {/* <item.icon /> */}
+          > 
+            <item.icon />
 
             {item.heading}
+            
           </NavLink>
         ))}
       </div>
@@ -59,18 +67,16 @@ function Header({ content: ContentComponent }) {
           )}
         </div>
 
-        <div className="profile-pic" onClick={toggleLogout}>
-          <img src={profilePic} alt="Pro" />
-          {showLogout && (
-            <div className="logout-window">
-              <h3>Log out?</h3>
-              <div className="logout-buttons">
-                {/* <button onClick={handleLogout}>Yes</button> */}
-                <NavLink to="/" activeClassName="active" onClick={toggleLogout}>
-                  Yes
-                </NavLink>
-                <button onClick={toggleLogout}>No</button>
-              </div>
+        <div className="profile-icon" onClick={toggleProfileMenu}>
+          <img src={profilePic} alt="Profile" className="profile-pic" />
+          <FaBell />
+          {showProfileMenu && (
+            <div className="profile-menu">
+              <ul>
+                <li onClick={handleProfileClick}>Profile</li>
+                <li>Notifications</li>
+                <li onClick={handleLogout}>Log out</li>
+              </ul>
             </div>
           )}
         </div>
@@ -80,23 +86,3 @@ function Header({ content: ContentComponent }) {
 }
 
 export default Header;
-
-// <div className="cart-icon" onClick={toggleCart}>
-//           {/* <img src={cartIcon} alt="Cart Icon" /> */}
-//           <FaShoppingCart />
-//           {showCart && (
-//             <div className="cart-window">
-//               <div className="cart-header">
-//                 <h3>Cart</h3>
-//                 <button onClick={toggleCart}>
-//                   <MdClose className="close" />
-//                 </button>
-//               </div>
-//               <ul>
-//                 <li>Item 1</li>
-//                 <li>Item 2</li>
-//                 <li>Item 3</li>
-//               </ul>
-//             </div>
-//           )}
-//         </div>

@@ -124,12 +124,14 @@
   background-color: rgb(36, 34, 34);
   align-items: center;
 }
+
 .menuItem {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: right;
   width: 14rem;
-  /* position: relative;
+  position: relative;
+  /*
   transition: 300ms ease; */
   /* border-radius: 1rem; */
 
@@ -139,19 +141,7 @@
   font-size: 16px;
 }
 
-/*
-.menuItem {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  width: 14rem;
-  /* position: relative;
-  transition: 300ms ease; */
-  /* border-radius: 1rem; */
-/*
-  color: #ffffff;
-  text-decoration: none;
-}*/
+
 .header-left {
   display: flex;
   flex-direction: row;
@@ -161,9 +151,10 @@
   justify-content: center;
 }
 .active {
+  position: relative;
   color: #fcc81f;
   display: flex;
-  justify-content: center;
+  justify-content: right;
 }
 
 .header-left :hover {
@@ -172,4 +163,4 @@
 }
 .menuItem:hover {
   cursor: pointer;
-}
+} 
