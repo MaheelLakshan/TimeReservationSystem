@@ -5,7 +5,7 @@ import Header from '../../Components/Header/Header';
 import { HeaderTitles } from '../../Components/Header/HeaderTitles';
 import React, { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
-import { calanderDateSelect } from '../../context/context';
+import ContextWrapper from '../../context/ContextWrapper';
 
 function Home() {
   const [selectedPlace, setSelectedPlace] = useState('Old Computer Center');
@@ -15,9 +15,6 @@ function Home() {
     setSelectedPlace(e.target.value);
   };
   const SearchClick = () => {};
-
-  const [dataSelect, setDataSelect] = useState('');
-  const [showPopUp, setShowPopUp] = useState(false);
 
   return (
     <div className="background">
@@ -50,16 +47,14 @@ function Home() {
           ))}
         </div>
       </div>
-      <calanderDateSelect.Provider
-        value={{ dataSelect, setDataSelect, showPopUp, setShowPopUp }}
-      >
+      <ContextWrapper>
         <div className="Glassy">
           <SideBar />
           <div>
             <TheCalendar />
           </div>
         </div>
-      </calanderDateSelect.Provider>
+      </ContextWrapper>
     </div>
   );
 }

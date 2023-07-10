@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useReducer, useMemo } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import GlobalContext from './GlobalContext';
-import dayjs from 'dayjs';
 
 function savedEventsReducer(state, { type, payload }) {
   switch (type) {
@@ -14,6 +13,7 @@ function savedEventsReducer(state, { type, payload }) {
       throw new Error();
   }
 }
+
 function initEvents() {
   const storageEvents = localStorage.getItem('savedEvents');
   const parsedEvents = storageEvents ? JSON.parse(storageEvents) : [];
@@ -21,78 +21,39 @@ function initEvents() {
 }
 
 export default function ContextWrapper(props) {
-  const [monthIndex, setMonthIndex] = useState(dayjs().month());
-  const [smallCalendarMonth, setSmallCalendarMonth] = useState(null);
-  const [daySelected, setDaySelected] = useState(dayjs());
-  const [showEventModal, setShowEventModal] = useState(false);
+  const [dataSelect, setDataSelect] = useState('');
+  const [showPopUp, setShowPopUp] = useState(false);
+  const [reservations, setReservations] = useState([]);
   const [selectedEvent, setSelectedEvent] = useState(null);
-  const [labels, setLabels] = useState([]);
   const [savedEvents, dispatchCalEvent] = useReducer(
     savedEventsReducer,
     [],
     initEvents
   );
-
-  const filteredEvents = useMemo(() => {
-    return savedEvents.filter((evt) =>
-      labels
-        .filter((lbl) => lbl.checked)
-        .map((lbl) => lbl.label)
-        .includes(evt.label)
-    );
-  }, [savedEvents, labels]);
+  const [passStart, setPassStart] = useState();
+  const [passEnd, setPassEnd] = useState();
 
   useEffect(() => {
     localStorage.setItem('savedEvents', JSON.stringify(savedEvents));
   }, [savedEvents]);
 
-  useEffect(() => {
-    setLabels((prevLabels) => {
-      return [...new Set(savedEvents.map((evt) => evt.label))].map((label) => {
-        const currentLabel = prevLabels.find((lbl) => lbl.label === label);
-        return {
-          label,
-          checked: currentLabel ? currentLabel.checked : true,
-        };
-      });
-    });
-  }, [savedEvents]);
-
-  useEffect(() => {
-    if (smallCalendarMonth !== null) {
-      setMonthIndex(smallCalendarMonth);
-    }
-  }, [smallCalendarMonth]);
-
-  useEffect(() => {
-    if (!showEventModal) {
-      setSelectedEvent(null);
-    }
-  }, [showEventModal]);
-
-  function updateLabel(label) {
-    setLabels(labels.map((lbl) => (lbl.label === label.label ? label : lbl)));
-  }
-
   return (
     <GlobalContext.Provider
       value={{
-        monthIndex,
-        setMonthIndex,
-        smallCalendarMonth,
-        setSmallCalendarMonth,
-        daySelected,
-        setDaySelected,
-        showEventModal,
-        setShowEventModal,
-        dispatchCalEvent,
+        dataSelect,
+        setDataSelect,
+        showPopUp,
+        setShowPopUp,
+        // reservations,
+        // setReservations,
         selectedEvent,
         setSelectedEvent,
+        dispatchCalEvent,
         savedEvents,
-        setLabels,
-        labels,
-        updateLabel,
-        filteredEvents,
+        passStart,
+        setPassStart,
+        passEnd,
+        setPassEnd,
       }}
     >
       {props.children}

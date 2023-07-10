@@ -2,17 +2,82 @@ import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
-import { calanderDateSelect } from '../../context/context';
+
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import GlobalContext from '../../context/GlobalContext';
+import moment from 'moment';
 
 function PopUp() {
   // const [show, setShow] = useState(true);
-  const { showPopUp, setShowPopUp } = useContext(calanderDateSelect);
+  const {
+    showPopUp,
+    setShowPopUp,
+    // reservations,
+    // setReservations,
+    selectedEvent,
+    dispatchCalEvent,
+    passStart,
+    passEnd,
+  } = useContext(GlobalContext);
 
   const handleClose = () => setShowPopUp(false);
   // const handleShow = () => setShow(true);
+
+  const [title, setTitle] = useState(
+    selectedEvent ? selectedEvent.title : 'test'
+  );
+  const [description, setDescription] = useState(
+    selectedEvent ? selectedEvent.description : ''
+  );
+  const [isSelected, setIsSelected] = useState(false);
+  const [RpstartDate, setRpStartDate] = useState(null);
+  const [RpendDate, setRpEndDate] = useState(null);
+  const [selectedPlace, setSelectedPlace] = useState('default place');
+  const [startDate, setStartDate] = useState(passStart);
+  const [endDate, setEndDate] = useState(passEnd);
+
+  const handleSave = () => {
+    const formattedStartDate = RpstartDate
+      ? moment(RpstartDate).format('YYYY-MM-DD')
+      : null;
+    const formattedEndDate = RpendDate
+      ? moment(RpendDate).format('YYYY-MM-DD')
+      : null;
+    // const newReservation = {
+    //   title: 'asdad', // Get the title value from the form
+    //   place: selectedPlace,
+    //   description: '', // Get the description value from the form
+    //   date: selectedDateTime,
+    //   startDate: startDate,
+    //   endDate: endDate,
+    // };
+
+    // setReservations((prevReservations) => [
+    //   ...prevReservations,
+    //   newReservation,
+    // ]);
+    const calendarEvent = {
+      title: title,
+      description,
+      // label: selectedLabel,
+      // day: daySelected.valueOf(),
+      id: selectedEvent ? selectedEvent.id : Date.now(),
+      RepeatStart: formattedStartDate,
+      RepeatEnd: formattedEndDate,
+      start: startDate,
+      end: endDate,
+    };
+    // setReservations(calendarEvent);
+    if (selectedEvent) {
+      dispatchCalEvent({ type: 'update', payload: calendarEvent });
+    } else {
+      dispatchCalEvent({ type: 'push', payload: calendarEvent });
+    }
+
+    setShowPopUp(false);
+  };
 
   const [selectedDateTime, setSelectedDateTime] = useState(new Date()); // Default selected date and time
 
@@ -20,18 +85,15 @@ function PopUp() {
     setSelectedDateTime(date);
   };
 
-  const [selectedPlace, setSelectedPlace] = useState('default place');
-
   const handlePlaceChange = (e) => {
     setSelectedPlace(e.target.value);
   };
 
-  const [isSelected, setIsSelected] = useState(false);
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
-
   const handleCheckboxChange = (e) => {
     setIsSelected(e.target.checked);
+  };
+  const handleTitleChange = (event) => {
+    setTitle(event.target.value);
   };
 
   return (
@@ -42,29 +104,16 @@ function PopUp() {
         </Modal.Header>
         <Modal.Body>
           <Form>
-            {/* <Form.Group className="mb-3">
-              <Form.Label>Select the Reservation Places</Form.Label>
-              <Row>
-                <Col>
-                  <Form.Check
-                    type="checkbox"
-                    id="checkbox1"
-                    label="New Computer Center"
-                  />
-                  <Form.Check
-                    type="checkbox"
-                    id="checkbox2"
-                    label="Old Computer Center"
-                  />
-                  <Form.Check
-                    type="checkbox"
-                    id="checkbox3"
-                    label="Seminar Room"
-                  />
-                </Col>
-              </Row>
-            </Form.Group> */}
-
+            <span
+              onClick={() => {
+                dispatchCalEvent({
+                  type: 'delete',
+                  payload: selectedEvent,
+                });
+                setShowPopUp(false);
+              }}
+              className="material-icons-outlined text-gray-400 cursor-pointer"
+            ></span>
             <Form.Group className="mb-3">
               <Form.Label>Select the Reservation Place</Form.Label>
               <Form.Select value={selectedPlace} onChange={handlePlaceChange}>
@@ -77,7 +126,12 @@ function PopUp() {
 
             <Form.Group className="mb-3" controlId="PopUpForm.ControlInput1">
               <Form.Label>Title</Form.Label>
-              <Form.Control type="text" placeholder="EE06" />
+              <Form.Control
+                type="text"
+                placeholder="EE06"
+                value={title}
+                onChange={handleTitleChange}
+              />
             </Form.Group>
 
             <Form.Group
@@ -89,7 +143,7 @@ function PopUp() {
               <Form.Control as="textarea" rows={3} />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="PopUpForm.ControlTextarea1">
+            {/* <Form.Group className="mb-3" controlId="PopUpForm.ControlTextarea1">
               <Form.Label>Date and Time Selection</Form.Label>
               <br />
               <DatePicker
@@ -98,6 +152,31 @@ function PopUp() {
                 showTimeSelect
                 dateFormat="yyyy MMMM d , h:mm aa"
               />
+            </Form.Group> */}
+
+            <Form.Group className="mb-3">
+              <Form.Label>Date and Time Range</Form.Label>
+              <div>
+                <label style={{ marginRight: '10px' }}>From: </label>
+                <DatePicker
+                  selected={startDate}
+                  onChange={(date) => setStartDate(date)}
+                  showTimeSelect
+                  dateFormat="MMMM d, yyyy h:mm aa"
+                  className="form-control"
+                />
+              </div>
+              <br />
+              <div>
+                <label style={{ marginRight: '30px' }}>To: </label>
+                <DatePicker
+                  selected={endDate}
+                  onChange={(date) => setEndDate(date)}
+                  showTimeSelect
+                  dateFormat="MMMM d, yyyy h:mm aa"
+                  className="form-control"
+                />
+              </div>
             </Form.Group>
 
             <Form.Group className="mb-3">
@@ -115,11 +194,11 @@ function PopUp() {
                   <div>
                     <label style={{ marginRight: '10px' }}>From: </label>
                     <DatePicker
-                      selected={startDate}
-                      onChange={(date) => setStartDate(date)}
+                      selected={RpstartDate}
+                      onChange={(date) => setRpStartDate(date)}
                       selectsStart
-                      startDate={startDate}
-                      endDate={endDate}
+                      startDate={RpstartDate}
+                      endDate={RpendDate}
                       dateFormat="MMMM d, yyyy"
                       className="form-control"
                     />
@@ -128,12 +207,12 @@ function PopUp() {
                   <div>
                     <label style={{ marginRight: '30px' }}>To: </label>
                     <DatePicker
-                      selected={endDate}
-                      onChange={(date) => setEndDate(date)}
+                      selected={RpendDate}
+                      onChange={(date) => setRpEndDate(date)}
                       selectsEnd
-                      startDate={startDate}
-                      endDate={endDate}
-                      minDate={startDate}
+                      startDate={RpstartDate}
+                      endDate={RpendDate}
+                      minDate={RpstartDate}
                       dateFormat="MMMM d, yyyy"
                       className="form-control"
                     />
@@ -147,7 +226,7 @@ function PopUp() {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          <Button variant="primary" onClick={handleSave}>
             Save Changes
           </Button>
         </Modal.Footer>

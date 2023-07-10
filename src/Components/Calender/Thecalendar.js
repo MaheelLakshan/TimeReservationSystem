@@ -1,23 +1,41 @@
-import { React, useState, useContext } from 'react';
+import { React, useContext, useEffect, useState } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import './TheCalendar.css';
-import { calanderDateSelect } from '../../context/context';
+import GlobalContext from '../../context/GlobalContext';
 import PopUp from '../PopUp/PopUp';
 
 const localizer = momentLocalizer(moment);
 
 const Thecalendar = () => {
-  const { dataSelect, setDataSelect } = useContext(calanderDateSelect);
-  const { showPopUp, setShowPopUp } = useContext(calanderDateSelect);
-  const events = useState([]);
+  const {
+    dataSelect,
+    setDataSelect,
+    showPopUp,
+    setShowPopUp,
+    savedEvents,
+    setPassStart,
+    setPassEnd,
+    // reservations,
+    // setReservations,
+  } = useContext(GlobalContext);
+
+  // const [events, setEvents] = useState(savedEvents);
 
   const handleSelect = ({ start, end }) => {
     // const title = window.prompt('New Event name');
     setShowPopUp(true);
-    // if (title) {
-    //   setEvents([...events, { start, end, title }]);
+    setPassStart(start);
+    setPassEnd(end);
+
+    // const titles = savedEvents[46].title;
+
+    // if (savedEvents) {
+    //   setEvents([...events, { start, end, titles }]);
+    // }
+    // if (reservations) {
+    //   setReservations([...reservations, { start, end, reservations }]);
     // }
   };
   const minTime = moment().set({ hour: 7, minute: 30 }).toDate();
@@ -27,12 +45,31 @@ const Thecalendar = () => {
     setDataSelect(date);
   };
 
+  console.log(savedEvents);
+  // console.log(events);
+
+  // const getCustomEvents = () => {
+  //   // Logic to generate custom events array
+  //   const customEvents = savedEvents.map((event) => ({
+  //     start: event.start,
+  //     end: event.end,
+  //     title: event.title,
+  //   }));
+  //   return customEvents;
+  // };
+
+  const check = savedEvents.map((event) => ({
+    start: moment(event.start).toDate(),
+    end: moment(event.end).toDate(),
+    title: String(event.title),
+  }));
+
   return (
     <div className="the-calendar">
       {showPopUp && <PopUp />}
       <Calendar
         localizer={localizer}
-        events={events}
+        events={check}
         defaultView="week"
         views={['month', 'week', 'day', 'agenda']}
         min={minTime}
