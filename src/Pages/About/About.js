@@ -1,12 +1,11 @@
 import React from 'react';
 import './About.css';
-import Header from '../../Components/Header/Header';
-import { HeaderTitles } from '../../Components/Header/HeaderTitles';
+import HeaderNew from '../../Components/Header/HeaderNew';
 
 function CheckPlaces() {
   return (
     <div className="AboutBackground">
-      <Header content={HeaderTitles} />
+      <HeaderNew />
       <div className="AboutGlass">About us</div>
     </div>
   );
