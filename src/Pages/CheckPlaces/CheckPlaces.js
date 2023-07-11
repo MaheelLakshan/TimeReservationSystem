@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './CheckPlaces.css';
 import { Button } from 'reactstrap';
 import HeaderNew from '../../Components/Header/HeaderNew';
-// import { HeaderTitles } from '../../Components/Header/HeaderTitles';
+
 
 import img1 from '../../../src/Assets/img1.jpg';
 import img2 from '../../../src/Assets/img2.png';
@@ -13,8 +13,6 @@ import img6 from '../../../src/Assets/img6.jpg';
 import img7 from '../../../src/Assets/img7.jpg';
 import img8 from '../../../src/Assets/img8.jpg';
 
-
-
 function CheckPlaces() {
   const [selectedPlace, setSelectedPlace] = useState('');
   const [displayBox, setDisplayBox] = useState(false);
@@ -24,112 +22,69 @@ function CheckPlaces() {
     setDisplayBox(true);
   };
 
-  const renderInfoBox = () => {
-    switch (selectedPlace) {
-      case 'New Computer Center':
-        return (
-          <div className="InfoBox">
-            <div className="InfoImages">
-              <img src={img6} />
-              <img src={img3} />
-            </div>
-
-            <div className="InfoText">
-              <h3>Available Computers: 125</h3>
-              <h4>Available Softwares</h4>
-            </div>
-            <div className="infosoftwares">
-              <ul>Microsoft Office</ul>
-              <ul>Mathcad</ul>
-              <ul>Matlab</ul>
-              <ul>Python</ul>
-              <ul>Rhino</ul>
-              <ul>Microsoft Excel</ul>
-              
-            </div>
-          </div>
-        );
-      case 'Old Computer Center':
-        return (
-          <div className="InfoBox">
-            <div className="InfoImages">
-              <img src={img1} />
-              <img src={img2} />
-              <img src={img4} />
-            </div>
-
-            <div className="InfoText">
-              <h3>Available Computers: 70</h3>
-              <h4>Available Softwares</h4>
-            </div>
-            <div className="infosoftwares">
-              <ul>Microsoft Office</ul>
-              <ul>Mathcad</ul>
-              <ul>Matlab</ul>
-              <ul>Python</ul>
-              <ul>Rhino</ul>
-              <ul>Microsoft Excel</ul>
-            </div>
-          </div>
-        );
-      case 'Seminar Room':
-        return (
-          <div className="InfoBox">
-            <div className="InfoImages">
-              <img src={img8} />
-              <img src={img3} />
-            </div>
-
-            <div className="InfoText">
-              <h3>Seating capacity: 125</h3>
-            </div>
-            <div className="infoseminar">
-              <p>
-                Seminar Room which is equipped with audio and video facilities
-                and has a seating capacity of 125. Seminar Room is available for
-                other departments of the faculty.Reservation has to be made in
-                advance with the approval of the Head / Department of
-                Interdisciplinary Studies.
-              </p>
-            </div>
-          </div>
-        );
-      default:
-        return null;
-    }
-  };
-
   return (
-    <div className="CheckBackground">
+    <div className="CheckPlacesContainer">
       <HeaderNew />
-      <div className="CommonGlass">
-        <div className="ButtonRow">
-          <Button
-            className={`PlaceButtonfeatures ${
-              selectedPlace === 'New Computer Center' ? 'ActiveButtonfeatures' : ''
-            }`}
-            onClick={() => handlePlaceClick('New Computer Center')}
-          >
-            New Computer Center
-          </Button>
-          <Button
-            className={`PlaceButtonfeatures ${
-              selectedPlace === 'Old Computer Center' ? 'ActiveButtonfeatures' : ''
-            }`}
-            onClick={() => handlePlaceClick('Old Computer Center')}
-          >
-            Old Computer Center
-          </Button>
-          <Button
-            className={`PlaceButtonfeatures ${
-              selectedPlace === 'Seminar Room' ? 'ActiveButtonfeatures' : ''
-            }`}
-            onClick={() => handlePlaceClick('Seminar Room')}
-          >
-            Seminar Room
-          </Button>
+      <div className="CheckBackground">
+        <div className="CommonGlass">
+          <div className="BoxContainer">
+            <div className="PlaceBox">
+              <h3>New Computer Center</h3>
+              <div className="InfoImages">
+                <img src={img6} alt="Computer Center" />
+              </div>
+              <div className="InfoText">
+                <h3>Available Computers: 125</h3>
+                <h4>Available Software</h4>
+                <ul className="infosoftwares">
+                  <li>Microsoft Office</li>
+                  <li>Mathcad</li>
+                  <li>Matlab</li>
+                  <li>Python</li>
+                  <li>Rhino</li>
+                  <li>Microsoft Excel</li>
+                </ul>
+              </div><Button className="EditButton" color="primary">Edit as an Admin</Button>
+            </div>
+
+            <div className="PlaceBox">
+  <h3>Old Computer Center</h3>
+  <div className="InfoImages">
+    <img src={img4} alt="Computer Center" />
+  </div>
+  <div className="InfoText">
+    <h3>Available Computers: 70</h3>
+    <h4>Available Software</h4>
+    <ul className="infosoftwares">
+      <li>Microsoft Office</li>
+      <li>Mathcad</li>
+      <li>Matlab</li>
+      <li>Python</li>
+      <li>Rhino</li>
+      <li>Microsoft Excel</li>
+    </ul>
+  </div>
+  <Button className="EditButton" color="primary">Request a new software</Button>
+</div>
+
+
+            <div className="PlaceBox">
+              <h3>Seminar Room</h3>
+              <div className="InfoImages">
+                <img src={img8} alt="Seminar Room" />
+              </div>
+              <div className="InfoText">
+                <h3>Seating Capacity: 125</h3>
+                <div className="infoseminar">
+                  <p>
+                    Seminar Room is equipped with audio and video facilities and has a seating capacity of 125. It is available for other departments of the faculty. Reservation has to be made in advance with the approval of the Head/Department of Interdisciplinary Studies.
+                  </p>
+                </div>
+              </div>
+              <Button className="EditButton" color="primary">Request a new software</Button>
+            </div>
+          </div>
         </div>
-        {displayBox && renderInfoBox()}
       </div>
     </div>
   );
