@@ -1,24 +1,61 @@
-.AboutBackground {
-  /* padding: 0.5rem 3.5rem; */
-  color: var(--black);
-  background: linear-gradient(
-    106.37deg,
-    #42413e 29.63%,
-    #42413e 51.55%,
-    #42413e 90.85%
-  );
-  display: flex;
-  height: 100vh;
-  flex-direction: column;
-  align-items: center;
-  /* font-family: 'Inter', sans-serif; */
+body {
+  margin: 0;
+  padding: 0;
 }
 
-.AboutGlass {
-  display: grid;
-  width: 95vw;
-  background: var(--glass);
-  border-radius: 2rem;
-  gap: 16px;
+.AboutBackground {
+  background-color: #cae6f3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  height: 100vh;
+  
+  
+  text-align: center;
+}
+
+.TeamSection {
+  margin-bottom: 30px;
+  padding :50px;
+
+}
+
+
+
+
+.TeamTitle {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.TeamDescription {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.DeveloperPhotos {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
+
+.DeveloperPhoto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+
+.DeveloperName {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.DeveloperPhoto img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
