@@ -1,0 +1,83 @@
+.CheckPlacesContainer {
+  background-color: #cae6f3;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.CheckBackground {
+  flex: 1;
+}
+
+.CommonGlass {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.BoxContainer {
+  display: flex;
+}
+
+.PlaceBox {
+  width: 300px;
+  padding: 20px;
+  margin: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.PlaceBox:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.PlaceBox img {
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.PlaceBox h3 {
+  margin-top: 10px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.InfoImages {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.InfoImages img {
+  width: 200px;
+  height: auto;
+  margin-right: 8px;
+  border-radius: 8px;
+}
+
+.InfoText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.InfoText h3 {
+  margin-bottom: 8px;
+}
+
+.InfoText p {
+  margin-bottom: 4px;
+}
+
+.InfoText ul {
+  padding-left: 20px;
+}

@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 // import Compare from './Pages/HomePage/Home';
 import Home from './Pages/HomePage/Home';
-import Features from './Pages/CheckPlaces/Features';
+import Features from './Pages/FeaturesPage/Features';
 import About from './Pages/About/About';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
