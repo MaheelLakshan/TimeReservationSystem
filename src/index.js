@@ -4,6 +4,7 @@ import './index.css';
 import LoginPage from './Pages/LoginPage/LoginPage';
 import reportWebVitals from './reportWebVitals';
 
+import Compare from './Pages/ComparePage/Compare';
 import Home from './Pages/HomePage/Home';
 import CheckPlaces from './Pages/CheckPlaces/CheckPlaces';
 import About from './Pages/About/About';
@@ -17,6 +18,7 @@ root.render(
     <Routes>
       <Route path="/" element={<LoginPage />} />
       <Route path="/home" element={<Home />} />
+      <Route path="/compare" element={<Compare />} />
       <Route path="/checks" element={<CheckPlaces />} />
       <Route path="/about" element={<About />} />
     </Routes>

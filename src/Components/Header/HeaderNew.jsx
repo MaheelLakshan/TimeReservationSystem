@@ -26,10 +26,12 @@ import {
   UilClipboardAlt,
   UilUsersAlt,
   UilUser,
+  UilBalanceScale,
 } from '@iconscout/react-unicons';
 
 const pages = [
-  { icon: UilEstate, heading: 'HOME', where: '/home' },
+  { icon: UilEstate, heading: 'Home', where: '/home' },
+  { icon: UilBalanceScale, heading: 'Compare', where: '/compare' },
   { icon: UilClipboardAlt, heading: 'Features', where: '/checks' },
   { icon: UilUsersAlt, heading: 'About', where: '/about' },
 ];
