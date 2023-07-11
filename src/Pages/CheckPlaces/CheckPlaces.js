@@ -13,6 +13,8 @@ import img6 from '../../../src/Assets/img6.jpg';
 import img7 from '../../../src/Assets/img7.jpg';
 import img8 from '../../../src/Assets/img8.jpg';
 
+
+
 function CheckPlaces() {
   const [selectedPlace, setSelectedPlace] = useState('');
   const [displayBox, setDisplayBox] = useState(false);
@@ -39,14 +41,11 @@ function CheckPlaces() {
             <div className="infosoftwares">
               <ul>Microsoft Office</ul>
               <ul>Mathcad</ul>
-              <ul></ul>Matlab
-              <ul>Finite Element Analysis Software</ul>
-              <ul>Computer-Aided Design Software</ul>
+              <ul>Matlab</ul>
               <ul>Python</ul>
               <ul>Rhino</ul>
-              <ul>Visual Basic for Applications </ul>
               <ul>Microsoft Excel</ul>
-              <ul>ANSYS DesignSpace</ul>
+              
             </div>
           </div>
         );
@@ -66,14 +65,10 @@ function CheckPlaces() {
             <div className="infosoftwares">
               <ul>Microsoft Office</ul>
               <ul>Mathcad</ul>
-              <ul></ul>Matlab
-              <ul>Finite Element Analysis Software</ul>
-              <ul>Computer-Aided Design Software</ul>
+              <ul>Matlab</ul>
               <ul>Python</ul>
               <ul>Rhino</ul>
-              <ul>Visual Basic for Applications </ul>
               <ul>Microsoft Excel</ul>
-              <ul>ANSYS DesignSpace</ul>
             </div>
           </div>
         );
@@ -94,7 +89,7 @@ function CheckPlaces() {
                 and has a seating capacity of 125. Seminar Room is available for
                 other departments of the faculty.Reservation has to be made in
                 advance with the approval of the Head / Department of
-                Interdisciplinary Studies.git checkout dev
+                Interdisciplinary Studies.
               </p>
             </div>
           </div>
@@ -110,24 +105,24 @@ function CheckPlaces() {
       <div className="CommonGlass">
         <div className="ButtonRow">
           <Button
-            className={`PlaceButton ${
-              selectedPlace === 'New Computer Center' ? 'ActiveButton' : ''
+            className={`PlaceButtonfeatures ${
+              selectedPlace === 'New Computer Center' ? 'ActiveButtonfeatures' : ''
             }`}
             onClick={() => handlePlaceClick('New Computer Center')}
           >
             New Computer Center
           </Button>
           <Button
-            className={`PlaceButton ${
-              selectedPlace === 'Old Computer Center' ? 'ActiveButton' : ''
+            className={`PlaceButtonfeatures ${
+              selectedPlace === 'Old Computer Center' ? 'ActiveButtonfeatures' : ''
             }`}
             onClick={() => handlePlaceClick('Old Computer Center')}
           >
             Old Computer Center
           </Button>
           <Button
-            className={`PlaceButton ${
-              selectedPlace === 'Seminar Room' ? 'ActiveButton' : ''
+            className={`PlaceButtonfeatures ${
+              selectedPlace === 'Seminar Room' ? 'ActiveButtonfeatures' : ''
             }`}
             onClick={() => handlePlaceClick('Seminar Room')}
           >
