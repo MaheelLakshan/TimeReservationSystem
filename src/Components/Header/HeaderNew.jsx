@@ -30,7 +30,7 @@ import {
 
 const pages = [
   { icon: UilEstate, heading: 'HOME', where: '/home' },
-  { icon: UilClipboardAlt, heading: 'Check Places', where: '/checks' },
+  { icon: UilClipboardAlt, heading: 'Features', where: '/checks' },
   { icon: UilUsersAlt, heading: 'About', where: '/about' },
 ];
 const settings = ['Logout'];
@@ -78,7 +78,7 @@ function HeaderNew() {
 
   return (
     <AppBar position="static">
-      <Container maxWidth="xl" sx={{ background: '#07575B' }}>
+      <Container maxWidth="xl" sx={{ background: '#03a9f4' }}>
         <Toolbar disableGutters>
           <NavLink to="/home" style={{ textDecoration: 'none' }}>
             <Avatar
