@@ -80,9 +80,10 @@
 }
 
 .rbc-event {
-  background-color: #787978;
+  background-color: #249ea0;
   border-color: #a4f9c7;
-  margin-left: 5px;
+  width: 100%;
+  justify-content: center;
   z-index: 2;
 }
 .rbc-header {
@@ -99,18 +100,16 @@
 .the-calendar {
   position: relative;
   height: 98vh;
-  width: 99%;
-  background-color: #ffffcc;
-  border-radius: 15px;
+  width: 100%;
+  background-color: #ffffff;
   padding: 10px;
-
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .rbc-day-slot {
   background-color: rgba(255, 255, 255, 0.882);
   border-radius: 10px;
-  margin: 5px;
+  margin: 1px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 

@@ -4,7 +4,7 @@ import SlideBarCalender from '../SlideCalender/SlideBarCalender';
 
 function SideBar() {
   return (
-    <div className="FMenu">
+    <div>
       <div className="calback">
         <SlideBarCalender />
       </div>

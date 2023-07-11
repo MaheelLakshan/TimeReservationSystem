@@ -26,14 +26,14 @@
 
 .Glassy {
   display: grid;
-  width: 95vw;
+  width: 100%;
   height: 150vh;
   /* background: var(--glass); */
-  border-radius: 2rem;
+  /* border-radius: 2rem; */
   gap: 16px;
   padding-top: 3px;
   margin-bottom: 4px;
-  grid-template-columns: 300px auto;
+  /* grid-template-columns: 300px auto; */
   /* overflow-y: scroll; */
 }
 
@@ -59,12 +59,22 @@
   margin-top: 10px;
   display: flex;
   gap: 15%;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  width: 98vw;
 }
-.fiiltercolumn {
-  background: #6b6e70;
+.fiiltering {
+  background: #61a4ad;
+  display: grid;
+  width: 100%;
+  height: 150vh;
+  /* background: var(--glass); */
+  /* border-radius: 2rem; */
+  gap: 16px;
+  padding-top: 3px;
+  margin-bottom: 4px;
+  /* grid-template-columns: 300px auto; */
+  grid-template-columns: 560px repeat(3, 300px);
+  /* overflow-y: scroll; */
 }
 
 .filter {
@@ -139,6 +149,7 @@
 .filter-heading {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
   align-items: center;
 }
 

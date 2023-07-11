@@ -20,39 +20,49 @@ function Home() {
   return (
     <div className="background">
       <HeaderNew />
-
-      <div className="fiiltercolumn">
-        <div className="filter-heading">
-          <div className="filter-options">
-            {places.map((place) => (
-              <button
-                key={place}
-                className={`filter-option ${
-                  selectedPlace === place ? 'selected' : ''
-                }`}
-                onClick={() => handlePlaceChange(place)}
-              >
-                {place}
-              </button>
-            ))}
-          </div>
-          <div className="searchbar-container">
-            <div className="SearchBar">
-              <input
-                type="text"
-                placeholder="Search places"
-                className="searchcontainer"
-              />
-              <div className="searchicon" onClick={SearchClick}>
-                <FaSearch />
+      <ContextWrapper>
+        <div className="fiiltering">
+          <div>
+            <div className="searchbar-container">
+              <div className="SearchBar">
+                <input
+                  type="text"
+                  placeholder="Search places"
+                  className="searchcontainer"
+                />
+                <div className="searchicon" onClick={SearchClick}>
+                  <FaSearch />
+                </div>
+              </div>
+            </div>
+            <div className="filter-heading">
+              <div className="filter-options">
+                {places.map((place) => (
+                  <button
+                    key={place}
+                    className={`filter-option ${
+                      selectedPlace === place ? 'selected' : ''
+                    }`}
+                    onClick={() => handlePlaceChange(place)}
+                  >
+                    {place}
+                  </button>
+                ))}
               </div>
             </div>
           </div>
+          <div>
+            <SideBar />
+          </div>
+          <div>
+            <SideBar />
+          </div>
+          <div>
+            <SideBar />
+          </div>
         </div>
-      </div>
-      <ContextWrapper>
+
         <div className="Glassy">
-          <SideBar />
           <div>
             <TheCalendar />
           </div>

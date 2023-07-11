@@ -33,7 +33,7 @@ const pages = [
   { icon: UilClipboardAlt, heading: 'Check Places', where: '/checks' },
   { icon: UilUsersAlt, heading: 'About', where: '/about' },
 ];
-const settings = ['Profile', 'Setting', 'Logout'];
+const settings = ['Logout'];
 
 function HeaderNew() {
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -77,8 +77,8 @@ function HeaderNew() {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundColor: 'rgb(36, 34, 34);' }}>
-      <Container maxWidth="xl">
+    <AppBar position="static">
+      <Container maxWidth="xl" sx={{ background: '#07575B' }}>
         <Toolbar disableGutters>
           <NavLink to="/home" style={{ textDecoration: 'none' }}>
             <Avatar
