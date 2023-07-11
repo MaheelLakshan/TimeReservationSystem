@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './CheckPlaces.css';
+import './Features.css';
 import { Button } from 'reactstrap';
 import HeaderNew from '../../Components/Header/HeaderNew';
 // import { HeaderTitles } from '../../Components/Header/HeaderTitles';
@@ -13,9 +13,7 @@ import img6 from '../../../src/Assets/img6.jpg';
 import img7 from '../../../src/Assets/img7.jpg';
 import img8 from '../../../src/Assets/img8.jpg';
 
-
-
-function CheckPlaces() {
+function Features() {
   const [selectedPlace, setSelectedPlace] = useState('');
   const [displayBox, setDisplayBox] = useState(false);
 
@@ -45,7 +43,6 @@ function CheckPlaces() {
               <ul>Python</ul>
               <ul>Rhino</ul>
               <ul>Microsoft Excel</ul>
-              
             </div>
           </div>
         );
@@ -106,7 +103,9 @@ function CheckPlaces() {
         <div className="ButtonRow">
           <Button
             className={`PlaceButtonfeatures ${
-              selectedPlace === 'New Computer Center' ? 'ActiveButtonfeatures' : ''
+              selectedPlace === 'New Computer Center'
+                ? 'ActiveButtonfeatures'
+                : ''
             }`}
             onClick={() => handlePlaceClick('New Computer Center')}
           >
@@ -114,7 +113,9 @@ function CheckPlaces() {
           </Button>
           <Button
             className={`PlaceButtonfeatures ${
-              selectedPlace === 'Old Computer Center' ? 'ActiveButtonfeatures' : ''
+              selectedPlace === 'Old Computer Center'
+                ? 'ActiveButtonfeatures'
+                : ''
             }`}
             onClick={() => handlePlaceClick('Old Computer Center')}
           >
@@ -129,10 +130,25 @@ function CheckPlaces() {
             Seminar Room
           </Button>
         </div>
+        {!selectedPlace && (
+          <div>
+            <h4
+              style={{
+                fontSize: '12px',
+                textTransform: 'uppercase',
+                letterSpacing: '1px',
+                color: '#888',
+                alignItems: 'center',
+              }}
+            >
+              Select a place to view available features
+            </h4>
+          </div>
+        )}
         {displayBox && renderInfoBox()}
       </div>
     </div>
   );
 }
 
-export default CheckPlaces;
+export default Features;

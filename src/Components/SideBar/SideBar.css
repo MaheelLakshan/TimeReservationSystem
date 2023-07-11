@@ -1,15 +1,15 @@
-.FMenu {
+/* .FMenu {
   /* padding-top: 1rem; */
-  display: flex;
+/* display: flex;
   flex-direction: column;
   height: 100%;
   width: 100%;
   /* border: solid 4px #6f5656; */
-  border-radius: 15px;
+/* border-radius: 15px;
   background-color: rgb(54, 61, 61);
   padding-top: 35px;
   /* justify-content: space-evenly;  */
-  align-items: center;
+/* align-items: center;
 }
 .calback {
   height: 350px;
@@ -19,9 +19,9 @@
   margin-bottom: 40px;
   border-radius: 10px;
   color: rgb(188, 77, 77);
-  background-color: #d9e9e6;
-  /* rgba(223, 219, 4, 0.834) */
-}
+  background-color: #d9e9e6; */
+/* rgba(223, 219, 4, 0.834) */
+/* } */
 
 /* .alli {
   display: flex;

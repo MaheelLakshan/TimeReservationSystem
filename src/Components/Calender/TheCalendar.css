@@ -137,7 +137,8 @@
   background-color: #249ea0;
 }
 
-/* .rbc-toolbar-label {
-  color: aqua;
-  /* Your custom styles here */
-/* } */
+.rbc-toolbar-label {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: medium;
+}

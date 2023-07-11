@@ -4,9 +4,9 @@ import './index.css';
 import LoginPage from './Pages/LoginPage/LoginPage';
 import reportWebVitals from './reportWebVitals';
 
-import Compare from './Pages/ComparePage/Compare';
+// import Compare from './Pages/HomePage/Home';
 import Home from './Pages/HomePage/Home';
-import CheckPlaces from './Pages/CheckPlaces/CheckPlaces';
+import Features from './Pages/CheckPlaces/Features';
 import About from './Pages/About/About';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -18,8 +18,8 @@ root.render(
     <Routes>
       <Route path="/" element={<LoginPage />} />
       <Route path="/home" element={<Home />} />
-      <Route path="/compare" element={<Compare />} />
-      <Route path="/checks" element={<CheckPlaces />} />
+      {/* <Route path="/compare" element={<Compare />} /> */}
+      <Route path="/features" element={<Features />} />
       <Route path="/about" element={<About />} />
     </Routes>
   </Router>
