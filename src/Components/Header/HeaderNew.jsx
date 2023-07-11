@@ -233,9 +233,19 @@ function HeaderNew() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
+              {settings.map((setting, index) => (
+                // <MenuItem key={setting} onClick={handleLogout}>
+                //   <Typography textAlign="center">{setting}</Typography>
+                // </MenuItem>
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <NavLink
+                    to="/"
+                    key={index}
+                    // className="menuItem"
+                    // activeClassName="active"
+                  >
+                    <Typography textAlign="center">{setting}</Typography>
+                  </NavLink>
                 </MenuItem>
               ))}
             </Menu>

@@ -1,15 +1,19 @@
 import './Home.css';
-
 import TheCalendar from '../../Components/Calender/Thecalendar';
 import HeaderNew from '../../Components/Header/HeaderNew';
 import React, { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import ContextWrapper from '../../context/ContextWrapper';
 import SlideBarCalender from '../../Components/SlideCalender/SlideBarCalender';
+import { subMonths, addMonths } from 'date-fns';
 
 function Home() {
   const [selectedPlace, setSelectedPlace] = useState('Old Computer Center');
   const places = ['Old Computer Center', 'New Computer Center', 'Seminar Room'];
+
+  const today = new Date();
+  const prevMonth = subMonths(today, 1);
+  const nextMonth = addMonths(today, 1);
 
   const handlePlaceChange = (place) => {
     setSelectedPlace(place);
@@ -58,13 +62,13 @@ function Home() {
             </div>
           </div>
           <div>
-            <SlideBarCalender />
+            <SlideBarCalender defaultValue={prevMonth} />
           </div>
           <div>
-            <SlideBarCalender />
+            <SlideBarCalender defaultValue={today} />
           </div>
           <div>
-            <SlideBarCalender />
+            <SlideBarCalender defaultValue={nextMonth} />
           </div>
         </div>
 

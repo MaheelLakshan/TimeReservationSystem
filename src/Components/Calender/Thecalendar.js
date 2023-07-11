@@ -45,7 +45,7 @@ const Thecalendar = () => {
     setDataSelect(date);
   };
 
-  console.log(savedEvents);
+  // console.log(savedEvents);
   // console.log(events);
 
   // const getCustomEvents = () => {
