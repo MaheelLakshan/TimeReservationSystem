@@ -1,3 +1,31 @@
+Reservation System for Interdisciplinary Studies Department
+Undergraduate Software Project for the 3rd Year
+Faculty of Engineering, University of Ruhuna
+
+Description:
+This GitHub repository contains the source code and documentation for a Reservation System developed as an Undergraduate Software Project for the 3rd year at the Faculty of Engineering, University of Ruhuna. The system is specifically designed for the Interdisciplinary Studies Department to streamline the reservation process and efficiently manage resources.
+
+Features:
+
+1. Reservation Management: The system provides a user-friendly interface for creating, editing, and deleting reservations for various resources within the Interdisciplinary Studies Department. Users can specify the date, time, and duration of the reservation, as well as any additional requirements or special instructions.
+
+2. Resource Tracking: The system allows administrators to maintain a comprehensive inventory of resources available for reservation. Users can view the availability and details of each resource before making a reservation.
+
+3. User Authentication and Access Control: The system employs a secure authentication mechanism to ensure that only authorized users can create and manage reservations. Different user roles and permissions are implemented to control access to specific functionalities within the system.
+
+4. Notifications: The system incorporates email or SMS notifications to keep users informed about reservation updates, reminders, and any changes to their reservations. This helps to minimize conflicts and improve communication between users and administrators.
+
+5. Reporting and Analytics: The system generates reports and analytics to provide valuable insights into reservation patterns, resource utilization, and other relevant metrics. This information can assist in decision-making and optimizing the allocation of resources.
+
+Group Members:
+
+- [Maheel Lakshan](https://github.com/MaheelLakshan): Responsible for frontend development and Project Management.
+- [Anupama Morapitiya](https://github.com/anupamavm): Responsible for backend development and database management.
+- [Chandima Jeewantha](https://github.com/Chandima313): Responsible for UI/UX Design and Documentation.
+- [Sachini Ranaweera](https://github.com/ranaweerasc65): Responsible for Frontend Design And development.
+
+Feel free to explore the repository to learn more about the Reservation System developed by our team. We welcome contributions, suggestions, and bug reports from the community to enhance the functionality and usability of the system.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
