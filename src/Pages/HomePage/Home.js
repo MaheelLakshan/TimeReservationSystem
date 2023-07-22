@@ -32,7 +32,7 @@ function Home() {
       <HeaderNew />
       <ContextWrapper>
         <div className="fiiltering">
-          <div>
+          <div className="places">
             <div className="searchbar-container">
               <div className="SearchBar">
                 <input
@@ -61,14 +61,18 @@ function Home() {
               </div>
             </div>
           </div>
-          <div>
-            <SlideBarCalender defaultValue={prevMonth} />
-          </div>
-          <div>
-            <SlideBarCalender defaultValue={today} />
-          </div>
-          <div>
-            <SlideBarCalender defaultValue={nextMonth} />
+          <div className="allcalender">
+            <div className="calanderprev">
+              <SlideBarCalender defaultValue={prevMonth} />
+            </div>
+            <div className="bothcalender">
+              <div className="calandercurr">
+                <SlideBarCalender defaultValue={today} />
+              </div>
+              <div className="calandernext">
+                <SlideBarCalender defaultValue={nextMonth} />
+              </div>
+            </div>
           </div>
         </div>
 

@@ -142,3 +142,6 @@
   font-weight: 700;
   font-size: medium;
 }
+
+@media (max-width: 768px) {
+}

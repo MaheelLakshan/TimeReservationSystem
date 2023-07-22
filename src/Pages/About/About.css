@@ -8,17 +8,15 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+
   height: 100vh;
-  
-  
+
   text-align: center;
 }
 
 .TeamSection {
   margin-bottom: 30px;
-  padding :50px;
-
+  padding: 50px;
 }
 
 .DeveloperModalImage {
@@ -26,7 +24,6 @@ body {
   height: auto;
   border-radius: 8px;
 }
-
 
 .TeamTitle {
   font-size: 24px;
@@ -63,8 +60,6 @@ body {
   border-radius: 50%;
 }
 
-
-
 .DeveloperModal {
   position: absolute;
   top: 50%;
@@ -96,4 +91,10 @@ body {
 
 .CloseButton:hover {
   background-color: #24aae9;
+}
+
+@media (max-width: 768px) {
+  .AboutBackground {
+    height: 100%;
+  }
 }

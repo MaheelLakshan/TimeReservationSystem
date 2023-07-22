@@ -40,19 +40,6 @@ const settings = ['Logout'];
 function HeaderNew() {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
-  const [showNotification, setShowNotification] = useState(false);
-  const [showLogout, setShowLogout] = useState(false);
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
-  const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleMobileMenuOpen = (event) => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
-
-  const menuId = 'primary-search-account-menu';
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -68,14 +55,6 @@ function HeaderNew() {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
-  };
-
-  const toggleNotification = () => {
-    setShowNotification(!showNotification);
-  };
-
-  const toggleLogout = () => {
-    setShowLogout(!showLogout);
   };
 
   return (
@@ -138,24 +117,7 @@ function HeaderNew() {
               ))}
             </Menu>
           </Box>
-          {/* this is after shorten the length of the header this is the middle of header <Typography
-            variant="h5"
-            noWrap
-            component={NavLink}
-            to="/"
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            LOGO
-          </Typography> */}
+
           <Box
             sx={{
               flexGrow: 1,
@@ -234,80 +196,14 @@ function HeaderNew() {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting, index) => (
-                // <MenuItem key={setting} onClick={handleLogout}>
-                //   <Typography textAlign="center">{setting}</Typography>
-                // </MenuItem>
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <NavLink
-                    to="/"
-                    key={index}
-                    // className="menuItem"
-                    // activeClassName="active"
-                  >
+                  <NavLink to="/" key={index}>
                     <Typography textAlign="center">{setting}</Typography>
                   </NavLink>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-
-          {/* 
-          <Box sx={{ flexGrow: 0, mr: 2 }}>
-            <Tooltip title="Notifications">
-              <IconButton color="inherit" onClick={toggleNotification}>
-                <NotificationsIcon />
-              </IconButton>
-            </Tooltip>
-            {showNotification && (
-              <div className="notification-window">
-                <div className="notification-header">
-                  <h3>Notifications</h3>
-                  <button onClick={toggleNotification}>
-                    <MdClose className="close" />
-                  </button>
-                </div>
-                <ul>
-                  <li>Notification 1</li>
-                  <li>Notification 2</li>
-                  <li>Notification 3</li>
-                </ul>
-              </div>
-            )}
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Profile" src={profilePic} />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {pages.map((setting, index) => (
-                <MenuItem key={index} onClick={handleCloseUserMenu}>
-                  <NavLink
-                    to={setting.where}
-                    key={index}
-                    className="menuItem"
-                    activeClassName="active"
-                  >
-                    {setting.heading}
-                  </NavLink>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box> */}
         </Toolbar>
       </Container>
     </AppBar>
