@@ -26,11 +26,15 @@ mongoose
   })
   .catch((e) => console.log(e));
 
-require('./userDetails.js');
+require('./Models/userDetails.js');
+require('./Models/requestedUsers.js');
 require('./imageDetails');
 
 const User = mongoose.model('UserInfo');
+// const RequestedUsers = mongoose.model('requestedUsers');
+
 const Images = mongoose.model('ImageDetails');
+
 app.post('/register', async (req, res) => {
   const { userName, email, password, userType } = req.body;
 
@@ -45,12 +49,43 @@ app.post('/register', async (req, res) => {
       userName,
       email,
       password: encryptedPassword,
+      permission: false,
       userType,
     });
 
     res.send({ status: 'ok' });
   } catch (error) {
     res.send({ status: 'error' });
+  }
+});
+app.post('/addUser', async (req, res) => {
+  try {
+    const newUser = new User(req.body);
+    await newUser.save();
+    res.send({ status: 'ok', message: 'User added successfully!' });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ status: 'error', message: 'Failed to add user.' });
+  }
+});
+
+app.post('/updatePermission', async (req, res) => {
+  const { id, permission } = req.body;
+  try {
+    const updatedUser = await User.findByIdAndUpdate(
+      id,
+      { permission },
+      { new: true }
+    );
+    if (!updatedUser) {
+      return res
+        .status(404)
+        .send({ status: 'error', message: 'User not found' });
+    }
+    res.send({ status: 'ok', data: updatedUser });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({ status: 'error', message: 'Internal server error' });
   }
 });
 

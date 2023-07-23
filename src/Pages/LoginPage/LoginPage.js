@@ -78,7 +78,14 @@ function LoginPage() {
         console.log('Login successful');
 
         setState(response.data.data.userType);
-        setLogin(true);
+        if (
+          response.data.data.permission ||
+          response.data.data.userType == 'Admin'
+        ) {
+          setLogin(true);
+        } else {
+          alert('Permission is not given by the Admin yet');
+        }
 
         // Redirect or do whatever you need for a successful login
       } else {
@@ -216,7 +223,7 @@ function LoginPage() {
               state === 'User' ? (
                 <Navigate to="/home" />
               ) : state === 'Admin' ? (
-                <Navigate to="/admin" />
+                <Navigate to="/admin-calander" />
               ) : (
                 alert('User type is wrong')
               )

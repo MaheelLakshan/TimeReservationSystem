@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import './Features.css';
+import './AdminFacilityPage.css';
 import { Button } from 'reactstrap';
-import HeaderNew from '../../Components/Header/HeaderNew';
+import AdminHeader from '../../../Components/AdminHeader/AdminHeaderNew';
 
-import img1 from '../../../src/Assets/img1.jpg';
-import img2 from '../../../src/Assets/img2.png';
-import img3 from '../../../src/Assets/img3.png';
-import img4 from '../../../src/Assets/img4.png';
-import img5 from '../../../src/Assets/img5.png';
-import img6 from '../../../src/Assets/img6.jpg';
-import img7 from '../../../src/Assets/img7.jpg';
-import img8 from '../../../src/Assets/img8.jpg';
+// import img1 from '../../../Assets/img1.jpg';
+// import img2 from '../../../Assets/img2.png';
+// import img3 from '../../../Assets/img3.png';
+import img6 from '../../../Assets/img6.jpg';
+import img4 from '../../../Assets/img4.png';
+// import img5 from '../../../Assets/img5.png';
+// import img7 from '../../../Assets/img7.jpg';
+import img8 from '../../../Assets/img8.jpg';
 
-function Features() {
+function AdminFacilityPage() {
   const [selectedPlace, setSelectedPlace] = useState('');
   const [displayBox, setDisplayBox] = useState(false);
 
@@ -23,7 +23,7 @@ function Features() {
 
   return (
     <div className="CheckPlacesContainer">
-      <HeaderNew />
+      <AdminHeader />
       <div className="CheckBackground">
         <div className="CommonGlass">
           <div className="BoxContainer">
@@ -99,4 +99,4 @@ function Features() {
   );
 }
 
-export default Features;
+export default AdminFacilityPage;

@@ -1,0 +1,45 @@
+/* AdminUserDetails.css */
+
+/* Styling for the table container */
+.Box {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Styling for the "Add record" button */
+.MuiButton-root {
+  margin-top: 16px;
+}
+
+/* Styling for the table header cells */
+.header-cell {
+  font-weight: bold;
+  background-color: #f0f0f0;
+}
+
+/* Styling for the table rows */
+.granted-row {
+  background-color: #ccffcc; /* Light green background for rows with granted permission */
+}
+
+.not-granted-row {
+  background-color: #ffcccc; /* Light red background for rows with not granted permission */
+}
+
+/* Styling for the "Save" and "Cancel" buttons in edit mode */
+.save-button,
+.cancel-button {
+  margin-right: 4px;
+}
+
+/* Styling for the "Edit" and "Delete" buttons in view mode */
+.edit-button,
+.delete-button {
+  margin-right: 4px;
+}
+
+/* Styling for the "Permission" select field */
+.MuiFormControl-root {
+  width: 150px;
+  margin: 0;
+}

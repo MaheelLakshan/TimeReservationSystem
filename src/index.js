@@ -5,10 +5,16 @@ import LoginPage from './Pages/LoginPage/LoginPage';
 import reportWebVitals from './reportWebVitals';
 
 // import Compare from './Pages/HomePage/Home';
-import Home from './Pages/HomePage/Home';
-import Features from './Pages/FeaturesPage/Features';
-import About from './Pages/About/About';
+import Home from './Pages/Users/HomePage/Home';
+import Facility from './Pages/Users/FacilitiesPage/Facility';
+import About from './Pages/Users/About/About';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+//import admin pages
+import UserDetails from './Pages/Admin/AdminUserDetails/AdminUserDetails';
+import AdminCalender from './Pages/Admin/AdminCalender/AdminCalender';
+import AdminFacilityPage from './Pages/Admin/AdminFacilityPage/AdminFacilityPage';
+import AdminAbout from './Pages/Admin/AdminAbout/AdminAbout';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -19,8 +25,13 @@ root.render(
       <Route path="/" element={<LoginPage />} />
       <Route path="/home" element={<Home />} />
       {/* <Route path="/compare" element={<Compare />} /> */}
-      <Route path="/features" element={<Features />} />
+      <Route path="/facility" element={<Facility />} />
       <Route path="/about" element={<About />} />
+
+      <Route path="/admin-userdetails" element={<UserDetails />} />
+      <Route path="/admin-calander" element={<AdminCalender />} />
+      <Route path="/admin-facility" element={<AdminFacilityPage />} />
+      <Route path="/admin-about" element={<AdminAbout />} />
     </Routes>
   </Router>
 );

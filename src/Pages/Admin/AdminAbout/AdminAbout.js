@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import './About.css';
-import HeaderNew from '../../Components/Header/HeaderNew';
+import './AdminAbout.css';
+import AdminHeader from '../../../Components/AdminHeader/AdminHeaderNew';
 import Modal from 'react-modal';
 
-import maheelImage from '../../Assets/maheel.jpg';
-import anupamaImage from '../../Assets/anupama.jpg';
-import jeewanthaImage from '../../Assets/jeewantha.jpg';
-import sachiniImage from '../../Assets/sachini.jpg';
+import maheelImage from '../../../Assets/maheel.jpg';
+import anupamaImage from '../../../Assets/anupama.jpg';
+import jeewanthaImage from '../../../Assets/jeewantha.jpg';
+import sachiniImage from '../../../Assets/sachini.jpg';
 
 function About() {
   const [selectedDeveloper, setSelectedDeveloper] = useState(null);
@@ -48,7 +48,7 @@ function About() {
 
   return (
     <div className="AboutBackground">
-      <HeaderNew />
+      <AdminHeader />
 
       <div className="TeamSection">
         <h2 className="TeamTitle">

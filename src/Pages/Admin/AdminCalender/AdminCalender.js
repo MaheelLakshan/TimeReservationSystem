@@ -1,13 +1,13 @@
-import './Home.css';
-import TheCalendar from '../../Components/Calender/Thecalendar';
-import HeaderNew from '../../Components/Header/HeaderNew';
+import './AdminCalender.css';
+import TheCalendar from '../../../Components/Calender/Thecalendar';
+import AdminHeader from '../../../Components/AdminHeader/AdminHeaderNew';
 import React, { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
-import ContextWrapper from '../../context/ContextWrapper';
-import SlideBarCalender from '../../Components/SlideCalender/SlideBarCalender';
+import ContextWrapper from '../../../context/ContextWrapper';
+import SlideBarCalender from '../../../Components/SlideCalender/SlideBarCalender';
 import { subMonths, addMonths } from 'date-fns';
 
-function Home() {
+function AdminCalender() {
   const [selectedPlace, setSelectedPlace] = useState('Old Computer Center');
   const places = ['Old Computer Center', 'New Computer Center', 'Seminar Room'];
 
@@ -29,7 +29,7 @@ function Home() {
 
   return (
     <div className="background">
-      <HeaderNew />
+      <AdminHeader />
       <ContextWrapper>
         <div className="fiiltering">
           <div className="places">
@@ -86,4 +86,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default AdminCalender;

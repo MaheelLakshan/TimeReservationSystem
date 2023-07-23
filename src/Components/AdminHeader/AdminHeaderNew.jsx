@@ -19,25 +19,31 @@ import { NavLink } from 'react-router-dom';
 import profilePic from '../../Assets/logo512.png';
 import Logo from '../../Assets/TimeReservationLogo2.jpg';
 // import { MdClose } from 'react-icons/md';
-import './Header.css';
+import './AdminHeader.css';
 
 import {
-  UilEstate,
+  // UilEstate,
   UilClipboardAlt,
   UilUsersAlt,
+  UilCalender,
   // UilUser,
   // UilBalanceScale,
 } from '@iconscout/react-unicons';
 
 const pages = [
-  { icon: UilEstate, heading: 'Home', where: '/home' },
+  { icon: UilCalender, heading: 'Calender', where: '/admin-calander' },
+  {
+    icon: UilClipboardAlt,
+    heading: 'User Details',
+    where: '/admin-userdetails',
+  },
   // { icon: UilBalanceScale, heading: 'Compare', where: '/compare' },
-  { icon: UilClipboardAlt, heading: 'Facility', where: '/facility' },
-  { icon: UilUsersAlt, heading: 'About', where: '/about' },
+  { icon: UilClipboardAlt, heading: 'Facility', where: '/admin-facility' },
+  { icon: UilUsersAlt, heading: 'About', where: '/admin-about' },
 ];
 const settings = ['Logout'];
 
-function HeaderNew() {
+function AdminHeaderNew() {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -61,7 +67,7 @@ function HeaderNew() {
     <AppBar position="static">
       <Container maxWidth="xl" sx={{ background: '#03a9f4' }}>
         <Toolbar disableGutters>
-          <NavLink to="/home" style={{ textDecoration: 'none' }}>
+          <NavLink to="/admin-calander" style={{ textDecoration: 'none' }}>
             <Avatar
               alt="Logo"
               src={Logo}
@@ -210,4 +216,4 @@ function HeaderNew() {
   );
 }
 
-export default HeaderNew;
+export default AdminHeaderNew;

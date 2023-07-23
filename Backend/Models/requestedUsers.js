@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const UserDetailsScehma = new mongoose.Schema(
+const RequestedUserDetailsScehma = new mongoose.Schema(
   {
     userName: String,
     email: { type: String, unique: true },
@@ -8,8 +8,8 @@ const UserDetailsScehma = new mongoose.Schema(
     userType: String,
   },
   {
-    collection: 'UserInfo',
+    collection: 'requestedUsers',
   }
 );
 
-mongoose.model('UserInfo', UserDetailsScehma);
+mongoose.model('requestedUsers', RequestedUserDetailsScehma);
