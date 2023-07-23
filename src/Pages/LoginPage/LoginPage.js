@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import axios from 'axios'; // Import Axios library
+import { Link, NavLink, Navigate } from 'react-router-dom';
 import './LoginPage.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -8,16 +10,27 @@ import {
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
-import { Link, NavLink } from 'react-router-dom';
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Button,
+} from '@mui/material';
+import { CheckCircleOutline } from '@mui/icons-material';
 
 function LoginPage() {
-  // const [signUpClassName, setSignUpClassName] = useState('container');
-  // const [logInClassName, setLogInClassName] = useState('container');
   const [toggleClassName, setToggleClassName] = useState('container');
-
-  // const handlerloginto = () => {
-  //   // <NavLink to="/newcc"></NavLink>; this is not work
-  // };
+  const [userType, setUsertype] = useState('');
+  const [secretKey, setSecretKey] = useState('');
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [state, setState] = useState(false);
+  const [openDialogLogin, setOpenDialogLogin] = useState(false);
+  const [openDialog, setOpenDialog] = useState(false);
+  const [signupSuccess, setSignupSuccess] = useState(false);
+  const [emptyFields, setEmptyFields] = useState([]);
 
   const handleLogIn = () => {
     setToggleClassName('container log-in-mode');
@@ -26,38 +39,174 @@ function LoginPage() {
   const handleSignUp = () => {
     setToggleClassName('container sign-up-mode');
   };
-
-  const handlerLogIn = () => {
-    setToggleClassName('container sign-up-mode2');
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  };
+  const handleLogCloseDialog = () => {
+    setOpenDialogLogin(false);
+  };
+  const handleSignupCloseDialog = () => {
+    setOpenDialog(false);
+    setSignupSuccess(false);
+    if (signupSuccess) {
+      handleRefresh();
+    }
+  };
+  const handleRefresh = () => {
+    window.location.reload(); // Reload the page
   };
 
-  const handlerSignup = () => {
-    setToggleClassName('container sign-up-mode2');
+  const handleLoginSubmit = async (event) => {
+    event.preventDefault();
+    // const formData = new FormData(event.target);
+    // const data = {
+    //   username: formData.get('username'),
+    //   password: formData.get('password'),
+    // };
+    const data = {
+      userName: userName,
+      password: password,
+    };
+    try {
+      const response = await axios.post(
+        'http://localhost:5000/login-user', // Change the URL to match your backend route for login
+        data
+      );
+      if (response.data.status === 'ok') {
+        console.log('Login successful');
+        setState(true);
+
+        // Redirect or do whatever you need for a successful login
+      } else {
+        setOpenDialogLogin(true);
+        console.error('Invalid credentials');
+      }
+    } catch (error) {
+      console.error('Error occurred:', error);
+    }
   };
 
-  // const login = useState('');
-  // const signup = useState('');
+  const handleSignupSubmit = async (event) => {
+    const fieldsToCheck = {
+      userName: userName,
+      password: password,
+      email: email,
+      userType: userType,
+    };
+    const emptyFieldsArray = Object.entries(fieldsToCheck)
+      .filter(([_, value]) => !value.trim())
+      .map(([field]) => field);
+
+    if (emptyFieldsArray.length > 0) {
+      setEmptyFields(emptyFieldsArray);
+      setOpenDialog(true);
+      event.preventDefault();
+    } else {
+      if (userType == 'Admin' && secretKey != 'timeReservation') {
+        event.preventDefault();
+        alert('INVALID ADMIN');
+      } else {
+        event.preventDefault();
+        const data = {
+          userName: userName,
+          password: password,
+          email: email,
+          userType: userType,
+        };
+
+        try {
+          const response = await axios.post(
+            'http://localhost:5000/register', // Change the URL to match your backend route for signup
+            data
+          );
+          if (response.data.status === 'ok') {
+            console.log('Signup successful');
+            setSignupSuccess(true); // Set the signup success status to true to trigger the dialog
+            setOpenDialog(true);
+            // Redirect or do whatever you need for a successful signup
+          } else {
+            console.error('Failed to create user');
+          }
+        } catch (error) {
+          console.error('Error occurred:', error);
+        }
+      }
+    }
+  };
+
   return (
     <div className="loginbody">
+      {/* login credential */}
+      <Dialog open={openDialogLogin} onClose={handleLogCloseDialog}>
+        <DialogTitle>Error</DialogTitle>
+        <DialogContent>
+          Invalid credentials. Please check your username and password.
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleLogCloseDialog} color="primary" autoFocus>
+            OK
+          </Button>
+        </DialogActions>
+      </Dialog>
+      {/* signup status dialog */}
+      <Dialog open={openDialog} onClose={handleCloseDialog}>
+        <DialogTitle>
+          {signupSuccess ? 'Signup Successful' : 'Missing Information'}
+        </DialogTitle>
+        <DialogContent>
+          {signupSuccess ? (
+            <div>
+              <CheckCircleOutline
+                color="success"
+                sx={{ fontSize: 40, marginRight: 10 }}
+              />
+              Signup was successful! You can now login with your credentials.
+            </div>
+          ) : (
+            <div>
+              Please enter the following details:{' '}
+              <strong>{emptyFields.join(', ')}</strong>
+            </div>
+          )}
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleSignupCloseDialog} color="primary" autoFocus>
+            OK
+          </Button>
+        </DialogActions>
+      </Dialog>
       <div className={toggleClassName}>
         <div className="signin-signup">
-          <form action="" className="log-in-form">
+          <form action="" className="log-in-form" onSubmit={handleLoginSubmit}>
             <div className="title">RESERVE SLOTS</div>
             <div className="input-field">
               <FontAwesomeIcon icon={faUser} className="lll" />
-              <input type="text" className="mytext" placeholder="Username" />
+              <input
+                type="text"
+                className="mytext"
+                placeholder="Username"
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
+              />
             </div>
             <div className="input-field">
               <FontAwesomeIcon icon={faLock} className="lll" />
-              <input type="password" placeholder="Password" />
+              <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </div>
             {/* <input type="submit" value={login} className="btn" /> */}
             {/* <button className="btn" onClick={handlerloginto}>
             Log IN
           </button> */}
-            <NavLink to="/home">
+            {/* <NavLink to="/home">
               <button className="btnn">Log IN</button>
-            </NavLink>
+            </NavLink> */}
+            <button className="btnn">Log IN</button>
+            {state && <Navigate to="/home" />}
             <p className="social-text">OR sign in with social platform</p>
             <div className="social-media">
               <Link href="#" className="social-icon">
@@ -73,26 +222,83 @@ function LoginPage() {
             <div className="accout-text">
               Do not have an Account?{' '}
               <div style={{ justifyContent: 'center', display: 'flex' }}>
-                <a href="#" id="sign-up-btn2" onClick={handlerSignup}>
+                <a href="#" id="sign-up-btn2" onClick={handleSignUp}>
                   Sign Up
                 </a>
               </div>
             </div>
           </form>
 
-          <form action="" className="sign-up-form">
+          <form
+            action=""
+            className="sign-up-form"
+            onSubmit={handleSignupSubmit}
+          >
             <div className="title">SIGN UP</div>
+            <div className="input-user-type ">
+              {/* <FontAwesomeIcon icon={faUser} className="lll" /> */}
+              Register AS
+              <input
+                type="radio"
+                className="mytext"
+                name="userType"
+                value="User"
+                onChange={(e) => setUsertype(e.target.value)}
+              />
+              User
+              <input
+                type="radio"
+                className="mytext"
+                name="userType"
+                value="Admin"
+                onChange={(e) => setUsertype(e.target.value)}
+              />
+              Admin
+            </div>
+
+            <div>
+              {userType == 'Admin' ? (
+                <div style={{ marginTop: '10px' }}>
+                  <label style={{ fontWeight: 'bold' }}>Secret Key</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Secret Key"
+                    value={secretKey}
+                    onChange={(e) => setSecretKey(e.target.value)}
+                  />
+                </div>
+              ) : null}
+            </div>
+
             <div className="input-field">
               <FontAwesomeIcon icon={faUser} className="lll" />
-              <input type="text" className="mytext" placeholder="Username" />
+              <input
+                type="text"
+                className="mytext"
+                placeholder="userName"
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
+              />
             </div>
             <div className="input-field">
               <FontAwesomeIcon icon={faLock} className="lll" />
-              <input type="password" placeholder="Password" />
+              <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </div>
             <div className="input-field">
               <FontAwesomeIcon icon={faEnvelope} className="lll" />
-              <input type="text" className="mytext" placeholder="Email" />
+              <input
+                type="text"
+                className="mytext"
+                placeholder="Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
             {/* <input type="submit" value={signup} className="btn" /> */}
             <input type="submit" className="btnn" />
@@ -111,7 +317,7 @@ function LoginPage() {
             <div className="accout-text">
               Already have an Account?{' '}
               <div style={{ justifyContent: 'center', display: 'flex' }}>
-                <a href="/" id="log-in-btn2" onClick={handlerLogIn}>
+                <a href="/" id="log-in-btn2" onClick={handleLogIn}>
                   Log In
                 </a>
               </div>
