@@ -59,7 +59,7 @@ app.post('/login-user', async (req, res) => {
 
   const user = await User.findOne({ userName });
   if (!user) {
-    console.log(user);
+    // console.log(user);
     return res.json({ error: 'User Not found' });
   }
   if (await bcrypt.compare(password, user.password)) {
@@ -68,7 +68,7 @@ app.post('/login-user', async (req, res) => {
     });
 
     if (res.status(201)) {
-      return res.json({ status: 'ok', data: token });
+      return res.json({ status: 'ok', data: user });
     } else {
       return res.json({ error: 'error' });
     }
@@ -85,7 +85,7 @@ app.post('/userData', async (req, res) => {
       }
       return res;
     });
-    console.log(user);
+    // console.log(user);
     if (user == 'token expired') {
       return res.send({ status: 'error', data: 'token expired' });
     }

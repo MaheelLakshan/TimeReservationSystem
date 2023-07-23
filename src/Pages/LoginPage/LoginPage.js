@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faFacebook,
   faGoogle,
+  faLastfmSquare,
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope, faLock, faUser } from '@fortawesome/free-solid-svg-icons';
@@ -26,7 +27,8 @@ function LoginPage() {
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-  const [state, setState] = useState(false);
+  const [state, setState] = useState('');
+  const [login, setLogin] = useState(false);
   const [openDialogLogin, setOpenDialogLogin] = useState(false);
   const [openDialog, setOpenDialog] = useState(false);
   const [signupSuccess, setSignupSuccess] = useState(false);
@@ -74,12 +76,14 @@ function LoginPage() {
       );
       if (response.data.status === 'ok') {
         console.log('Login successful');
-        setState(true);
+
+        setState(response.data.data.userType);
+        setLogin(true);
 
         // Redirect or do whatever you need for a successful login
       } else {
         setOpenDialogLogin(true);
-        console.error('Invalid credentials');
+        // console.error('Invalid credentials');
       }
     } catch (error) {
       console.error('Error occurred:', error);
@@ -125,9 +129,10 @@ function LoginPage() {
             setOpenDialog(true);
             // Redirect or do whatever you need for a successful signup
           } else {
-            console.error('Failed to create user');
+            alert('Failed to create user may be duplicated users');
           }
         } catch (error) {
+          alert('Failed to create');
           console.error('Error occurred:', error);
         }
       }
@@ -206,7 +211,17 @@ function LoginPage() {
               <button className="btnn">Log IN</button>
             </NavLink> */}
             <button className="btnn">Log IN</button>
-            {state && <Navigate to="/home" />}
+
+            {login ? (
+              state === 'User' ? (
+                <Navigate to="/home" />
+              ) : state === 'Admin' ? (
+                <Navigate to="/admin" />
+              ) : (
+                alert('User type is wrong')
+              )
+            ) : null}
+
             <p className="social-text">OR sign in with social platform</p>
             <div className="social-media">
               <Link href="#" className="social-icon">
@@ -243,6 +258,7 @@ function LoginPage() {
                 className="mytext"
                 name="userType"
                 value="User"
+                checked={userType === 'User'}
                 onChange={(e) => setUsertype(e.target.value)}
               />
               User
@@ -251,6 +267,7 @@ function LoginPage() {
                 className="mytext"
                 name="userType"
                 value="Admin"
+                checked={userType === 'Admin'}
                 onChange={(e) => setUsertype(e.target.value)}
               />
               Admin
