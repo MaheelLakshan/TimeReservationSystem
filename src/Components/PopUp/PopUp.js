@@ -106,11 +106,11 @@ function PopUp() {
           <Form>
             <span
               onClick={() => {
-                dispatchCalEvent({
-                  type: 'delete',
-                  payload: selectedEvent,
-                });
-                setShowPopUp(false);
+                // dispatchCalEvent({
+                //   type: 'delete',
+                //   payload: selectedEvent,
+                // });
+                // setShowPopUp(false);
               }}
               className="material-icons-outlined text-gray-400 cursor-pointer"
             ></span>

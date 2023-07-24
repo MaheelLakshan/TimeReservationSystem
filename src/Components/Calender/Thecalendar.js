@@ -58,7 +58,12 @@ const Thecalendar = () => {
   //   return customEvents;
   // };
 
-  const check = savedEvents.map((event) => ({
+  // const check = savedEvents.map((event) => ({
+  //   start: moment(event.start).toDate(),
+  //   end: moment(event.end).toDate(),
+  //   title: String(event.title),
+  // }));
+  const mappedEvents = Object.values(savedEvents).map((event) => ({
     start: moment(event.start).toDate(),
     end: moment(event.end).toDate(),
     title: String(event.title),
@@ -69,7 +74,7 @@ const Thecalendar = () => {
       {showPopUp && <PopUp />}
       <Calendar
         localizer={localizer}
-        events={check}
+        events={mappedEvents}
         defaultView="week"
         views={['month', 'week', 'day', 'agenda']}
         min={minTime}

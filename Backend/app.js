@@ -29,11 +29,86 @@ mongoose
 require('./Models/userDetails.js');
 require('./Models/requestedUsers.js');
 require('./imageDetails');
+require('./Models/events.js');
 
 const User = mongoose.model('UserInfo');
 // const RequestedUsers = mongoose.model('requestedUsers');
+const Events = mongoose.model('EventInfo');
 
 const Images = mongoose.model('ImageDetails');
+
+// // API middleware for user authentication
+// const authenticateUser = (req, res, next) => {
+//   const authHeader = req.headers.authorization;
+
+//   if (authHeader) {
+//     const token = authHeader.split(' ')[1];
+
+//     jwt.verify(token, JWT_SECRET, (err, user) => {
+//       if (err) {
+//         return res.sendStatus(403); // Forbidden
+//       }
+
+//       req.user = user;
+//       next();
+//     });
+//   } else {
+//     res.sendStatus(401); // Unauthorized
+//   }
+// };
+
+// // API endpoint to save a reservation
+// app.post('/api/reservations', async (req, res) => {
+//   const { title, start, end, place, description } = req.body;
+
+//   try {
+//     const newReservation = await Reservation.create({
+//       title,
+//       start,
+//       end,
+//       place,
+//       description,
+//       userId: req.user.userId, // Use the authenticated user's ID
+//     });
+
+//     res.status(201).json(newReservation);
+//   } catch (error) {
+//     res.status(500).json({ error: 'Failed to save reservation' });
+//   }
+// });
+
+// // API endpoint to fetch all reservations
+// app.get('/api/reservations', async (req, res) => {
+//   try {
+//     // const reservations = await Reservation.find({}).populate('userId');
+//     const reservations = await Reservation.find({});
+//     res.status(200).json(reservations);
+//   } catch (error) {
+//     res.status(500).json({ error: 'Failed to fetch reservations' });
+//   }
+// });
+app.post('/api/events', async (req, res) => {
+  console.log(req.body);
+  try {
+    const event = new Events(req.body);
+    await event.save();
+    res.status(201).json(event);
+  } catch (error) {
+    res.status(500).json({ error: 'Error storing event in the database.' });
+  }
+});
+
+// Retrieve events from MongoDB
+app.get('/api/events', async (req, res) => {
+  try {
+    const events = await Events.find();
+    res.status(200).json(events);
+  } catch (error) {
+    res
+      .status(500)
+      .json({ error: 'Error retrieving events from the database.' });
+  }
+});
 
 app.post('/register', async (req, res) => {
   const { userName, email, password, userType } = req.body;
