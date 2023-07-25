@@ -5,6 +5,7 @@ const GlobalContext = React.createContext({
   setDataSelect: (index) => {},
   showPopUp: false,
   setShowPopUp: (index) => {},
+  // setRefresh: (index) => {},
   //   reservations: [],
   //   setReservations: (index) => {},
   selectedEvent: [],

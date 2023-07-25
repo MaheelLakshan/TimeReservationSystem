@@ -1,14 +1,21 @@
-import { React, useContext, useEffect, useState } from 'react';
+import { React, useContext, useState } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import './TheCalendar.css';
 import GlobalContext from '../../context/GlobalContext';
 import PopUp from '../PopUp/PopUp';
+import ClickPopUp from '../PopUp/ClickPopUp';
 
 const localizer = momentLocalizer(moment);
 
 const Thecalendar = () => {
+  // console.log('check');
+
+  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [clickshowPopUp, setClickShowPopUp] = useState(false);
+  const [selectedSlot, setSelectedSlot] = useState(null);
+
   const {
     dataSelect,
     setDataSelect,
@@ -21,22 +28,11 @@ const Thecalendar = () => {
     // setReservations,
   } = useContext(GlobalContext);
 
-  // const [events, setEvents] = useState(savedEvents);
-
   const handleSelect = ({ start, end }) => {
     // const title = window.prompt('New Event name');
     setShowPopUp(true);
     setPassStart(start);
     setPassEnd(end);
-
-    // const titles = savedEvents[46].title;
-
-    // if (savedEvents) {
-    //   setEvents([...events, { start, end, titles }]);
-    // }
-    // if (reservations) {
-    //   setReservations([...reservations, { start, end, reservations }]);
-    // }
   };
   const minTime = moment().set({ hour: 7, minute: 30 }).toDate();
   const maxTime = moment().set({ hour: 21, minute: 30 }).toDate();
@@ -63,15 +59,29 @@ const Thecalendar = () => {
   //   end: moment(event.end).toDate(),
   //   title: String(event.title),
   // }));
+
   const mappedEvents = Object.values(savedEvents).map((event) => ({
     start: moment(event.start).toDate(),
     end: moment(event.end).toDate(),
     title: String(event.title),
   }));
+  const handleEventClick = (event) => {
+    setSelectedEvent(event);
+    setClickShowPopUp(true);
+    setSelectedSlot(event);
+  };
+  const handleClosePopUp = () => {
+    setSelectedEvent(null); // Reset the selected event state
+    setShowPopUp(false); // Close the pop-up
+    setSelectedSlot(null);
+  };
 
   return (
     <div className="the-calendar">
       {showPopUp && <PopUp />}
+      {clickshowPopUp && (
+        <ClickPopUp event={selectedEvent} onClose={handleClosePopUp} />
+      )}
       <Calendar
         localizer={localizer}
         events={mappedEvents}
@@ -85,7 +95,9 @@ const Thecalendar = () => {
         startAccessor="start"
         endAccessor="end"
         selectable
+        selected={selectedSlot}
         onSelectSlot={handleSelect}
+        onSelectEvent={handleEventClick}
         components={{
           toolbar: CustomToolbar,
         }}
@@ -163,45 +175,3 @@ const CustomToolbar = ({ label, onNavigate, view, onView }) => {
   );
 };
 export default Thecalendar;
-
-// {showModal && (
-//   <div className="modal-overlay">
-//     <div className="modal">
-//       <h2>Add Reservation</h2>
-//       <form onSubmit={handleFormSubmit}>
-//         <label>
-//           Title:
-//           <input
-//             type="text"
-//             name="title"
-//             value={reservationData.title}
-//             onChange={handleInputChange}
-//           />
-//         </label>
-//         <label>
-//           Place:
-//           <input
-//             type="text"
-//             name="place"
-//             value={reservationData.place}
-//             onChange={handleInputChange}
-//           />
-//         </label>
-//         <label>
-//           Description:
-//           <textarea
-//             name="description"
-//             value={reservationData.description}
-//             onChange={handleInputChange}
-//           />
-//         </label>
-//         <div className="modal-buttons">
-//           <button type="submit">Add Reservation</button>
-//           <button type="button" onClick={() => setShowModal(false)}>
-//             Cancel
-//           </button>
-//         </div>
-//       </form>
-//     </div>
-//   </div>
-// )}

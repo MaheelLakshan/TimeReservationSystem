@@ -88,7 +88,6 @@ const Images = mongoose.model('ImageDetails');
 //   }
 // });
 app.post('/api/events', async (req, res) => {
-  console.log(req.body);
   try {
     const event = new Events(req.body);
     await event.save();
@@ -107,6 +106,41 @@ app.get('/api/events', async (req, res) => {
     res
       .status(500)
       .json({ error: 'Error retrieving events from the database.' });
+  }
+});
+
+app.put('/api/events/:id', async (req, res) => {
+  try {
+    const eventId = req.params.id;
+    const updatedEventData = req.body;
+    const updatedEvent = await Events.findByIdAndUpdate(
+      eventId,
+      updatedEventData,
+      { new: true }
+    );
+
+    if (!updatedEvent) {
+      return res.status(404).json({ error: 'Event not found.' });
+    }
+
+    res.status(200).json(updatedEvent);
+  } catch (error) {
+    res.status(500).json({ error: 'Error updating event in the database.' });
+  }
+});
+
+app.delete('/api/events/:id', async (req, res) => {
+  try {
+    const eventId = req.params.id;
+    const deletedEvent = await Events.findByIdAndDelete(eventId);
+
+    if (!deletedEvent) {
+      return res.status(404).json({ error: 'Event not found.' });
+    }
+
+    res.status(200).json(deletedEvent);
+  } catch (error) {
+    res.status(500).json({ error: 'Error deleting event from the database.' });
   }
 });
 
@@ -255,7 +289,7 @@ app.post('/forgot-password', async (req, res) => {
 
 app.get('/reset-password/:id/:token', async (req, res) => {
   const { id, token } = req.params;
-  console.log(req.params);
+  // console.log(req.params);
   const oldUser = await User.findOne({ _id: id });
   if (!oldUser) {
     return res.json({ status: 'User Not Exists!!' });

@@ -60,7 +60,7 @@ function PopUp() {
     // ]);
     const calendarEvent = {
       title: title,
-      description,
+      description: description,
       // label: selectedLabel,
       // day: daySelected.valueOf(),
       id: selectedEvent ? selectedEvent.id : Date.now(),
