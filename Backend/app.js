@@ -34,6 +34,10 @@ app.listen(5000, () => {
   console.log('Server Started');
 });
 
+app.listen(5000, () => {
+  console.log('Server Started');
+});
+
 const User = mongoose.model('UserInfo');
 // const RequestedUsers = mongoose.model('requestedUsers');
 
