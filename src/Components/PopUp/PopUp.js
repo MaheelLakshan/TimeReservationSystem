@@ -60,7 +60,7 @@ function PopUp() {
     // ]);
     const calendarEvent = {
       title: title,
-      description,
+      description: description,
       // label: selectedLabel,
       // day: daySelected.valueOf(),
       id: selectedEvent ? selectedEvent.id : Date.now(),
@@ -106,11 +106,11 @@ function PopUp() {
           <Form>
             <span
               onClick={() => {
-                dispatchCalEvent({
-                  type: 'delete',
-                  payload: selectedEvent,
-                });
-                setShowPopUp(false);
+                // dispatchCalEvent({
+                //   type: 'delete',
+                //   payload: selectedEvent,
+                // });
+                // setShowPopUp(false);
               }}
               className="material-icons-outlined text-gray-400 cursor-pointer"
             ></span>

@@ -1,40 +1,35 @@
 import React, { useEffect, useReducer, useState } from 'react';
 import GlobalContext from './GlobalContext';
+import savedEventsReducer from './savedEventsReducer';
+import fetchEventsData from './fetchEventsData';
 
-function savedEventsReducer(state, { type, payload }) {
-  switch (type) {
-    case 'push':
-      return [...state, payload];
-    case 'update':
-      return state.map((evt) => (evt.id === payload.id ? payload : evt));
-    case 'delete':
-      return state.filter((evt) => evt.id !== payload.id);
-    default:
-      throw new Error();
-  }
-}
-
-function initEvents() {
-  const storageEvents = localStorage.getItem('savedEvents');
-  const parsedEvents = storageEvents ? JSON.parse(storageEvents) : [];
-  return parsedEvents;
-}
+const initEvents = [];
 
 export default function ContextWrapper(props) {
   const [dataSelect, setDataSelect] = useState('');
   const [showPopUp, setShowPopUp] = useState(false);
-  const [reservations, setReservations] = useState([]);
+  // const [refresh, setRefresh] = useState(true);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [savedEvents, dispatchCalEvent] = useReducer(
     savedEventsReducer,
-    [],
     initEvents
   );
   const [passStart, setPassStart] = useState();
   const [passEnd, setPassEnd] = useState();
 
   useEffect(() => {
-    localStorage.setItem('savedEvents', JSON.stringify(savedEvents));
+    // Fetch data when the component mounts
+    fetchEventsData()
+      .then((eventsData) => {
+        // if (eventsData.length === savedEvents.length) {
+        //   setRefresh(false);
+        // }
+        dispatchCalEvent({ type: 'SET_EVENTS', payload: eventsData });
+      })
+
+      .catch((error) => {
+        console.log(error);
+      });
   }, [savedEvents]);
 
   return (
@@ -44,8 +39,6 @@ export default function ContextWrapper(props) {
         setDataSelect,
         showPopUp,
         setShowPopUp,
-        // reservations,
-        // setReservations,
         selectedEvent,
         setSelectedEvent,
         dispatchCalEvent,

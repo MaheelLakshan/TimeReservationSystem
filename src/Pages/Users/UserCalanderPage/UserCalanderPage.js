@@ -7,7 +7,7 @@ import ContextWrapper from '../../../context/ContextWrapper';
 import SlideBarCalender from '../../../Components/SlideCalender/SlideBarCalender';
 import { subMonths, addMonths } from 'date-fns';
 
-function Home() {
+function UserCalanderPage() {
   const [selectedPlace, setSelectedPlace] = useState('Old Computer Center');
   const places = ['Old Computer Center', 'New Computer Center', 'Seminar Room'];
 
@@ -86,4 +86,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default UserCalanderPage;
