@@ -30,6 +30,10 @@ require('./Models/userDetails.js');
 require('./Models/requestedUsers.js');
 require('./imageDetails');
 
+app.listen(5000, () => {
+  console.log('Server Started');
+});
+
 const User = mongoose.model('UserInfo');
 // const RequestedUsers = mongoose.model('requestedUsers');
 
@@ -134,10 +138,6 @@ app.post('/userData', async (req, res) => {
         res.send({ status: 'error', data: error });
       });
   } catch (error) {}
-});
-
-app.listen(5000, () => {
-  console.log('Server Started');
 });
 
 app.post('/forgot-password', async (req, res) => {

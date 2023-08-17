@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 // import Compare from './Pages/HomePage/Home';
 import Home from './Pages/Users/HomePage/Home';
+import Calander from './Pages/Users/UserCalanderPage/UserCalanderPage';
 import Facility from './Pages/Users/FacilitiesPage/Facility';
 import About from './Pages/Users/About/About';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -24,6 +25,7 @@ root.render(
     <Routes>
       <Route path="/" element={<LoginPage />} />
       <Route path="/home" element={<Home />} />
+      <Route path="/calander" element={<Calander />} />
       {/* <Route path="/compare" element={<Compare />} /> */}
       <Route path="/facility" element={<Facility />} />
       <Route path="/about" element={<About />} />
