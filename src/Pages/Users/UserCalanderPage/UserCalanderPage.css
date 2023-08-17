@@ -1,4 +1,4 @@
-/* :root {
+:root {
   --yellow: linear-gradient(180deg, #f8d49a -146.42%, #fad79d -46.42%);
   --orange: #fca61f;
   --black: #050505;
@@ -7,11 +7,12 @@
 
   --glass: #949494;
   /* --glass: linear-gradient(to right, rgba(255, 255, 255, 0.518), #444); */
-/* --boxShadow: 0px 19px 60px rgb(0 0 0 / 8%);
+  --boxShadow: 0px 19px 60px rgb(0 0 0 / 8%);
   --smboxShadow: -79px 51px 60px rgba(0, 0, 0, 0.08);
   --activeItem: rgb(221, 181, 22);
-} */
-*/ .background {
+}
+
+.background {
   color: var(--black);
   background-color: '#00afb9';
   height: 100vh;

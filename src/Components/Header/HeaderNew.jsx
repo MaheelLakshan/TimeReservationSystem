@@ -25,12 +25,14 @@ import {
   UilEstate,
   UilClipboardAlt,
   UilUsersAlt,
+  UilCalender,
   // UilUser,
   // UilBalanceScale,
 } from '@iconscout/react-unicons';
 
 const pages = [
   { icon: UilEstate, heading: 'Home', where: '/home' },
+  { icon: UilCalender, heading: 'Calender', where: '/calander' },
   // { icon: UilBalanceScale, heading: 'Compare', where: '/compare' },
   { icon: UilClipboardAlt, heading: 'Facility', where: '/facility' },
   { icon: UilUsersAlt, heading: 'About', where: '/about' },
