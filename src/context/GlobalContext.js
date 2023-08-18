@@ -16,6 +16,8 @@ const GlobalContext = React.createContext({
   passEnd: null,
   credential: null, // Add the user state object
   setCredential: (index) => {}, // Add the user dispatcher function
+  selectedPlace: null,
+  setSelectedPlace: (index) => {},
 });
 
 export default GlobalContext;

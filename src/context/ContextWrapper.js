@@ -25,6 +25,7 @@ export default function ContextWrapper(props) {
   const [passEnd, setPassEnd] = useState();
   // const [userState, userDispatch] = useReducer(userReducer, initUser); // Initialize user state
   const [credential, setCredential] = useState('');
+  const [selectedPlace, setSelectedPlace] = useState('Old Computer Center');
 
   useEffect(() => {
     // Fetch data when the component mounts
@@ -61,6 +62,8 @@ export default function ContextWrapper(props) {
         // }}
         credential,
         setCredential,
+        selectedPlace,
+        setSelectedPlace,
       }}
     >
       {props.children}

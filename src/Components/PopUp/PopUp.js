@@ -20,6 +20,8 @@ function PopUp() {
     passStart,
     passEnd,
     credential,
+    selectedPlace,
+    setSelectedPlace,
   } = useContext(GlobalContext);
 
   const handleClose = () => setShowPopUp(false);
@@ -34,7 +36,7 @@ function PopUp() {
   const [isSelected, setIsSelected] = useState(false);
   const [RpstartDate, setRpStartDate] = useState(null);
   const [RpendDate, setRpEndDate] = useState(null);
-  const [selectedPlace, setSelectedPlace] = useState('default place');
+
   const [startDate, setStartDate] = useState(passStart);
   const [endDate, setEndDate] = useState(passEnd);
 

@@ -26,6 +26,7 @@ const Thecalendar = () => {
     setPassEnd,
     // reservations,
     // setReservations,
+    selectedPlace,
   } = useContext(GlobalContext);
 
   const handleSelect = ({ start, end }) => {
@@ -60,15 +61,27 @@ const Thecalendar = () => {
   //   title: String(event.title),
   // }));
 
-  const mappedEvents = Object.values(savedEvents).map((event) => ({
-    id: String(event._id),
-    place: event.place,
-    createdBy: event.createdBy,
-    creationTime: event.creationTime,
-    start: moment(event.start).toDate(),
-    end: moment(event.end).toDate(),
-    title: String(event.title),
-  }));
+  // const mappedEvents = Object.values(savedEvents).map((event) => ({
+  //   id: String(event._id),
+  //   place: event.place,
+  //   createdBy: event.createdBy,
+  //   creationTime: event.creationTime,
+  //   start: moment(event.start).toDate(),
+  //   end: moment(event.end).toDate(),
+  //   title: String(event.title),
+  // }));
+
+  const mappedEvents = Object.values(savedEvents)
+    .filter((event) => event.place === selectedPlace) // Filter events by selected place
+    .map((event) => ({
+      id: String(event._id),
+      place: event.place,
+      createdBy: event.createdBy,
+      creationTime: event.creationTime,
+      start: moment(event.start).toDate(),
+      end: moment(event.end).toDate(),
+      title: String(event.title),
+    }));
 
   const handleEventClick = (event) => {
     setSelectedEvent(event);

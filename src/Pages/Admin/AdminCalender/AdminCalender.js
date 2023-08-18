@@ -1,14 +1,15 @@
 import './AdminCalender.css';
 import AdminCalander from '../../../Components/AdminCalander/AdminCalander';
 import AdminHeader from '../../../Components/AdminHeader/AdminHeaderNew';
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { FaSearch } from 'react-icons/fa';
 // import ContextWrapper from '../../../context/ContextWrapper';
 import SlideBarCalender from '../../../Components/SlideCalender/SlideBarCalender';
 import { subMonths, addMonths } from 'date-fns';
+import GlobalContext from '../../../context/GlobalContext';
 
 function AdminCalender() {
-  const [selectedPlace, setSelectedPlace] = useState('Old Computer Center');
+  const { selectedPlace, setSelectedPlace } = useContext(GlobalContext);
   const places = ['Old Computer Center', 'New Computer Center', 'Seminar Room'];
 
   const today = new Date();
