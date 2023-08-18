@@ -17,25 +17,29 @@ import AdminCalender from './Pages/Admin/AdminCalender/AdminCalender';
 import AdminFacilityPage from './Pages/Admin/AdminFacilityPage/AdminFacilityPage';
 import AdminAbout from './Pages/Admin/AdminAbout/AdminAbout';
 
+import ContextWrapper from './context/ContextWrapper';
+
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Router>
-    <Routes>
-      <Route path="/" element={<LoginPage />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/calander" element={<Calander />} />
-      {/* <Route path="/compare" element={<Compare />} /> */}
-      <Route path="/facility" element={<Facility />} />
-      <Route path="/about" element={<About />} />
+  <ContextWrapper>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/calander" element={<Calander />} />
+        {/* <Route path="/compare" element={<Compare />} /> */}
+        <Route path="/facility" element={<Facility />} />
+        <Route path="/about" element={<About />} />
 
-      <Route path="/admin-userdetails" element={<UserDetails />} />
-      <Route path="/admin-calander" element={<AdminCalender />} />
-      <Route path="/admin-facility" element={<AdminFacilityPage />} />
-      <Route path="/admin-about" element={<AdminAbout />} />
-    </Routes>
-  </Router>
+        <Route path="/admin-userdetails" element={<UserDetails />} />
+        <Route path="/admin-calander" element={<AdminCalender />} />
+        <Route path="/admin-facility" element={<AdminFacilityPage />} />
+        <Route path="/admin-about" element={<AdminAbout />} />
+      </Routes>
+    </Router>
+  </ContextWrapper>
 );
 
 // If you want to start measuring performance in your app, pass a function

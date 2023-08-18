@@ -1,25 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import moment from 'moment'; // Import the moment library
-// ... import other necessary components ...
+import GlobalContext from '../../context/GlobalContext';
 
-const ClickPopUp = ({ event, onClose }) => {
+const AdminClickPopUp = ({ event, onClose }) => {
+  const { dispatchCalEvent } = useContext(GlobalContext);
+
   if (!event) {
     return null; // Render nothing if no event is selected
   }
 
-  // const handleEdit = () => {
-  //   // Implement the edit functionality here...
-  //   // For example, you can open a different edit modal or navigate to an edit page.
-  //   console.log('Edit clicked');
-  // };
+  const handleEdit = () => {
+    // Implement the edit functionality here...
+    // For example, you can open a different edit modal or navigate to an edit page.
+    console.log('Edit clicked');
+  };
 
   const handleDelete = () => {
     // Implement the delete functionality here...
     // For example, you can open a delete confirmation modal.
-
-    console.log('Request to Delete clicked');
+    dispatchCalEvent({ type: 'deleteEvent', payload: event.id });
+    onClose();
   };
 
   return (
@@ -35,20 +37,20 @@ const ClickPopUp = ({ event, onClose }) => {
           <p>End Date: {event.end.toLocaleString()}</p>
           <p>Created By: {event.createdBy}</p>
           <p>
-            Creation Time:
+            Creation Time:{' '}
             {moment(event.creationTime).format('YYYY-MM-DD HH:mm:ss')}
           </p>
           {/* Add other event details or form fields as needed */}
         </Modal.Body>
         <Modal.Footer>
           {/* Edit button */}
-          {/* <Button variant="primary" onClick={handleEdit}>
+          <Button variant="primary" onClick={handleEdit}>
             Edit
-          </Button> */}
+          </Button>
 
           {/* Delete button */}
           <Button variant="danger" onClick={handleDelete}>
-            Request to Delete
+            Delete
           </Button>
 
           {/* Close button */}
@@ -61,4 +63,4 @@ const ClickPopUp = ({ event, onClose }) => {
   );
 };
 
-export default ClickPopUp;
+export default AdminClickPopUp;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios'; // Import Axios library
 import { Link, NavLink, Navigate } from 'react-router-dom';
 import './LoginPage.css';
@@ -20,7 +20,10 @@ import {
 } from '@mui/material';
 import { CheckCircleOutline } from '@mui/icons-material';
 
+import GlobalContext from '../../context/GlobalContext';
+
 function LoginPage() {
+  const { credential, setCredential } = useContext(GlobalContext);
   const [toggleClassName, setToggleClassName] = useState('container');
   const [userType, setUsertype] = useState('');
   const [secretKey, setSecretKey] = useState('');
@@ -76,6 +79,7 @@ function LoginPage() {
       );
       if (response.data.status === 'ok') {
         console.log('Login successful');
+        setCredential(response.data.data.userName);
 
         setState(response.data.data.userType);
         if (

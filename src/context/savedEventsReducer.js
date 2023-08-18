@@ -18,13 +18,31 @@ const savedEventsReducer = (state, { type, payload }) => {
         });
 
       return state;
+
     case 'update':
       return state.map((evt) => (evt.id === payload.id ? payload : evt));
-    case 'delete':
-      return state.filter((evt) => evt.id !== payload.id);
+
+    case 'deleteEvent':
+      try {
+        axios.delete(`http://localhost:5000/api/events/${payload}`);
+        return state.filter((evt) => evt.id !== payload);
+      } catch (error) {
+        console.error('Error deleting event:', error);
+        return state;
+      }
     default:
       throw new Error();
   }
 };
 
 export default savedEventsReducer;
+
+// const handleDeleteClick = async (id) => {
+//   // Delete the user from the database
+//   try {
+//     await axios.delete(`http://localhost:5000/deleteUser/${id}`);
+//     fetchUsersData(); // Fetch data again to get the updated records from the server
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };

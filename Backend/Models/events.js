@@ -9,6 +9,9 @@ const EventSchema = new mongoose.Schema(
     RepeatEnd: { type: Date },
     start: { type: Date },
     end: { type: Date },
+    createdBy: { type: String },
+    creationTime: { type: Date },
+    place: { type: String },
     // Add more fields as needed
   },
 

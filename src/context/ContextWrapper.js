@@ -2,8 +2,15 @@ import React, { useEffect, useReducer, useState } from 'react';
 import GlobalContext from './GlobalContext';
 import savedEventsReducer from './savedEventsReducer';
 import fetchEventsData from './fetchEventsData';
+// import userReducer from '../Reducer/userReducer';
 
 const initEvents = [];
+// const initUser = {
+//   isLoggedIn: false,
+//   userName: '',
+//   userType: '',
+//   userEmail: '',
+// };
 
 export default function ContextWrapper(props) {
   const [dataSelect, setDataSelect] = useState('');
@@ -16,6 +23,8 @@ export default function ContextWrapper(props) {
   );
   const [passStart, setPassStart] = useState();
   const [passEnd, setPassEnd] = useState();
+  // const [userState, userDispatch] = useReducer(userReducer, initUser); // Initialize user state
+  const [credential, setCredential] = useState('');
 
   useEffect(() => {
     // Fetch data when the component mounts
@@ -47,6 +56,11 @@ export default function ContextWrapper(props) {
         setPassStart,
         passEnd,
         setPassEnd,
+        //   userState, // Add the user state to the context
+        //   userDispatch, // Add the user dispatcher to the context
+        // }}
+        credential,
+        setCredential,
       }}
     >
       {props.children}

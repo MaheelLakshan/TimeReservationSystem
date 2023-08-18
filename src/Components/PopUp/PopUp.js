@@ -2,7 +2,6 @@ import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
-
 import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -20,6 +19,7 @@ function PopUp() {
     dispatchCalEvent,
     passStart,
     passEnd,
+    credential,
   } = useContext(GlobalContext);
 
   const handleClose = () => setShowPopUp(false);
@@ -38,6 +38,11 @@ function PopUp() {
   const [startDate, setStartDate] = useState(passStart);
   const [endDate, setEndDate] = useState(passEnd);
 
+  // const { userName, userType, userEmail } = credential;
+  // Access user information
+
+  // console.log(credential);
+
   const handleSave = () => {
     const formattedStartDate = RpstartDate
       ? moment(RpstartDate).format('YYYY-MM-DD')
@@ -45,6 +50,9 @@ function PopUp() {
     const formattedEndDate = RpendDate
       ? moment(RpendDate).format('YYYY-MM-DD')
       : null;
+
+    const now = new Date();
+
     // const newReservation = {
     //   title: 'asdad', // Get the title value from the form
     //   place: selectedPlace,
@@ -61,6 +69,7 @@ function PopUp() {
     const calendarEvent = {
       title: title,
       description: description,
+      place: selectedPlace,
       // label: selectedLabel,
       // day: daySelected.valueOf(),
       id: selectedEvent ? selectedEvent.id : Date.now(),
@@ -68,6 +77,8 @@ function PopUp() {
       RepeatEnd: formattedEndDate,
       start: startDate,
       end: endDate,
+      createdBy: credential, // Replace 'userId' with the actual user ID
+      creationTime: now,
     };
     // setReservations(calendarEvent);
     if (selectedEvent) {

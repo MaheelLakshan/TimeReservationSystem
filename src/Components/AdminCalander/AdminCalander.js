@@ -2,14 +2,14 @@ import { React, useContext, useState } from 'react';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-import './TheCalendar.css';
+import './AdminCalander.css';
 import GlobalContext from '../../context/GlobalContext';
 import PopUp from '../PopUp/PopUp';
-import ClickPopUp from '../PopUp/ClickPopUp';
+import AdminClickPopUp from '../PopUp/AdminClickPopUp';
 
 const localizer = momentLocalizer(moment);
 
-const Thecalendar = () => {
+const AdminCalander = () => {
   // console.log('check');
 
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -28,6 +28,12 @@ const Thecalendar = () => {
     // setReservations,
   } = useContext(GlobalContext);
 
+  // const selectedEventDetails = {
+  //   id: event.id, // Replace 'id' with the actual property name for the event ID
+  //   title: event.title,
+  //   // Include other properties you need here
+  // };
+
   const handleSelect = ({ start, end }) => {
     // const title = window.prompt('New Event name');
     setShowPopUp(true);
@@ -40,25 +46,6 @@ const Thecalendar = () => {
   const navigate = (date, view) => {
     setDataSelect(date);
   };
-
-  // console.log(savedEvents);
-  // console.log(events);
-
-  // const getCustomEvents = () => {
-  //   // Logic to generate custom events array
-  //   const customEvents = savedEvents.map((event) => ({
-  //     start: event.start,
-  //     end: event.end,
-  //     title: event.title,
-  //   }));
-  //   return customEvents;
-  // };
-
-  // const check = savedEvents.map((event) => ({
-  //   start: moment(event.start).toDate(),
-  //   end: moment(event.end).toDate(),
-  //   title: String(event.title),
-  // }));
 
   const mappedEvents = Object.values(savedEvents).map((event) => ({
     id: String(event._id),
@@ -85,7 +72,7 @@ const Thecalendar = () => {
     <div className="the-calendar">
       {showPopUp && <PopUp />}
       {clickshowPopUp && (
-        <ClickPopUp event={selectedEvent} onClose={handleClosePopUp} />
+        <AdminClickPopUp event={selectedEvent} onClose={handleClosePopUp} />
       )}
       <Calendar
         localizer={localizer}
@@ -179,4 +166,4 @@ const CustomToolbar = ({ label, onNavigate, view, onView }) => {
     </div>
   );
 };
-export default Thecalendar;
+export default AdminCalander;

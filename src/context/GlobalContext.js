@@ -14,6 +14,8 @@ const GlobalContext = React.createContext({
   savedEvents: [],
   passStart: null,
   passEnd: null,
+  credential: null, // Add the user state object
+  setCredential: (index) => {}, // Add the user dispatcher function
 });
 
 export default GlobalContext;

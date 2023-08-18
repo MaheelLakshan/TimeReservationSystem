@@ -91,6 +91,7 @@ const Images = mongoose.model('ImageDetails');
 //     res.status(500).json({ error: 'Failed to fetch reservations' });
 //   }
 // });
+
 app.post('/api/events', async (req, res) => {
   try {
     const event = new Events(req.body);
@@ -110,6 +111,21 @@ app.get('/api/events', async (req, res) => {
     res
       .status(500)
       .json({ error: 'Error retrieving events from the database.' });
+  }
+});
+
+app.delete('/api/events/:id', async (req, res) => {
+  try {
+    const eventId = req.params.id;
+    const deletedEvent = await Events.findByIdAndDelete(eventId);
+
+    if (!deletedEvent) {
+      return res.status(404).json({ error: 'Event not found.' });
+    }
+
+    res.status(200).json(deletedEvent);
+  } catch (error) {
+    res.status(500).json({ error: 'Error deleting event from the database.' });
   }
 });
 
@@ -134,17 +150,14 @@ app.put('/api/events/:id', async (req, res) => {
 });
 
 app.delete('/api/events/:id', async (req, res) => {
+  const eventId = req.params.id;
   try {
-    const eventId = req.params.id;
-    const deletedEvent = await Events.findByIdAndDelete(eventId);
-
-    if (!deletedEvent) {
-      return res.status(404).json({ error: 'Event not found.' });
-    }
-
-    res.status(200).json(deletedEvent);
+    // Delete the event from the database using the provided eventId
+    await Events.deleteOne({ _id: eventId });
+    res.send({ status: 'Ok', data: 'Deleted' });
   } catch (error) {
-    res.status(500).json({ error: 'Error deleting event from the database.' });
+    console.log(error);
+    res.status(500).send({ status: 'Error', data: 'Failed to delete user' });
   }
 });
 
@@ -343,15 +356,15 @@ app.get('/getAllUser', async (req, res) => {
   }
 });
 
-app.post('/deleteUser', async (req, res) => {
-  const { userid } = req.body;
+app.delete('/deleteUser/:id', async (req, res) => {
+  const userId = req.params.id;
   try {
-    User.deleteOne({ _id: userid }, function (err, res) {
-      console.log(err);
-    });
+    // Delete the user from the database using the provided userId
+    await User.deleteOne({ _id: userId });
     res.send({ status: 'Ok', data: 'Deleted' });
   } catch (error) {
     console.log(error);
+    res.status(500).send({ status: 'Error', data: 'Failed to delete user' });
   }
 });
 
