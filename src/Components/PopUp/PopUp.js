@@ -34,11 +34,15 @@ function PopUp() {
     selectedEvent ? selectedEvent.description : ''
   );
   const [isSelected, setIsSelected] = useState(false);
+  const [isSelectedOpt, setIsSelectedOpt] = useState(false);
+
   const [RpstartDate, setRpStartDate] = useState(null);
   const [RpendDate, setRpEndDate] = useState(null);
 
   const [startDate, setStartDate] = useState(passStart);
   const [endDate, setEndDate] = useState(passEnd);
+
+  const [selectedDays, setSelectedDays] = useState([]);
 
   // const { userName, userType, userEmail } = credential;
   // Access user information
@@ -55,19 +59,6 @@ function PopUp() {
 
     const now = new Date();
 
-    // const newReservation = {
-    //   title: 'asdad', // Get the title value from the form
-    //   place: selectedPlace,
-    //   description: '', // Get the description value from the form
-    //   date: selectedDateTime,
-    //   startDate: startDate,
-    //   endDate: endDate,
-    // };
-
-    // setReservations((prevReservations) => [
-    //   ...prevReservations,
-    //   newReservation,
-    // ]);
     const calendarEvent = {
       title: title,
       description: description,
@@ -82,6 +73,40 @@ function PopUp() {
       createdBy: credential, // Replace 'userId' with the actual user ID
       creationTime: now,
     };
+
+    // const selectedDateRange = [];
+    // const currentDate = moment(startDate);
+    // console.log(currentDate);
+    // while (currentDate <= moment(endDate)) {
+    //   selectedDateRange.push(currentDate.format('YYYY-MM-DD'));
+    //   currentDate.add(7, 'days'); // Add 7 days instead of 1 day
+
+    // }
+    // console.log(selectedDateRange);
+
+    // if (selectedDateRange) {
+    //   selectedDateRange.forEach((date) => {
+    //     const calendarEvent = {
+    //       title: title,
+    //       description: description,
+    //       place: selectedPlace,
+    //       id: selectedEvent ? selectedEvent.id : Date.now(),
+    //       RepeatStart: formattedStartDate,
+    //       RepeatEnd: formattedEndDate,
+    //       start: moment(date).startOf('day').toDate(), // Start of the selected day
+    //       end: moment(date).endOf('day').toDate(), // End of the selected day
+    //       createdBy: credential,
+    //       creationTime: now,
+    //     };
+
+    //     if (selectedEvent) {
+    //       dispatchCalEvent({ type: 'update', payload: calendarEvent });
+    //     } else {
+    //       dispatchCalEvent({ type: 'push', payload: calendarEvent });
+    //     }
+    //   });
+    // }
+
     // setReservations(calendarEvent);
     if (selectedEvent) {
       dispatchCalEvent({ type: 'update', payload: calendarEvent });
@@ -92,10 +117,11 @@ function PopUp() {
     setShowPopUp(false);
   };
 
-  const [selectedDateTime, setSelectedDateTime] = useState(new Date()); // Default selected date and time
+  // const [selectedDateTime, setSelectedDateTime] = useState(new Date()); // Default selected date and time
+  const [selectedOptDates, setSelectedOptDates] = useState([]);
 
-  const handleDateTimeChange = (date) => {
-    setSelectedDateTime(date);
+  const handleDateSelect = (dates) => {
+    setSelectedOptDates(dates);
   };
 
   const handlePlaceChange = (e) => {
@@ -104,6 +130,10 @@ function PopUp() {
 
   const handleCheckboxChange = (e) => {
     setIsSelected(e.target.checked);
+  };
+
+  const handleCheckboxChangeOpt = (e) => {
+    setIsSelectedOpt(e.target.checked);
   };
   const handleTitleChange = (event) => {
     setTitle(event.target.value);
@@ -193,11 +223,11 @@ function PopUp() {
             </Form.Group>
 
             <Form.Group className="mb-3">
-              <Form.Label>Make this reservation for each week</Form.Label>
+              <Form.Label>Recursion Option</Form.Label>
               <Form.Check
                 type="checkbox"
                 id="checkbox1"
-                label="yes"
+                label="Make this reservation on same day same time for each week"
                 checked={isSelected}
                 onChange={handleCheckboxChange}
               />
@@ -232,6 +262,24 @@ function PopUp() {
                   </div>
                 </Form.Group>
               )}
+              <Form.Check
+                type="checkbox"
+                id="checkbox1"
+                label="Selected days to be recursive"
+                checked={isSelectedOpt}
+                onChange={handleCheckboxChangeOpt}
+              />
+              {/* {isSelectedOpt && (
+                <Form.Group className="mb-3">
+                  <Form.Label>Select Dates</Form.Label>
+                  <DatePicker
+                    selected={selectedOptDates}
+                    onChange={handleDateSelect}
+                    inline
+                    isMultiSelect
+                  />
+                </Form.Group>
+              )} */}
             </Form.Group>
           </Form>
         </Modal.Body>

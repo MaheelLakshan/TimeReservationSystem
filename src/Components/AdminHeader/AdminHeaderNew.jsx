@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -20,6 +20,13 @@ import profilePic from '../../Assets/logo512.png';
 import Logo from '../../Assets/TimeReservationLogo2.jpg';
 // import { MdClose } from 'react-icons/md';
 import './AdminHeader.css';
+import Paper from '@mui/material/Paper'; // Import Paper component
+import List from '@mui/material/List'; // Import List component
+import ListItem from '@mui/material/ListItem'; // Import ListItem component
+import ListItemIcon from '@mui/material/ListItemIcon'; // Import ListItemIcon component
+import ListItemText from '@mui/material/ListItemText'; // I
+import CloseIcon from '@mui/icons-material/Close'; // Import CloseIcon component
+import Divider from '@mui/material/Divider';
 
 import {
   // UilEstate,
@@ -46,6 +53,15 @@ const settings = ['Logout'];
 function AdminHeaderNew() {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
+  const [notificationOpen, setNotificationOpen] = useState(false);
+
+  const handleOpenNotification = (event) => {
+    setNotificationOpen(true);
+  };
+
+  const handleCloseNotification = () => {
+    setNotificationOpen(false);
+  };
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -62,6 +78,23 @@ function AdminHeaderNew() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+  const handleNotificationClick = (event) => {
+    // Prevent click event from reaching parent elements
+    event.stopPropagation();
+  };
+  const handleDocumentClick = (event) => {
+    if (notificationOpen && !event.target.closest('#notification-dropdown')) {
+      handleCloseNotification();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleDocumentClick);
+
+    return () => {
+      document.removeEventListener('mousedown', handleDocumentClick);
+    };
+  }, [notificationOpen]);
 
   return (
     <AppBar position="static">
@@ -158,33 +191,76 @@ function AdminHeaderNew() {
             ))}
           </Box>
 
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            {/* <IconButton
-              size="large"
-              aria-label="show 4 new mails"
-              color="inherit"
-            >
-              <Badge badgeContent={4} color="error">
-                <MailIcon />
-              </Badge>
-            </IconButton> */}
+          {/* notification */}
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Box
               sx={{
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'space-between',
+                justifyContent: 'flex-end',
                 marginRight: '12px',
+                position: 'relative',
               }}
             >
               <IconButton
                 size="large"
-                aria-label="show 17 new notifications"
+                aria-label="show notifications"
                 color="inherit"
+                onClick={handleOpenNotification}
               >
-                <Badge badgeContent={17} color="error">
+                <Badge badgeContent={10} max={99} color="error">
                   <NotificationsIcon />
                 </Badge>
               </IconButton>
+              {/* Notification Dropdown */}
+              {notificationOpen && (
+                <Paper
+                  onClick={handleNotificationClick}
+                  sx={{
+                    position: 'absolute',
+                    top: '100%',
+                    right: 0,
+                    width: '300px',
+                    maxHeight: '300px', // Adjust the maximum height
+                    overflowY: 'auto',
+                    zIndex: 9999,
+                    boxShadow: 2,
+                    backgroundColor: 'white',
+                    display: 'flex',
+                    flexDirection: 'column', // Display notifications in a column
+                  }}
+                >
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      justifyContent: 'flex-end',
+                      padding: '8px',
+                    }}
+                  >
+                    <IconButton onClick={handleCloseNotification}>
+                      <CloseIcon />
+                    </IconButton>
+                  </Box>
+                  <Divider variant="middle" /> {/* Add a centered divider */}
+                  <List sx={{ flex: 1, overflow: 'auto' }}>
+                    {/* Notifications */}
+                    <ListItem>
+                      <ListItemIcon>
+                        <NotificationsIcon />
+                      </ListItemIcon>
+                      <ListItemText primary="Notification 1" />
+                    </ListItem>
+                    <Divider variant="inset" /> {/* Add a dividing line */}
+                    <ListItem>
+                      <ListItemIcon>
+                        <NotificationsIcon />
+                      </ListItemIcon>
+                      <ListItemText primary="Notification 2" />
+                    </ListItem>
+                    {/* Add more notifications */}
+                  </List>
+                </Paper>
+              )}
             </Box>
 
             <Box sx={{ flexGrow: 0 }}>
