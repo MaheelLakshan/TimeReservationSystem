@@ -183,7 +183,7 @@ function PopUp() {
                 // dispatchCalEvent({
                 //   type: 'delete',
                 //   payload: selectedEvent,
-                // });
+                // / });
                 // setShowPopUp(false);
               }}
               className="material-icons-outlined text-gray-400 cursor-pointer"
