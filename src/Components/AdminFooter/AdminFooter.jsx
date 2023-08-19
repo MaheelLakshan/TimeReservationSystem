@@ -1,5 +1,5 @@
 import React from 'react';
-import './Footer.css';
+import './AdminFooter.css';
 import { Container, Row, Col, ListGroup, ListGroupItem } from 'reactstrap';
 
 import { Link } from 'react-router-dom';
@@ -7,19 +7,19 @@ import logo from '../../Assets/images/logo.jpg';
 
 const quick__links = [
   {
-    path: '/home',
-    display: 'Home',
+    path: '/admin-calander',
+    display: 'Calander',
   },
   {
-    path: '/calander',
-    display: 'Calendar',
+    path: '/admin-userdetails',
+    display: 'User Details',
   },
   {
-    path: '/facility',
+    path: '/admin-facility',
     display: 'Facility',
   },
   {
-    path: '/about',
+    path: '/admin-about',
     display: 'About',
   },
 ];
@@ -39,7 +39,7 @@ const quick__links2 = [
   },
 ];
 
-const Footer = () => {
+const AdminFooter = () => {
   const year = new Date().getFullYear();
 
   return (
@@ -144,4 +144,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default AdminFooter;

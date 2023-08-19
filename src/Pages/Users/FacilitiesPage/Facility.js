@@ -11,6 +11,7 @@ import img4 from '../../../Assets/img4.png';
 // import img5 from '../../../Assets/img5.png';
 // import img7 from '../../../Assets/img7.jpg';
 import img8 from '../../../Assets/img8.jpg';
+import Footer from '../../../Components/Footer/Footer';
 
 function Facility() {
   const [selectedPlace, setSelectedPlace] = useState('');
@@ -95,6 +96,7 @@ function Facility() {
           </div>
         </div>
       </div>
+      
     </div>
   );
 }

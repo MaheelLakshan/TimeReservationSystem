@@ -24,7 +24,7 @@ import GlobalContext from '../../context/GlobalContext';
 
 function LoginPage() {
   const { credential, setCredential } = useContext(GlobalContext);
-  const [toggleClassName, setToggleClassName] = useState('container');
+  const [toggleClassName, setToggleClassName] = useState('loginContainer');
   const [userType, setUsertype] = useState('');
   const [secretKey, setSecretKey] = useState('');
   const [userName, setUserName] = useState('');
@@ -38,11 +38,11 @@ function LoginPage() {
   const [emptyFields, setEmptyFields] = useState([]);
 
   const handleLogIn = () => {
-    setToggleClassName('container log-in-mode');
+    setToggleClassName('loginContainer log-in-mode');
   };
 
   const handleSignUp = () => {
-    setToggleClassName('container sign-up-mode');
+    setToggleClassName('loginContainer sign-up-mode');
   };
   const handleCloseDialog = () => {
     setOpenDialog(false);

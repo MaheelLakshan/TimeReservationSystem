@@ -7,6 +7,7 @@ import { FaSearch } from 'react-icons/fa';
 import SlideBarCalender from '../../../Components/SlideCalender/SlideBarCalender';
 import { subMonths, addMonths } from 'date-fns';
 import GlobalContext from '../../../context/GlobalContext';
+import Footer from '../../../Components/Footer/Footer';
 
 function UserCalanderPage() {
   const { selectedPlace, setSelectedPlace } = useContext(GlobalContext);
@@ -84,6 +85,7 @@ function UserCalanderPage() {
         </div>
       </div>
       {/* </ContextWrapper> */}
+      <Footer />
     </div>
   );
 }

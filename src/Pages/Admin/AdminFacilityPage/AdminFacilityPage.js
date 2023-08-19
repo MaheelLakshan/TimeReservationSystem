@@ -67,7 +67,7 @@ function AdminFacilityPage() {
                 </ul>
               </div>
               <Button className="EditButton" color="primary">
-                Request a new software
+                Edit as an Admin
               </Button>
             </div>
 
@@ -89,7 +89,7 @@ function AdminFacilityPage() {
                 </div>
               </div>
               <Button className="EditButton" color="primary">
-                Request a new software
+                Edit as an Admin
               </Button>
             </div>
           </div>

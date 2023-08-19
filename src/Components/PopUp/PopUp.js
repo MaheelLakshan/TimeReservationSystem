@@ -84,35 +84,54 @@ function PopUp() {
     // }
     // console.log(selectedDateRange);
 
-    // if (selectedDateRange) {
-    //   selectedDateRange.forEach((date) => {
-    //     const calendarEvent = {
-    //       title: title,
-    //       description: description,
-    //       place: selectedPlace,
-    //       id: selectedEvent ? selectedEvent.id : Date.now(),
-    //       RepeatStart: formattedStartDate,
-    //       RepeatEnd: formattedEndDate,
-    //       start: moment(date).startOf('day').toDate(), // Start of the selected day
-    //       end: moment(date).endOf('day').toDate(), // End of the selected day
-    //       createdBy: credential,
-    //       creationTime: now,
-    //     };
+    const selectedDateRange = [];
+    const currentDate = moment(formattedStartDate);
+    while (currentDate.isSameOrBefore(moment(formattedEndDate))) {
+      selectedDateRange.push(currentDate.format('YYYY-MM-DD'));
+      currentDate.add(7, 'days');
+    }
 
-    //     if (selectedEvent) {
-    //       dispatchCalEvent({ type: 'update', payload: calendarEvent });
-    //     } else {
-    //       dispatchCalEvent({ type: 'push', payload: calendarEvent });
-    //     }
-    //   });
-    // }
+    // console.log(selectedDateRange);
 
-    // setReservations(calendarEvent);
+    if (selectedDateRange) {
+      selectedDateRange.forEach((date) => {
+        const calendarEvent = {
+          title: title,
+          description: description,
+          place: selectedPlace,
+          id: selectedEvent ? selectedEvent.id : Date.now(),
+          RepeatStart: formattedStartDate,
+          RepeatEnd: formattedEndDate,
+          start: moment(date)
+            .set({
+              hour: moment(startDate).hour(),
+              minute: moment(startDate).minute(),
+            })
+            .toDate(), // Set the same time as the original start time
+          end: moment(date)
+            .set({
+              hour: moment(endDate).hour(),
+              minute: moment(endDate).minute(),
+            })
+            .toDate(), // Set the same time as the original end time
+          createdBy: credential,
+          creationTime: now,
+        };
+
+        if (selectedEvent && !selectedDateRange) {
+          dispatchCalEvent({ type: 'update', payload: calendarEvent });
+        } else {
+          dispatchCalEvent({ type: 'push', payload: calendarEvent });
+        }
+      });
+    }
+
     if (selectedEvent) {
       dispatchCalEvent({ type: 'update', payload: calendarEvent });
     } else {
       dispatchCalEvent({ type: 'push', payload: calendarEvent });
     }
+    // setReservations(calendarEvent);
 
     setShowPopUp(false);
   };
@@ -262,13 +281,13 @@ function PopUp() {
                   </div>
                 </Form.Group>
               )}
-              <Form.Check
+              {/* <Form.Check
                 type="checkbox"
                 id="checkbox1"
                 label="Selected days to be recursive"
                 checked={isSelectedOpt}
                 onChange={handleCheckboxChangeOpt}
-              />
+              /> */}
               {/* {isSelectedOpt && (
                 <Form.Group className="mb-3">
                   <Form.Label>Select Dates</Form.Label>
