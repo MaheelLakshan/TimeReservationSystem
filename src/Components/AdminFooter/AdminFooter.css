@@ -1,14 +1,15 @@
-.footer {
+.Adminfooter {
   padding-top: 70px;
   padding-bottom: 30px;
+  border-top: 1px solid #322c2cee;
 }
 
-.footer .logo img {
+.Adminfooter .logo img {
   width: 50%;
   margin-bottom: 1rem;
 }
 
-.footer .logo p {
+.Adminfooter .logo p {
   color: var(--text-color);
 }
 

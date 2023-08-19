@@ -129,6 +129,7 @@ function Home() {
           </Row>
         </Container>
       </section>
+      <br />
       <Footer />
     </>
   );

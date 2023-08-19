@@ -93,13 +93,13 @@ function PopUp() {
 
     // console.log(selectedDateRange);
 
-    if (selectedDateRange) {
+    if (selectedDateRange.length > 0) {
       selectedDateRange.forEach((date) => {
         const calendarEvent = {
           title: title,
           description: description,
           place: selectedPlace,
-          id: selectedEvent ? selectedEvent.id : Date.now(),
+          id: Date.now(), // Create a new unique ID for each event
           RepeatStart: formattedStartDate,
           RepeatEnd: formattedEndDate,
           start: moment(date)
@@ -107,31 +107,43 @@ function PopUp() {
               hour: moment(startDate).hour(),
               minute: moment(startDate).minute(),
             })
-            .toDate(), // Set the same time as the original start time
+            .toDate(),
           end: moment(date)
             .set({
               hour: moment(endDate).hour(),
               minute: moment(endDate).minute(),
             })
-            .toDate(), // Set the same time as the original end time
+            .toDate(),
           createdBy: credential,
           creationTime: now,
         };
 
-        if (selectedEvent && !selectedDateRange) {
+        if (selectedEvent && !isSelected) {
           dispatchCalEvent({ type: 'update', payload: calendarEvent });
         } else {
           dispatchCalEvent({ type: 'push', payload: calendarEvent });
         }
       });
-    }
-
-    if (selectedEvent) {
-      dispatchCalEvent({ type: 'update', payload: calendarEvent });
     } else {
-      dispatchCalEvent({ type: 'push', payload: calendarEvent });
+      const calendarEvent = {
+        title: title,
+        description: description,
+        place: selectedPlace,
+        id: selectedEvent ? selectedEvent.id : Date.now(),
+        RepeatStart: formattedStartDate,
+        RepeatEnd: formattedEndDate,
+        start: startDate, // Use your desired start time
+        end: endDate, // Use your desired end time
+        createdBy: credential,
+        creationTime: now,
+      };
+
+      if (selectedEvent && isSelected) {
+        dispatchCalEvent({ type: 'update', payload: calendarEvent });
+      } else {
+        dispatchCalEvent({ type: 'push', payload: calendarEvent });
+      }
     }
-    // setReservations(calendarEvent);
 
     setShowPopUp(false);
   };

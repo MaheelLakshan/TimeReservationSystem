@@ -1,6 +1,7 @@
 .footer {
   padding-top: 70px;
   padding-bottom: 30px;
+  border-top: 1px solid #322c2cee;
 }
 
 .footer .logo img {

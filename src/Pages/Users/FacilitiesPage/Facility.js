@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Facility.css';
 import { Button } from 'reactstrap';
 import HeaderNew from '../../../Components/Header/HeaderNew';
-
+import Subtitle from '../../../shared/Subtitle';
 // import img1 from '../../../Assets/img1.jpg';
 // import img2 from '../../../Assets/img2.png';
 // import img3 from '../../../Assets/img3.png';
@@ -12,7 +12,6 @@ import img4 from '../../../Assets/img4.png';
 // import img7 from '../../../Assets/img7.jpg';
 import img8 from '../../../Assets/img8.jpg';
 import Footer from '../../../Components/Footer/Footer';
-
 function Facility() {
   const [selectedPlace, setSelectedPlace] = useState('');
   const [displayBox, setDisplayBox] = useState(false);
@@ -23,13 +22,13 @@ function Facility() {
   };
 
   return (
-    <div className="CheckPlacesContainer">
-      <HeaderNew />
-      <div className="CheckBackground">
-        <div className="CommonGlass">
+    <div>
+      <div className="CheckPlacesContainer">
+        <HeaderNew />
+        <div className="CheckBackground">
           <div className="BoxContainer">
             <div className="PlaceBox">
-              <h3>New Computer Center</h3>
+              <Subtitle subtitle={'New Computer Center '} />
               <div className="InfoImages">
                 <img src={img6} alt="Computer Center" />
               </div>
@@ -46,12 +45,12 @@ function Facility() {
                 </ul>
               </div>
               <Button className="EditButton" color="primary">
-                Edit as an Admin
+                Request a new software
               </Button>
             </div>
 
             <div className="PlaceBox">
-              <h3>Old Computer Center</h3>
+              <Subtitle subtitle={'Old Computer Center '} />
               <div className="InfoImages">
                 <img src={img4} alt="Computer Center" />
               </div>
@@ -73,7 +72,7 @@ function Facility() {
             </div>
 
             <div className="PlaceBox">
-              <h3>Seminar Room</h3>
+              <Subtitle subtitle={'Seminar Room'} />
               <div className="InfoImages">
                 <img src={img8} alt="Seminar Room" />
               </div>
@@ -96,7 +95,8 @@ function Facility() {
           </div>
         </div>
       </div>
-      
+      <br />
+      <Footer />
     </div>
   );
 }

@@ -19,6 +19,7 @@ import TableRow from '@mui/material/TableRow';
 import axios from 'axios';
 import './AdminUserDetails.css';
 import AdminHeaderNew from '../../../Components/AdminHeader/AdminHeaderNew';
+import AdminFooter from '../../../Components/AdminFooter/AdminFooter';
 
 const roles = ['User', 'Admin'];
 
@@ -252,6 +253,8 @@ export default function FullFeaturedCrudGrid() {
           </TableBody>
         </Table>
       </Box>
+      <br />
+      <AdminFooter />
     </div>
   );
 }
