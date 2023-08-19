@@ -38,11 +38,11 @@ function LoginPage() {
   const [emptyFields, setEmptyFields] = useState([]);
 
   const handleLogIn = () => {
-    setToggleClassName('container log-in-mode');
+    setToggleClassName('loginContainer log-in-mode');
   };
 
   const handleSignUp = () => {
-    setToggleClassName('container sign-up-mode');
+    setToggleClassName('loginContainer sign-up-mode');
   };
   const handleCloseDialog = () => {
     setOpenDialog(false);
