@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Facility.css';
 import { Button } from 'reactstrap';
 import HeaderNew from '../../../Components/Header/HeaderNew';
-
+import Subtitle from '../../../shared/Subtitle';
 // import img1 from '../../../Assets/img1.jpg';
 // import img2 from '../../../Assets/img2.png';
 // import img3 from '../../../Assets/img3.png';
@@ -25,10 +25,10 @@ function Facility() {
     <div className="CheckPlacesContainer">
       <HeaderNew />
       <div className="CheckBackground">
-        <div className="CommonGlass">
+        
           <div className="BoxContainer">
             <div className="PlaceBox">
-              <h3>New Computer Center</h3>
+            <Subtitle subtitle={'New Computer Center '}/>
               <div className="InfoImages">
                 <img src={img6} alt="Computer Center" />
               </div>
@@ -45,12 +45,12 @@ function Facility() {
                 </ul>
               </div>
               <Button className="EditButton" color="primary">
-                Edit as an Admin
+                Request a new software
               </Button>
             </div>
 
             <div className="PlaceBox">
-              <h3>Old Computer Center</h3>
+            <Subtitle subtitle={'Old Computer Center '}/>
               <div className="InfoImages">
                 <img src={img4} alt="Computer Center" />
               </div>
@@ -72,7 +72,7 @@ function Facility() {
             </div>
 
             <div className="PlaceBox">
-              <h3>Seminar Room</h3>
+            <Subtitle subtitle={'Seminar Room'}/>
               <div className="InfoImages">
                 <img src={img8} alt="Seminar Room" />
               </div>
@@ -93,7 +93,7 @@ function Facility() {
               </Button>
             </div>
           </div>
-        </div>
+        
       </div>
     </div>
   );

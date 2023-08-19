@@ -2,12 +2,15 @@ import React, { useState } from 'react';
 import './About.css';
 import HeaderNew from '../../../Components/Header/HeaderNew';
 import Modal from 'react-modal';
-
+import{ Container, Row, Col} from 'reactstrap';
 import maheelImage from '../../../Assets/maheel.jpg';
 import anupamaImage from '../../../Assets/anupama.jpg';
 import jeewanthaImage from '../../../Assets/jeewantha.jpg';
 import sachiniImage from '../../../Assets/sachini.jpg';
+import Subtitle
 
+
+from '../../../shared/Subtitle';
 function About() {
   const [selectedDeveloper, setSelectedDeveloper] = useState(null);
 
@@ -49,11 +52,12 @@ function About() {
   return (
     <div className="AboutBackground">
       <HeaderNew />
-
+<Container>
       <div className="TeamSection">
         <h2 className="TeamTitle">
           Meet the Team Behind the Online Reservation System for the IS
           Department
+          
         </h2>
       </div>
 
@@ -102,7 +106,9 @@ function About() {
           Close
         </button>
       </Modal>
+      </Container>
     </div>
+   
   );
 }
 

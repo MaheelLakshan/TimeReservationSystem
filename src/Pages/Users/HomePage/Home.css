@@ -8,8 +8,133 @@
   overflow-y: scroll;
   /* justify-content: center; */
   /* font-family: 'Inter', sans-serif; */
+} 
+.hero__subtitle img{
+  width: 16rem;
+  height: 16rem;
+}
+.hero__subtitle {
+  text-align: justify;
+
+}
+.Info__Images {
+  display: flex;
+  height: 150px;
+  width:100px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.hero__content h1{
+  font-size: 3.2rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  color: var(--heading-color);
+}
+.hero__content h1 .highlight {
+  color: var(--secondary-color);
 }
 
+.hero__img-box img{
+  width:100%;
+  height: 350px;
+  border-radius: 20px;
+  border: 1px solid var(--secondary-color);
+  object-fit: cover;
+}
+
+.hero__content{
+  padding-top: 3.5rem;
+}
+
+.hero__img-box{
+  padding-top: 2rem;
+}
+.Info__Text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+.services__subtitle{
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: #0b876c;
+  font-family: var(--subtitle-font-name);
+}
+
+
+.services__title{
+  font-size: 2.5rem;
+  font-weight: 500;
+}
+
+
+
+.featured_newarrival-title{
+  font-size:2.3rem;
+  font-weight: 500;
+}
+
+
+.image__img{
+  transition: .3s;
+}
+
+.image__img:hover{
+  transform: scale(1.1);
+}
+.CheckPlacesContainer {
+  background-color: #cae6f3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.CheckBackground {
+  flex: 1;
+}
+
+.CommonGlass {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.BoxContainer {
+  display: flex;
+}
+.service__box {
+  width: 400px;
+  padding: 20px;
+  margin: 20px;
+  background-color: rgb(235, 244, 247);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.service__box:hover {
+  box-shadow: 0 4px 8px rgba(180, 7, 7, 0.2);
+}
+
+.service__box img {
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.service__box h3 {
+  margin-top: 10px;
+  font-size: 18px;
+  text-align: center;
+}
 /* 
 .Glassy {
   display: grid;
@@ -222,4 +347,4 @@
     flex-direction: column;
   }
 }
-  */
+  */ 
