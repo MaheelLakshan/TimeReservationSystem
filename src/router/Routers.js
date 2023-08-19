@@ -7,8 +7,8 @@ import Facility from '../Pages/Users/FacilitiesPage/Facility';
 import AdminCalender from '../Pages/Admin/AdminCalender/AdminCalender'; 
 import AdminFacilityPage from '../Pages/Admin/AdminFacilityPage/AdminFacilityPage';
 import UserCalanderPage from '../Pages/Users/UserCalanderPage/UserCalanderPage';
-
-
+import UserDetails from '../Pages/Admin/AdminUserDetails/AdminUserDetails'
+import AdminAbout from '../Pages/Admin/AdminAbout/AdminAbout'
 const Routers = () => {
 
   return (
@@ -19,10 +19,10 @@ const Routers = () => {
     <Route path="/calander" element={<UserCalanderPage />} />
     <Route path="/facility" element={<Facility />} />
     <Route path="/about" element={<About />} />
-    {/*<Route path="/admin-userdetails" element={<UserDetails />} />*/}
+    <Route path="/admin-userdetails" element={<UserDetails />}/>
     <Route path="/admin-calander" element={<AdminCalender />} />
     <Route path="/admin-facility" element={<AdminFacilityPage />} />
-    {/*<Route path="/admin-about" element={<AdminAbout />} />*/}
+    <Route path="/admin-about" element={<AdminAbout />} />
   </Routes>
   )
 }

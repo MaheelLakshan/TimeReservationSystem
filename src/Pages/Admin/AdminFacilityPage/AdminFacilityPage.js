@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './AdminFacilityPage.css';
 import { Button } from 'reactstrap';
-import AdminHeader from '../../../Components/AdminHeader/AdminHeaderNew';
-
+import HeaderNew from '../../../Components/Header/HeaderNew';
+import Subtitle from '../../../shared/Subtitle';
 // import img1 from '../../../Assets/img1.jpg';
 // import img2 from '../../../Assets/img2.png';
 // import img3 from '../../../Assets/img3.png';
@@ -12,7 +12,7 @@ import img4 from '../../../Assets/img4.png';
 // import img7 from '../../../Assets/img7.jpg';
 import img8 from '../../../Assets/img8.jpg';
 
-function AdminFacilityPage() {
+function Facility() {
   const [selectedPlace, setSelectedPlace] = useState('');
   const [displayBox, setDisplayBox] = useState(false);
 
@@ -23,12 +23,12 @@ function AdminFacilityPage() {
 
   return (
     <div className="CheckPlacesContainer">
-      <AdminHeader />
+      <HeaderNew />
       <div className="CheckBackground">
-        <div className="CommonGlass">
+        
           <div className="BoxContainer">
             <div className="PlaceBox">
-              <h3>New Computer Center</h3>
+            <Subtitle subtitle={'New Computer Center '}/>
               <div className="InfoImages">
                 <img src={img6} alt="Computer Center" />
               </div>
@@ -45,12 +45,12 @@ function AdminFacilityPage() {
                 </ul>
               </div>
               <Button className="EditButton" color="primary">
-                Edit as an Admin
+                Request a new software
               </Button>
             </div>
 
             <div className="PlaceBox">
-              <h3>Old Computer Center</h3>
+            <Subtitle subtitle={'Old Computer Center '}/>
               <div className="InfoImages">
                 <img src={img4} alt="Computer Center" />
               </div>
@@ -72,7 +72,7 @@ function AdminFacilityPage() {
             </div>
 
             <div className="PlaceBox">
-              <h3>Seminar Room</h3>
+            <Subtitle subtitle={'Seminar Room'}/>
               <div className="InfoImages">
                 <img src={img8} alt="Seminar Room" />
               </div>
@@ -93,10 +93,10 @@ function AdminFacilityPage() {
               </Button>
             </div>
           </div>
-        </div>
+        
       </div>
     </div>
   );
 }
 
-export default AdminFacilityPage;
+export default Facility;
