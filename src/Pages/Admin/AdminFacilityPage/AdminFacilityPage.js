@@ -21,6 +21,7 @@ function AdminFacilityPage() {
     setSelectedPlace(place);
     setDisplayBox(true);
   };
+  //
 
   return (
     <div>
