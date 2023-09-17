@@ -1,0 +1,147 @@
+/* .the-calendar {
+	position: relative;
+	height: 500px;
+	width: 1000px;
+	background-color: #fff0b3;
+}
+
+.rbc-calendar {
+	background-color: #fff0b3;
+}
+
+.rbc-toolbar {
+	background-color: #98cbed;
+}
+
+.rbc-today {
+	background-color: #a4f9c7;
+	color: #ffffff;
+}
+
+.rbc-header {
+	background-color: #98cbed;
+	color: #ffffff;
+}
+
+
+
+.rbc-selected {
+	background-color: #1f618d;
+	color: #ffffff;
+} */
+.rbc-row {
+  min-height: 0px !important;
+}
+
+/* .rbc-time-view .rbc-row div:nth-child(1) {
+  height: 30px !important;
+  display: flex;
+  justify-content: center;
+}
+.rbc-time-view .rbc-row div:nth-child(2) {
+  height: 30px !important;
+  display: flex;
+  justify-content: center;
+} */
+.rbc-toolbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.rbc-time-header {
+  font-size: larger;
+  font-weight: 700;
+}
+.rbc-time-view .rbc-row div {
+  height: 30px !important;
+  display: flex;
+  justify-content: center;
+}
+.rbc-time-slot {
+  margin: 1px;
+  cursor: pointer;
+  z-index: 1;
+}
+.rbc-time-gutter .rbc-time-slot {
+  /* cursor: none !important; */
+  all: inherit;
+}
+
+/* .rbc-time-view .rbc-row div:nth-child(1) {
+  height: 0px !important;
+} */
+
+.rbc-time-content {
+  overflow-y: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  background-color: #249ea0;
+}
+
+.rbc-event {
+  background-color: rgb(19, 164, 113);
+  border-color: #a4f9c7;
+  width: 100%;
+  justify-content: center;
+  z-index: 2;
+}
+.rbc-header {
+  background-color: #0099ff;
+  color: #ffffff;
+}
+
+/* .rbc-header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background-color: #fff;
+} */
+.the-calendar {
+  position: relative;
+  height: 98vh;
+  width: 100%;
+  background-color: #5b5b5b;
+  padding: 10px;
+  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); */
+}
+
+.rbc-day-slot {
+  background-color: rgb(255, 255, 255);
+  /* margin: 1px; */
+  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); */
+}
+
+/* rgb(147, 234, 176); */
+.rbc-today {
+  background-color: #59daaf;
+}
+.rbc-header .rbc-today {
+  background-color: #716f6f;
+}
+
+.rbc-selected {
+  background-color: rgb(82, 82, 134);
+}
+
+.rbc-allday-cell {
+  all: inherit;
+}
+/* .rbc-row-bg {
+  all: initial;
+} */
+
+.rbc-btn-group {
+  background-color: #249ea0;
+}
+
+.rbc-toolbar-label {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: medium;
+}
+
+@media (max-width: 768px) {
+}
