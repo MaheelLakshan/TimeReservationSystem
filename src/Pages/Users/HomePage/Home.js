@@ -10,7 +10,6 @@ import Newsletter from '../../../shared/Newsletter';
 import ImagesGallery from '../../../Components/Image-gallery/ImagesGallery';
 import mission from '../../../Assets/mission.png';
 import vision from '../../../Assets/vision.png';
-import reservation from '../../../Assets/reservation.jpg';
 import Footer from '../../../Components/Footer/Footer';
 
 function Home() {
@@ -52,19 +51,19 @@ function Home() {
 
             <Col lg="2">
               <div className="hero__img-box">
-                <img src={heroImg01} alt="" />
+                <img src={heroImg01} alt="notfound" />
               </div>
             </Col>
 
             <Col lg="2">
               <div className="hero__img-box mt-4">
-                <img src={heroImg02} alt="" controls />
+                <img src={heroImg02} alt="notfound" controls />
               </div>
             </Col>
 
             <Col lg="2">
               <div className="hero__img-box mt-5">
-                <img src={heroImg03} alt="" />
+                <img src={heroImg03} alt="notfound" />
               </div>
             </Col>
           </Row>
