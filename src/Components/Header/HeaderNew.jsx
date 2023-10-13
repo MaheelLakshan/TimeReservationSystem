@@ -85,13 +85,13 @@ function HeaderNew() {
     }
   };
 
-  useEffect(() => {
-    document.addEventListener('mousedown', handleDocumentClick);
+  // useEffect(() => {
+  //   document.addEventListener('mousedown', handleDocumentClick);
 
-    return () => {
-      document.removeEventListener('mousedown', handleDocumentClick);
-    };
-  }, [notificationOpen]);
+  //   return () => {
+  //     document.removeEventListener('mousedown', handleDocumentClick);
+  //   };
+  // }, [notificationOpen]);
 
   return (
     <AppBar position="static">
