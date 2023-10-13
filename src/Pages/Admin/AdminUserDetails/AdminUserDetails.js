@@ -34,7 +34,7 @@ export default function FullFeaturedCrudGrid() {
 
   const fetchUsersData = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/getAllUser');
+      const response = await axios.get('https://timereservationsystem.onrender.com/getAllUser');
       const data = response.data;
       if (data.status === 'ok') {
         // Map the fetched data and set it to the rows state
@@ -63,7 +63,7 @@ export default function FullFeaturedCrudGrid() {
     if (id) {
       const updatedRow = rows.find((row) => row.id === id);
       try {
-        await axios.post('http://localhost:5000/updatePermission', {
+        await axios.post('https://timereservationsystem.onrender.com/updatePermission', {
           id,
           permission: updatedRow.permission,
         });
@@ -74,7 +74,7 @@ export default function FullFeaturedCrudGrid() {
       // If id is null, it means it's a new record being added
       const newRecord = rows.find((row) => row.id === null);
       try {
-        await axios.post('http://localhost:5000/addUser', newRecord);
+        await axios.post('https://timereservationsystem.onrender.com/addUser', newRecord);
         fetchUsersData(); // Fetch data again to get the updated records from the server
       } catch (error) {
         console.log(error);
@@ -85,7 +85,7 @@ export default function FullFeaturedCrudGrid() {
   const handleDeleteClick = async (id) => {
     // Delete the user from the database
     try {
-      await axios.delete(`http://localhost:5000/deleteUser/${id}`);
+      await axios.delete(`https://timereservationsystem.onrender.com/deleteUser/${id}`);
       fetchUsersData(); // Fetch data again to get the updated records from the server
     } catch (error) {
       console.log(error);

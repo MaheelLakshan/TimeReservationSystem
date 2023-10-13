@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const fetchEventsData = () => {
   return axios
-    .get('http://localhost:5000/api/events')
+    .get('https://timereservationsystem.onrender.com/api/events')
     .then((response) => {
       // Handle the response here
       const eventsData = response.data;

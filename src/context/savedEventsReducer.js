@@ -7,7 +7,7 @@ const savedEventsReducer = (state, { type, payload }) => {
       return payload;
     case 'push':
       axios
-        .post('http://localhost:5000/api/events', payload)
+        .post('https://timereservationsystem.onrender.com/api/events', payload)
         .then((response) => {
           return [...state, response.data];
         })
@@ -24,7 +24,9 @@ const savedEventsReducer = (state, { type, payload }) => {
 
     case 'deleteEvent':
       try {
-        axios.delete(`http://localhost:5000/api/events/${payload}`);
+        axios.delete(
+          `https://timereservationsystem.onrender.com/api/events/${payload}`
+        );
         return state.filter((evt) => evt.id !== payload);
       } catch (error) {
         console.error('Error deleting event:', error);
@@ -40,7 +42,7 @@ export default savedEventsReducer;
 // const handleDeleteClick = async (id) => {
 //   // Delete the user from the database
 //   try {
-//     await axios.delete(`http://localhost:5000/deleteUser/${id}`);
+//     await axios.delete(`https://timereservationsystem.onrender.com/deleteUser/${id}`);
 //     fetchUsersData(); // Fetch data again to get the updated records from the server
 //   } catch (error) {
 //     console.log(error);

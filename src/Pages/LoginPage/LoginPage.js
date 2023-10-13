@@ -74,7 +74,7 @@ function LoginPage() {
     };
     try {
       const response = await axios.post(
-        'http://localhost:5000/login-user', // Change the URL to match your backend route for login
+        'https://timereservationsystem.onrender.com/login-user', // Change the URL to match your backend route for login
         data
       );
       if (response.data.status === 'ok') {
@@ -131,7 +131,7 @@ function LoginPage() {
 
         try {
           const response = await axios.post(
-            'http://localhost:5000/register', // Change the URL to match your backend route for signup
+            'https://timereservationsystem.onrender.com/register', // Change the URL to match your backend route for signup
             data
           );
           if (response.data.status === 'ok') {
