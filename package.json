@@ -37,7 +37,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "dev": "nodemon app.js",
+    "dev": "nodemon index.js",
     "build": "npm i",
     "start": "react-scripts start",
     "test": "react-scripts test",
