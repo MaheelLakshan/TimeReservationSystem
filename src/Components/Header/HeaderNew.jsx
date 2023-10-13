@@ -91,7 +91,7 @@ function HeaderNew() {
     return () => {
       document.removeEventListener('mousedown', handleDocumentClick);
     };
-  }, [notificationOpen]);
+  }, [handleDocumentClick]);
 
   return (
     <AppBar position="static">
