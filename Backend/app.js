@@ -7,15 +7,13 @@ app.use(cors());
 const bcrypt = require('bcryptjs');
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: false }));
+require('dotenv').config();
 
 const jwt = require('jsonwebtoken');
 var nodemailer = require('nodemailer');
 
-const JWT_SECRET =
-  'hvdvay6ert72839289()aiyg8t87qt72393293883uhefiuh78ttq3ifi78272jbkj?[]]pou89ywe';
-
-const mongoUrl =
-  'mongodb+srv://maheellakshanra:maheellakshanra@cluster0.inbpwyq.mongodb.net/';
+const JWT_SECRET = process.env.JWT_SECRETS;
+const mongoUrl = process.env.MONGO_URL;
 
 mongoose
   .connect(mongoUrl, {
