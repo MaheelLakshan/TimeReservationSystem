@@ -20,4 +20,8 @@ const EventSchema = new mongoose.Schema(
   }
 );
 
+
+
+
+
 mongoose.model('EventInfo', EventSchema);
