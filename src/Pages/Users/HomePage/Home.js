@@ -76,7 +76,7 @@ function Home() {
             <div className="BoxContainer">
               <div className="service__box">
                 <div className="Info__Images">
-                  <img src={vision} />
+                  <img src={vision} alt="notfound" />
                 </div>
                 <div className="Info__Text">
                   <Subtitle subtitle={' Vision '} />
@@ -90,7 +90,7 @@ function Home() {
 
               <div className="service__box">
                 <div className="Info__Images">
-                  <img src={mission} />
+                  <img src={mission} alt="notfound" />
                 </div>
                 <div className="Info__Text">
                   <Subtitle subtitle={' Mission '} />
