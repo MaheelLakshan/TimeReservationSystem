@@ -92,7 +92,30 @@ const Images = mongoose.model('ImageDetails');
 
 app.post('/api/events', async (req, res) => {
   try {
-    const event = new Events(req.body);
+    const newEvent = req.body;
+
+    // Fetch all events for the specific place and time range
+    const overlappingEvents = await Events.find({
+      place: newEvent.place,
+      $or: [
+        {
+          start: { $lt: newEvent.end },
+          end: { $gt: newEvent.start },
+        },
+        {
+          start: { $gte: newEvent.start, $lt: newEvent.end },
+        },
+        {
+          end: { $gt: newEvent.start, $lte: newEvent.end },
+        },
+      ],
+    });
+
+    if (overlappingEvents.length > 0) {
+      return res.status(402).json({ error: 'Overlap with existing events' });
+    }
+
+    const event = new Events(newEvent);
     await event.save();
     res.status(201).json(event);
   } catch (error) {
@@ -109,21 +132,6 @@ app.get('/api/events', async (req, res) => {
     res
       .status(500)
       .json({ error: 'Error retrieving events from the database.' });
-  }
-});
-
-app.delete('/api/events/:id', async (req, res) => {
-  try {
-    const eventId = req.params.id;
-    const deletedEvent = await Events.findByIdAndDelete(eventId);
-
-    if (!deletedEvent) {
-      return res.status(404).json({ error: 'Event not found.' });
-    }
-
-    res.status(200).json(deletedEvent);
-  } catch (error) {
-    res.status(500).json({ error: 'Error deleting event from the database.' });
   }
 });
 
@@ -147,15 +155,29 @@ app.put('/api/events/:id', async (req, res) => {
   }
 });
 
+// app.delete('/api/events/:id', async (req, res) => {
+//   const eventId = req.params.id;
+//   try {
+//     // Delete the event from the database using the provided eventId
+//     await Events.deleteOne({ _id: eventId });
+//     res.send({ status: 'Ok', data: 'Deleted' });
+//   } catch (error) {
+//     console.log(error);
+//     res.status(500).send({ status: 'Error', data: 'Failed to delete user' });
+//   }
+// });
 app.delete('/api/events/:id', async (req, res) => {
-  const eventId = req.params.id;
   try {
-    // Delete the event from the database using the provided eventId
-    await Events.deleteOne({ _id: eventId });
-    res.send({ status: 'Ok', data: 'Deleted' });
+    const eventId = req.params.id;
+    const deletedEvent = await Events.findByIdAndDelete(eventId);
+
+    if (!deletedEvent) {
+      return res.status(404).json({ error: 'Event not found.' });
+    }
+
+    res.status(200).json(deletedEvent);
   } catch (error) {
-    console.log(error);
-    res.status(500).send({ status: 'Error', data: 'Failed to delete user' });
+    res.status(500).json({ error: 'Error deleting event from the database.' });
   }
 });
 

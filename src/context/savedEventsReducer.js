@@ -12,6 +12,7 @@ const savedEventsReducer = (state, { type, payload }) => {
           return [...state, response.data];
         })
         .catch((error) => {
+          alert('Selected Time already have been selected');
           console.error('Error adding reservation:', error);
           // Return the existing state without any modifications on error
           return state;
